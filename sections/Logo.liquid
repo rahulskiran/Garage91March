@@ -1,0 +1,432 @@
+{% schema %}
+{
+  "name": "Scrolling Brand Logos",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top (Desktop)",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom (Desktop)",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Padding Left (Desktop)",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Padding Right (Desktop)",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Padding Left (Mobile)",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Padding Right (Mobile)",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Logo Size Settings - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo Width (px)",
+      "default": 120,
+      "min": 50,
+      "max": 400,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo Height (px)",
+      "default": 80,
+      "min": 30,
+      "max": 300,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "logo_fit",
+      "label": "Logo Fit",
+      "options": [
+        {
+          "value": "contain",
+          "label": "Contain (maintain aspect ratio)"
+        },
+        {
+          "value": "cover",
+          "label": "Cover (fill entire area)"
+        },
+        {
+          "value": "fill",
+          "label": "Fill (stretch to fit)"
+        }
+      ],
+      "default": "contain"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner Radius (px)",
+      "default": 0,
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Logo Size Settings - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "label": "Logo Width Mobile (px)",
+      "default": 100,
+      "min": 40,
+      "max": 250,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "logo_height_mobile",
+      "label": "Logo Height Mobile (px)",
+      "default": 60,
+      "min": 30,
+      "max": 200,
+      "step": 10,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Upload Logo"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Scrolling Brand Logos",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<section
+  id="brand-logos-{{ section.id }}"
+  class="brand-logos-section"
+  style="
+    background: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+  "
+>
+  <div class="logos-container">
+    <div class="logos-wrapper">
+      {% for block in section.blocks %}
+        {% if block.settings.logo %}
+          <div class="logo-item" {{ block.shopify_attributes }}>
+            {% if block.settings.link != blank %}
+              <a href="{{ block.settings.link }}">
+                <img src="{{ block.settings.logo | img_url: '600x' }}" alt="Brand Logo" />
+              </a>
+            {% else %}
+              <img src="{{ block.settings.logo | img_url: '600x' }}" alt="Brand Logo" />
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+#brand-logos-{{ section.id }} .logos-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+#brand-logos-{{ section.id }} .logos-container::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+#brand-logos-{{ section.id }} .logos-container:active {
+  cursor: grabbing;
+}
+
+#brand-logos-{{ section.id }} .logos-wrapper {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 40px; /* spacing between logos */
+}
+
+#brand-logos-{{ section.id }} .logo-item {
+  flex: 0 0 auto;
+  user-select: none; /* Prevent text selection during drag */
+}
+
+#brand-logos-{{ section.id }} .logo-item img {
+  width: {{ section.settings.logo_width }}px;
+  height: {{ section.settings.logo_height }}px;
+  object-fit: {{ section.settings.logo_fit }};
+  border-radius: {{ section.settings.corner_radius }}px;
+  display: block;
+  transition: transform 0.3s ease;
+  pointer-events: none; /* Prevent image dragging */
+}
+
+#brand-logos-{{ section.id }} .logo-item img:hover {
+  transform: scale(1.1);
+}
+
+#brand-logos-{{ section.id }} .logo-item a {
+  display: block;
+  text-decoration: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  #brand-logos-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px !important;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px !important;
+    padding-left: {{ section.settings.padding_left_mobile }}px !important;
+    padding-right: {{ section.settings.padding_right_mobile }}px !important;
+  }
+
+  #brand-logos-{{ section.id }} .logos-wrapper {
+    gap: 25px;
+  }
+
+  #brand-logos-{{ section.id }} .logo-item img {
+    max-width: {{ section.settings.logo_width_mobile }}px;
+    max-height: {{ section.settings.logo_height_mobile }}px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  const section = document.getElementById("brand-logos-{{ section.id }}");
+  if (!section) return;
+
+  const container = section.querySelector(".logos-container");
+  if (!container) return;
+
+  // Scroll fade effect
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateFadeEffect() {
+    const currentScrollY = window.scrollY;
+    const scrollingUp = currentScrollY < lastScrollY;
+    const scrollingDown = currentScrollY > lastScrollY;
+    
+    // Add fade effect when scrolling up
+    if (scrollingUp && currentScrollY > 100) {
+      section.classList.add('fade-out');
+    } else {
+      section.classList.remove('fade-out');
+    }
+    
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateFadeEffect);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', requestTick);
+
+  // Mouse drag scrolling variables
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let velocity = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let hasDragged = false;
+
+  // Mouse drag scrolling
+  container.addEventListener('mousedown', (e) => {
+    isDown = true;
+    hasDragged = false;
+    container.style.cursor = 'grabbing';
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+    velocity = 0;
+    lastX = e.pageX;
+    lastTime = Date.now();
+    e.preventDefault();
+  });
+
+  container.addEventListener('mouseleave', () => {
+    isDown = false;
+    container.style.cursor = 'grab';
+  });
+
+  container.addEventListener('mouseup', () => {
+    isDown = false;
+    container.style.cursor = 'grab';
+    
+    // Add momentum scrolling
+    if (Math.abs(velocity) > 0.5 && hasDragged) {
+      const momentumScroll = () => {
+        container.scrollLeft += velocity;
+        velocity *= 0.95; // Friction
+        
+        if (Math.abs(velocity) > 0.1) {
+          requestAnimationFrame(momentumScroll);
+        }
+      };
+      requestAnimationFrame(momentumScroll);
+    }
+  });
+
+  container.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    
+    const currentTime = Date.now();
+    const timeGap = currentTime - lastTime;
+    
+    if (timeGap > 0) {
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 1.2; // Scroll speed multiplier
+      
+      // If user has moved more than 5px, consider it a drag
+      if (Math.abs(walk) > 5) {
+        hasDragged = true;
+      }
+      
+      container.scrollLeft = scrollLeft - walk;
+      
+      // Calculate velocity for momentum
+      velocity = (e.pageX - lastX) / timeGap * -8;
+      lastX = e.pageX;
+      lastTime = currentTime;
+    }
+  });
+
+  // Prevent default drag behavior on images
+  container.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  });
+
+  // Prevent link clicks when dragging
+  container.addEventListener('click', (e) => {
+    if (hasDragged) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+
+  // Additional fix for logo links
+  const logoLinks = section.querySelectorAll('.logo-item a');
+  logoLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (hasDragged) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    });
+  });
+})();
+</script>

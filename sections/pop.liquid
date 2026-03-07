@@ -1,0 +1,178 @@
+{% schema %}
+{
+  "name": "Subscribe Popup",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_popup",
+      "label": "Enable Popup",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "popup_heading",
+      "label": "Popup Heading",
+      "default": "Subscribe to our Newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "popup_text",
+      "label": "Popup Text",
+      "default": "Stay updated with our latest offers and news."
+    },
+    {
+      "type": "text",
+      "id": "popup_button_text",
+      "label": "Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "image_picker",
+      "id": "popup_image",
+      "label": "Popup Image"
+    },
+    {
+      "type": "color",
+      "id": "popup_bg_color",
+      "label": "Popup Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "popup_delay",
+      "label": "Popup Delay (in seconds)",
+      "min": 0,
+      "max": 30,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_once",
+      "label": "Show Only Once Per Session",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subscribe Popup",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% if section.settings.enable_popup %}
+<div id="subscribe-popup" class="popup-overlay">
+  <div class="popup-content" style="background-color: {{ section.settings.popup_bg_color }};">
+    <span class="popup-close">&times;</span>
+    
+    {% if section.settings.popup_image != blank %}
+      <div class="popup-image">
+        <img src="{{ section.settings.popup_image | img_url: '400x' }}" alt="Popup image">
+      </div>
+    {% endif %}
+    
+    <h2>{{ section.settings.popup_heading }}</h2>
+    <p>{{ section.settings.popup_text }}</p>
+
+    <form method="post" action="/contact#contact_form" id="subscribe-form">
+      <input type="hidden" name="form_type" value="customer">
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input type="email" name="contact[email]" placeholder="Enter your email" required>
+      <button type="submit">{{ section.settings.popup_button_text }}</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup-content {
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: fadeIn 0.4s ease;
+  }
+  .popup-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .popup-content h2 {
+    margin-bottom: 10px;
+  }
+  .popup-content p {
+    margin-bottom: 15px;
+  }
+  .popup-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  .popup-content input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .popup-content button {
+    background: #000;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .popup-content button:hover {
+    background: #333;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var popup = document.getElementById("subscribe-popup");
+    var closeBtn = document.querySelector(".popup-close");
+
+    // Check session storage if show_once is enabled
+    var alreadyShown = sessionStorage.getItem("popup_shown");
+
+    if (!alreadyShown || {{ section.settings.show_once | json }} == false) {
+      setTimeout(function() {
+        popup.style.display = "flex";
+        if ({{ section.settings.show_once | json }}) {
+          sessionStorage.setItem("popup_shown", "true");
+        }
+      }, {{ section.settings.popup_delay }} * 1000);
+    }
+
+    closeBtn.addEventListener("click", function() {
+      popup.style.display = "none";
+    });
+
+    window.addEventListener("click", function(e) {
+      if (e.target == popup) {
+        popup.style.display = "none";
+      }
+    });
+  });
+</script>
+{% endif %}

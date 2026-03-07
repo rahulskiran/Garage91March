@@ -1,0 +1,484 @@
+{% schema %}
+{
+  "name": "Custom Video Section",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Upload Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "Loop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_muted",
+      "label": "Muted",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_controls",
+      "label": "Show Controls",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "desktop_aspect_ratio",
+      "label": "Desktop Aspect Ratio",
+      "default": "16:9",
+      "options": [
+        { "value": "21:9", "label": "21:9 (Ultra Wide)" },
+        { "value": "16:9", "label": "16:9 (Widescreen)" },
+        { "value": "4:3", "label": "4:3 (Standard)" },
+        { "value": "3:2", "label": "3:2 (Classic)" },
+        { "value": "1:1", "label": "1:1 (Square)" },
+        { "value": "9:16", "label": "9:16 (Vertical)" },
+        { "value": "auto", "label": "Auto (Original)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_aspect_ratio",
+      "label": "Mobile Aspect Ratio",
+      "default": "16:9",
+      "options": [
+        { "value": "21:9", "label": "21:9 (Ultra Wide)" },
+        { "value": "16:9", "label": "16:9 (Widescreen)" },
+        { "value": "4:3", "label": "4:3 (Standard)" },
+        { "value": "3:2", "label": "3:2 (Classic)" },
+        { "value": "1:1", "label": "1:1 (Square)" },
+        { "value": "9:16", "label": "9:16 (Vertical)" },
+        { "value": "auto", "label": "Auto (Original)" }
+      ]
+    },
+
+    {
+      "type": "text",
+      "id": "overlay_heading",
+      "label": "Overlay Heading",
+      "default": "Your Heading Here"
+    },
+    {
+      "type": "font_picker",
+      "id": "overlay_heading_font",
+      "label": "Heading Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "overlay_heading_size",
+      "label": "Heading Font Size",
+      "default": 36,
+      "min": 12,
+      "max": 80,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "overlay_heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "text",
+      "id": "overlay_text",
+      "label": "Overlay Description",
+      "default": "Your description goes here"
+    },
+    {
+      "type": "font_picker",
+      "id": "overlay_text_font",
+      "label": "Description Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "overlay_text_size",
+      "label": "Description Font Size",
+      "default": 18,
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "overlay_text_color",
+      "label": "Description Color",
+      "default": "#f0f0f0"
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover",
+      "label": "Button Hover Background",
+      "default": "#333333"
+    },
+
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "default": 60,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "default": 60,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 30,
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 30,
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Video Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  {{ section.settings.overlay_heading_font | font_face }}
+  {{ section.settings.overlay_text_font | font_face }}
+{% endstyle %}
+
+<section 
+  id="video-section-{{ section.id }}"
+  class="custom-video-section"
+  style="background-color: {{ section.settings.background_color }};
+         padding-top: {{ section.settings.padding_top_desktop }}px;
+         padding-bottom: {{ section.settings.padding_bottom_desktop }}px;">
+
+  <div class="video-container desktop-ratio-{{ section.settings.desktop_aspect_ratio | replace: ':', '-' }} mobile-ratio-{{ section.settings.mobile_aspect_ratio | replace: ':', '-' }}">
+    {%- assign force_muted = false -%}
+    {%- if section.settings.video_autoplay or section.settings.video_muted -%}
+      {%- assign force_muted = true -%}
+    {%- endif -%}
+
+    {% if section.settings.video_file != blank %}
+      {{ section.settings.video_file | video_tag:
+          autoplay: section.settings.video_autoplay,
+          loop: section.settings.video_loop,
+          muted: force_muted,
+          controls: section.settings.video_controls,
+          playsinline: true,
+          class: "background-video"
+      }}
+    {% endif %}
+
+    <div class="video-overlay-content text-{{ section.settings.text_alignment }}">
+      {% if section.settings.overlay_heading != blank %}
+        <h2 class="overlay-heading fade-in-element">{{ section.settings.overlay_heading }}</h2>
+      {% endif %}
+      {% if section.settings.overlay_text != blank %}
+        <p class="overlay-description fade-in-element">{{ section.settings.overlay_text }}</p>
+      {% endif %}
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="overlay-button fade-in-element">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+.custom-video-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Desktop Aspect Ratios */
+@media (min-width: 768px) {
+  .video-container.desktop-ratio-21-9 {
+    aspect-ratio: 21/9;
+  }
+  .video-container.desktop-ratio-16-9 {
+    aspect-ratio: 16/9;
+  }
+  .video-container.desktop-ratio-4-3 {
+    aspect-ratio: 4/3;
+  }
+  .video-container.desktop-ratio-3-2 {
+    aspect-ratio: 3/2;
+  }
+  .video-container.desktop-ratio-1-1 {
+    aspect-ratio: 1/1;
+  }
+  .video-container.desktop-ratio-9-16 {
+    aspect-ratio: 9/16;
+  }
+  .video-container.desktop-ratio-auto {
+    height: auto;
+  }
+}
+
+/* Mobile Aspect Ratios */
+@media (max-width: 767px) {
+  .video-container.mobile-ratio-21-9 {
+    aspect-ratio: 21/9;
+  }
+  .video-container.mobile-ratio-16-9 {
+    aspect-ratio: 16/9;
+  }
+  .video-container.mobile-ratio-4-3 {
+    aspect-ratio: 4/3;
+  }
+  .video-container.mobile-ratio-3-2 {
+    aspect-ratio: 3/2;
+  }
+  .video-container.mobile-ratio-1-1 {
+    aspect-ratio: 1/1;
+  }
+  .video-container.mobile-ratio-9-16 {
+    aspect-ratio: 9/16;
+  }
+  .video-container.mobile-ratio-auto {
+    height: auto;
+  }
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Auto ratio fallback */
+.video-container.desktop-ratio-auto .background-video,
+.video-container.mobile-ratio-auto .background-video {
+  height: auto;
+  object-fit: contain;
+}
+
+.video-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: {{ section.settings.text_alignment }};
+  color: #fff;
+  width: 100%;
+  padding: 20px;
+  z-index: 2;
+}
+
+.overlay-heading {
+  font-family: {{ section.settings.overlay_heading_font.family }};
+  font-weight: {{ section.settings.overlay_heading_font.weight }};
+  font-style: {{ section.settings.overlay_heading_font.style }};
+  font-size: {{ section.settings.overlay_heading_size }}px;
+  color: {{ section.settings.overlay_heading_color }};
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.overlay-description {
+  font-family: {{ section.settings.overlay_text_font.family }};
+  font-weight: {{ section.settings.overlay_text_font.weight }};
+  font-style: {{ section.settings.overlay_text_font.style }};
+  font-size: {{ section.settings.overlay_text_size }}px;
+  color: {{ section.settings.overlay_text_color }};
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.overlay-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: {{ section.settings.button_bg_color }};
+  color: {{ section.settings.button_color }};
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.overlay-button:hover {
+  background: {{ section.settings.button_bg_hover }};
+  color: {{ section.settings.button_color }};
+}
+
+/* Mobile Adjustments */
+@media (max-width: 767px) {
+  #video-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px !important;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px !important;
+  }
+  
+  .overlay-heading {
+    font-size: calc({{ section.settings.overlay_heading_size }}px * 0.8);
+  }
+  
+  .overlay-description {
+    font-size: calc({{ section.settings.overlay_text_size }}px * 0.9);
+  }
+
+  .video-overlay-content {
+    padding: 15px;
+  }
+  
+  .overlay-button {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Fade In Animation */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Animation delays for staggered effect */
+.fade-in-element:nth-child(1) { transition-delay: 0.1s; }
+.fade-in-element:nth-child(2) { transition-delay: 0.3s; }
+.fade-in-element:nth-child(3) { transition-delay: 0.5s; }
+
+/* Fallback for browsers without aspect-ratio support */
+@supports not (aspect-ratio: 16/9) {
+  .video-container:not(.desktop-ratio-auto):not(.mobile-ratio-auto) {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  @media (min-width: 768px) {
+    .video-container.desktop-ratio-21-9 { padding-bottom: 42.86%; }
+    .video-container.desktop-ratio-16-9 { padding-bottom: 56.25%; }
+    .video-container.desktop-ratio-4-3 { padding-bottom: 75%; }
+    .video-container.desktop-ratio-3-2 { padding-bottom: 66.67%; }
+    .video-container.desktop-ratio-1-1 { padding-bottom: 100%; }
+    .video-container.desktop-ratio-9-16 { padding-bottom: 177.78%; }
+  }
+  
+  @media (max-width: 767px) {
+    .video-container.mobile-ratio-21-9 { padding-bottom: 42.86%; }
+    .video-container.mobile-ratio-16-9 { padding-bottom: 56.25%; }
+    .video-container.mobile-ratio-4-3 { padding-bottom: 75%; }
+    .video-container.mobile-ratio-3-2 { padding-bottom: 66.67%; }
+    .video-container.mobile-ratio-1-1 { padding-bottom: 100%; }
+    .video-container.mobile-ratio-9-16 { padding-bottom: 177.78%; }
+  }
+  
+  .video-container:not(.desktop-ratio-auto):not(.mobile-ratio-auto) .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-in-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll("#video-section-{{ section.id }} .fade-in-element").forEach((el) => {
+    observer.observe(el);
+  });
+});
+</script>

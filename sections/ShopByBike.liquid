@@ -1,0 +1,664 @@
+{% schema %}
+{
+  "name": "Media Box Carousel",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section Padding Top (Desktop)",
+      "default": 40,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section Padding Bottom (Desktop)",
+      "default": 40,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Section Padding Top (Mobile)",
+      "default": 20,
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Section Padding Bottom (Mobile)",
+      "default": 20,
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Padding Left (Desktop)",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Padding Right (Desktop)",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Padding Left (Mobile)",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Padding Right (Mobile)",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desktop_box_width",
+      "label": "Box Width (Desktop)",
+      "default": 220,
+      "min": 150,
+      "max": 400,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desktop_box_height",
+      "label": "Box Height (Desktop)",
+      "default": 220,
+      "min": 150,
+      "max": 400,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_width",
+      "label": "Image Width (Mobile)",
+      "default": 160,
+      "min": 100,
+      "max": 300,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Image Height (Mobile)",
+      "default": 160,
+      "min": 100,
+      "max": 300,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show Navigation Arrows (Desktop)",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow Color",
+      "default": "#ff0000"
+    },
+    {
+      "type": "color",
+      "id": "arrow_bg_color",
+      "label": "Arrow Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "arrow_size",
+      "label": "Arrow Size",
+      "default": 24,
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "arrow_opacity",
+      "label": "Arrow Opacity",
+      "default": 80,
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "%"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_fade_animation",
+      "label": "Enable Fade-in Animation (Desktop Only)",
+      "default": true
+    },
+    {
+      "type": "font_picker",
+      "id": "media_text_font",
+      "label": "Media Text Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "color",
+      "id": "media_text_color",
+      "label": "Media Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "media_text_size",
+      "label": "Media Text Size",
+      "default": 14,
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "media_box",
+      "name": "Media Box",
+      "settings": [
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "default": "image",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Video" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload Image"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL (MP4 or YouTube embed)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Box Text",
+          "default": "Sample Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_discount",
+          "label": "Show Discount Label",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "discount",
+          "label": "Discount Label",
+          "default": "20% OFF"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link",
+          "label": "Link to Collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Media Box Carousel",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  {{ section.settings.media_text_font | font_face }}
+{% endstyle %}
+
+<section id="media-carousel-{{ section.id }}" class="media-carousel-section{% if section.settings.enable_fade_animation %} fade-animation-enabled{% endif %}"
+  style="background: {{ section.settings.background_color }}; 
+         padding-top: {{ section.settings.padding_top }}px; 
+         padding-bottom: {{ section.settings.padding_bottom }}px; 
+         padding-left: {{ section.settings.padding_left_desktop }}px; 
+         padding-right: {{ section.settings.padding_right_desktop }}px; 
+         overflow: hidden;">
+      <div class="media-carousel-container">
+      <div class="media-carousel-wrapper">
+        <div class="media-carousel">
+          {% for block in section.blocks %}
+            {% if block.settings.media_type == 'image' and block.settings.image != blank %}
+              <a href="{% if block.settings.collection_link != blank %}{{ block.settings.collection_link.url }}{% else %}#{% endif %}" class="media-box{% if section.settings.enable_fade_animation %} fade-item{% endif %}" {{ block.shopify_attributes }}>
+                <div class="media-content">
+                  <img src="{{ block.settings.image | img_url: '480x480' }}" alt="{{ block.settings.text | escape }}">
+                  {% if block.settings.show_discount and block.settings.discount != blank %}
+                    <span class="discount-label">{{ block.settings.discount }}</span>
+                  {% endif %}
+                </div>
+                {% if block.settings.text != blank %}
+                  <p class="media-text">{{ block.settings.text }}</p>
+                {% endif %}
+              </a>
+            {% elsif block.settings.media_type == 'video' and block.settings.video_url != blank %}
+              <a href="{% if block.settings.collection_link != blank %}{{ block.settings.collection_link.url }}{% else %}#{% endif %}" class="media-box{% if section.settings.enable_fade_animation %} fade-item{% endif %}" {{ block.shopify_attributes }}>
+                <div class="media-content">
+                  <video autoplay muted loop playsinline>
+                    <source src="{{ block.settings.video_url }}" type="video/mp4">
+                  </video>
+                  {% if block.settings.show_discount and block.settings.discount != blank %}
+                    <span class="discount-label">{{ block.settings.discount }}</span>
+                  {% endif %}
+                </div>
+                {% if block.settings.text != blank %}
+                  <p class="media-text">{{ block.settings.text }}</p>
+                {% endif %}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      
+      {% if section.settings.show_arrows %}
+        <div class="carousel-arrows desktop-only">
+          <button class="carousel-arrow carousel-arrow-left" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button class="carousel-arrow carousel-arrow-right" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      {% endif %}
+    </div>
+</section>
+
+<style>
+#media-carousel-{{ section.id }} .media-carousel-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  overflow: hidden;
+}
+
+#media-carousel-{{ section.id }} .media-carousel-wrapper {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  cursor: grab;
+  width: calc(100% - 60px);
+  max-width: 100%;
+  user-select: none;
+}
+
+#media-carousel-{{ section.id }} .media-carousel-wrapper:active,
+#media-carousel-{{ section.id }} .media-carousel-wrapper.grabbing {
+  cursor: grabbing;
+}
+
+#media-carousel-{{ section.id }} .media-carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+#media-carousel-{{ section.id }} .media-carousel {
+  display: flex;
+  gap: 20px;
+  padding: 5px 0;
+  width: max-content;
+  min-width: 100%;
+}
+
+#media-carousel-{{ section.id }} .media-box {
+  flex: 0 0 {{ section.settings.desktop_box_width }}px;
+  width: {{ section.settings.desktop_box_width }}px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  box-sizing: border-box;
+}
+
+#media-carousel-{{ section.id }} .media-content {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: {{ section.settings.desktop_box_height }}px;
+}
+
+#media-carousel-{{ section.id }} img,
+#media-carousel-{{ section.id }} video {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#media-carousel-{{ section.id }} .discount-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ff0000;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+#media-carousel-{{ section.id }} .media-text {
+  margin-top: 10px;
+  font-family: {{ section.settings.media_text_font.family }};
+  font-weight: {{ section.settings.media_text_font.weight }};
+  font-style: {{ section.settings.media_text_font.style }};
+  font-size: {{ section.settings.media_text_size }}px;
+  color: {{ section.settings.media_text_color }};
+}
+
+/* Fade-in Animation for Desktop Only */
+@media (min-width: 769px) {
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(1) { transition-delay: 0.1s; }
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(2) { transition-delay: 0.2s; }
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(3) { transition-delay: 0.3s; }
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(4) { transition-delay: 0.4s; }
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(5) { transition-delay: 0.5s; }
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(6) { transition-delay: 0.6s; }
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(7) { transition-delay: 0.7s; }
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(8) { transition-delay: 0.8s; }
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item:nth-child(n+9) { transition-delay: 0.9s; }
+}
+
+/* Arrows desktop only */
+.desktop-only {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+#media-carousel-{{ section.id }} .carousel-arrow {
+  background: {{ section.settings.arrow_bg_color }};
+  border: 0px solid {{ section.settings.arrow_color }};
+  border-radius: 100px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: {{ section.settings.arrow_opacity | divided_by: 100.0 }};
+  flex-shrink: 0;
+}
+
+#media-carousel-{{ section.id }} .carousel-arrow:hover {
+  opacity: 1;
+  background: {{ section.settings.arrow_color }};
+}
+
+#media-carousel-{{ section.id }} .carousel-arrow:hover svg {
+  color: {{ section.settings.arrow_bg_color }};
+}
+
+#media-carousel-{{ section.id }} .carousel-arrow svg {
+  width: {{ section.settings.arrow_size }}px;
+  height: {{ section.settings.arrow_size }}px;
+  color: {{ section.settings.arrow_color }};
+  transition: color 0.2s ease;
+}
+
+#media-carousel-{{ section.id }} .carousel-arrow:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+#media-carousel-{{ section.id }} .carousel-arrow:disabled:hover {
+  background: {{ section.settings.arrow_bg_color }};
+}
+
+#media-carousel-{{ section.id }} .carousel-arrow:disabled:hover svg {
+  color: {{ section.settings.arrow_color }};
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  #media-carousel-{{ section.id }} {
+    padding-left: {{ section.settings.padding_left_mobile }}px !important;
+    padding-right: {{ section.settings.padding_right_mobile }}px !important;
+    padding-top: {{ section.settings.padding_top_mobile }}px !important;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px !important;
+  }
+
+  #media-carousel-{{ section.id }} .media-box {
+    flex: 0 0 {{ section.settings.mobile_image_width }}px;
+    width: {{ section.settings.mobile_image_width }}px;
+  }
+
+  #media-carousel-{{ section.id }} .media-content {
+    height: {{ section.settings.mobile_image_height }}px;
+  }
+
+  /* Hide arrows on mobile */
+  #media-carousel-{{ section.id }} .desktop-only {
+    display: none !important;
+  }
+
+  /* Disable fade animation on mobile */
+  #media-carousel-{{ section.id }}.fade-animation-enabled .fade-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+</style>
+
+<script>
+(function() {
+  const section = document.getElementById("media-carousel-{{ section.id }}");
+  if (!section) return;
+
+  const wrapper = section.querySelector(".media-carousel-wrapper");
+  const leftArrow = section.querySelector(".carousel-arrow-left");
+  const rightArrow = section.querySelector(".carousel-arrow-right");
+  
+  if (!wrapper) return;
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let velocity = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let hasMoved = false;
+
+  // Fade-in animation initialization (desktop only)
+  function initFadeAnimation() {
+    if (window.innerWidth <= 768) return; // Skip on mobile
+    if (!section.classList.contains('fade-animation-enabled')) return;
+
+    const fadeItems = section.querySelectorAll('.fade-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '50px'
+    });
+
+    fadeItems.forEach(item => {
+      observer.observe(item);
+    });
+  }
+
+  // Initialize fade animation
+  initFadeAnimation();
+
+  // Reinitialize on window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      initFadeAnimation();
+    }
+  });
+
+  wrapper.addEventListener('mousedown', (e) => {
+    isDown = true;
+    hasMoved = false;
+    wrapper.classList.add('grabbing');
+    startX = e.pageX - wrapper.offsetLeft;
+    scrollLeft = wrapper.scrollLeft;
+    velocity = 0;
+    lastX = e.pageX;
+    lastTime = Date.now();
+    e.preventDefault();
+  });
+
+  wrapper.addEventListener('mouseleave', () => {
+    isDown = false;
+    wrapper.classList.remove('grabbing');
+  });
+
+  wrapper.addEventListener('mouseup', () => {
+    isDown = false;
+    wrapper.classList.remove('grabbing');
+    if (Math.abs(velocity) > 0.5) {
+      const momentumScroll = () => {
+        wrapper.scrollLeft += velocity;
+        velocity *= 0.95;
+        if (Math.abs(velocity) > 0.1) {
+          requestAnimationFrame(momentumScroll);
+        }
+      };
+      requestAnimationFrame(momentumScroll);
+    }
+  });
+
+  wrapper.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const currentTime = Date.now();
+    const timeGap = currentTime - lastTime;
+    if (timeGap > 0) {
+      const x = e.pageX - wrapper.offsetLeft;
+      const walk = (x - startX);
+      
+      // Mark as moved if user dragged more than 5 pixels
+      if (Math.abs(walk) > 5) {
+        hasMoved = true;
+      }
+      
+      wrapper.scrollLeft = scrollLeft - walk;
+      velocity = (e.pageX - lastX) / timeGap * -10;
+      lastX = e.pageX;
+      lastTime = currentTime;
+    }
+  });
+
+  wrapper.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  });
+
+  const updateArrows = () => {
+    if (!leftArrow || !rightArrow) return;
+    const isAtStart = wrapper.scrollLeft <= 5;
+    const isAtEnd = wrapper.scrollLeft >= wrapper.scrollWidth - wrapper.clientWidth - 5;
+    leftArrow.disabled = isAtStart;
+    rightArrow.disabled = isAtEnd;
+  };
+
+  if (leftArrow) {
+    leftArrow.addEventListener("click", () => {
+      const scrollAmount = {{ section.settings.desktop_box_width | plus: 20 }};
+      wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  }
+  if (rightArrow) {
+    rightArrow.addEventListener("click", () => {
+      const scrollAmount = {{ section.settings.desktop_box_width | plus: 20 }};
+      wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  }
+
+  // Prevent clicks on media boxes when dragging
+  const mediaBoxes = section.querySelectorAll('.media-box');
+  mediaBoxes.forEach(box => {
+    box.addEventListener('click', (e) => {
+      if (hasMoved) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    });
+  });
+
+  wrapper.addEventListener("scroll", updateArrows, { passive: true });
+  window.addEventListener("resize", updateArrows);
+  setTimeout(updateArrows, 100);
+})();
+</script>

@@ -1,0 +1,207 @@
+{% schema %}
+{
+  "name": "Winter Snowfall",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Visibility"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_snow",
+      "label": "Enable Snowfall",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "snow_color",
+      "label": "Snow Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "min_size",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Minimum Flake Size",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "max_size",
+      "min": 2,
+      "max": 15,
+      "step": 1,
+      "unit": "px",
+      "label": "Maximum Flake Size",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Behavior"
+    },
+    {
+      "type": "range",
+      "id": "density",
+      "min": 50,
+      "max": 1000,
+      "step": 50,
+      "unit": "ms",
+      "label": "Snow Density (Interval)",
+      "info": "Lower number = More snow. Higher number = Less snow.",
+      "default": 200
+    },
+    {
+      "type": "select",
+      "id": "wind_direction",
+      "label": "Wind Direction",
+      "options": [
+        { "value": "none", "label": "No Wind (Straight Down)" },
+        { "value": "right", "label": "Blowing Right" },
+        { "value": "left", "label": "Blowing Left" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "min_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Fastest Fall Speed",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "max_speed",
+      "min": 5,
+      "max": 20,
+      "step": 1,
+      "unit": "s",
+      "label": "Slowest Fall Speed",
+      "default": 9
+    }
+  ],
+  "presets": [
+    {
+      "name": "Winter Snowfall"
+    }
+  ]
+}
+{% endschema %}
+
+{% if section.settings.enable_snow %}
+<style>
+  .snowflake-{{ section.id }} {
+    position: fixed;
+    top: -20px;
+    z-index: 9999;
+    background-color: {{ section.settings.snow_color }};
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    will-change: transform;
+    box-shadow: 0 0 5px {{ section.settings.snow_color | color_modify: 'alpha', 0.8 }};
+  }
+
+  @keyframes fall-{{ section.id }} {
+    0% {
+      transform: translateY(-10vh) translateX(0);
+    }
+    100% {
+      /* Dynamic Wind Direction */
+      transform: translateY(110vh) translateX(
+        {% case section.settings.wind_direction %}
+          {% when 'right' %} 20vw
+          {% when 'left' %} -20vw
+          {% else %} 0
+        {% endcase %}
+      );
+    }
+  }
+
+  @keyframes sway-{{ section.id }} {
+    0%, 100% { margin-left: 0; }
+    50% { margin-left: 15px; }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const snowContainer = document.body;
+    
+    // Liquid Settings passed to JS
+    const SECTION_ID = "{{ section.id }}";
+    const MIN_SIZE = {{ section.settings.min_size }};
+    const MAX_SIZE = {{ section.settings.max_size }};
+    const MIN_SPEED = {{ section.settings.min_speed }};
+    const MAX_SPEED = {{ section.settings.max_speed }};
+    const INTERVAL = {{ section.settings.density }};
+    const WIND_DIR = "{{ section.settings.wind_direction }}";
+
+    function createSnowflake() {
+      // Check if snow is still enabled (in case of theme editor updates)
+      if (!document.body.contains(snowContainer)) return;
+
+      const snowflake = document.createElement('div');
+      snowflake.classList.add(`snowflake-${SECTION_ID}`);
+
+      // Random Size
+      const size = Math.random() * (MAX_SIZE - MIN_SIZE) + MIN_SIZE + 'px';
+      snowflake.style.width = size;
+      snowflake.style.height = size;
+
+      // Random Position logic to account for wind
+      // If wind blows right, we need to spawn flakes further left so they blow into view
+      // If wind blows left, we need to spawn flakes further right
+      let startPos;
+      if (WIND_DIR === 'right') {
+        startPos = Math.random() * 120 - 20; // -20vw to 100vw
+      } else if (WIND_DIR === 'left') {
+        startPos = Math.random() * 120; // 0vw to 120vw
+      } else {
+        startPos = Math.random() * 100; // 0vw to 100vw
+      }
+      snowflake.style.left = startPos + 'vw';
+
+      // Random Falling Duration
+      const duration = Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED + 's';
+      
+      // Sway logic
+      const swayType = Math.random() > 0.5 ? `sway-${SECTION_ID}` : '';
+      
+      // Construct Animation
+      snowflake.style.animation = `fall-${SECTION_ID} ${duration} linear infinite, ${swayType} 3s ease-in-out infinite alternate`;
+
+      // Random Opacity
+      snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+
+      snowContainer.appendChild(snowflake);
+
+      // Remove after animation completes to prevent memory leaks
+      setTimeout(() => {
+        snowflake.remove();
+      }, parseFloat(duration) * 1000);
+    }
+
+    // Start the interval
+    let snowInterval = setInterval(createSnowflake, INTERVAL);
+
+    // Shopify Theme Editor Support (Refresh on change)
+    document.addEventListener("shopify:section:unload", function(event) {
+      if (event.detail.sectionId === SECTION_ID) {
+        clearInterval(snowInterval);
+        const existingFlakes = document.querySelectorAll(`.snowflake-${SECTION_ID}`);
+        existingFlakes.forEach(f => f.remove());
+      }
+    });
+  });
+</script>
+{% endif %}

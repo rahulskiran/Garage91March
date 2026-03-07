@@ -1,0 +1,635 @@
+{% schema %}
+{
+  "name": "Video Grid Carousel",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section Padding Top",
+      "default": 40,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section Padding Bottom",
+      "default": 40,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Section Padding Left (Desktop)",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Section Padding Right (Desktop)",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_desktop_carousel",
+      "label": "Enable Carousel on Desktop",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Videos visible per view",
+      "default": 3,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "desktop_peek",
+      "label": "Next Video Peek (Desktop %)",
+      "info": "Width of the active group. Lower values show more of the next video.",
+      "default": 100,
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_carousel",
+      "label": "Enable Carousel on Mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "mobile_peek",
+      "label": "Next Video Peek (Mobile %)",
+      "info": "Width of the active video. Recommended: 85%",
+      "default": 85,
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_left",
+      "label": "Mobile Padding Left",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_right",
+      "label": "Mobile Padding Right",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Video Layout"
+    },
+    {
+      "type": "select",
+      "id": "video_ratio",
+      "label": "Video Aspect Ratio",
+      "options": [
+        { "value": "16-9", "label": "Landscape (16:9)" },
+        { "value": "3-2", "label": "Classic Landscape (3:2)" },
+        { "value": "4-3", "label": "Standard (4:3)" },
+        { "value": "1-1", "label": "Square (1:1)" },
+        { "value": "4-5", "label": "Portrait/Social (4:5)" },
+        { "value": "9-16", "label": "Vertical/Reels (9:16)" },
+        { "value": "custom", "label": "Custom Size" }
+      ],
+      "default": "16-9"
+    },
+    {
+      "type": "number",
+      "id": "custom_width",
+      "label": "Custom Width (px)",
+      "default": 400
+    },
+    {
+      "type": "number",
+      "id": "custom_height",
+      "label": "Custom Height (px)",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Video Border Radius",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_box",
+      "name": "Video Box",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "MP4 Video URL"
+        },
+        {
+          "type": "header",
+          "content": "Linking"
+        },
+        {
+          "type": "product",
+          "id": "product_link",
+          "label": "Link to Product"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link",
+          "label": "Link to Collection (Fallback)"
+        },
+        {
+          "type": "header",
+          "content": "Playback Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "autoplay",
+          "label": "Autoplay",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "loop",
+          "label": "Loop",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "muted",
+          "label": "Muted",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "controls",
+          "label": "Show Controls",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Discount Badge"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_discount",
+          "label": "Show Discount Label",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "discount_text",
+          "label": "Discount Label Text",
+          "default": "20% OFF"
+        },
+        {
+          "type": "color",
+          "id": "discount_bg",
+          "label": "Discount Background",
+          "default": "#ff0000"
+        },
+        {
+          "type": "color",
+          "id": "discount_color",
+          "label": "Discount Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "discount_size",
+          "label": "Discount Font Size",
+          "default": 14,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "discount_h_align",
+          "label": "Horizontal Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "discount_v_align",
+          "label": "Vertical Alignment",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "bottom", "label": "Bottom" }
+          ],
+          "default": "top"
+        },
+        {
+          "type": "header",
+          "content": "Secondary Label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_secondary_tag",
+          "label": "Show Secondary Label",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "secondary_tag_text",
+          "label": "Secondary Label Text",
+          "default": "NEW"
+        },
+        {
+          "type": "color",
+          "id": "secondary_tag_bg",
+          "label": "Label Background",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "secondary_tag_color",
+          "label": "Label Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "secondary_tag_size",
+          "label": "Label Font Size",
+          "default": 12,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "secondary_h_align",
+          "label": "Horizontal Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "select",
+          "id": "secondary_v_align",
+          "label": "Vertical Alignment",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "bottom", "label": "Bottom" }
+          ],
+          "default": "bottom"
+        },
+        {
+          "type": "header",
+          "content": "Inner Padding"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "label": "Box Padding Top",
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "label": "Box Padding Bottom",
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "padding_left",
+          "label": "Box Padding Left",
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "padding_right",
+          "label": "Box Padding Right",
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Video Grid Carousel",
+      "blocks": [
+        { "type": "video_box" },
+        { "type": "video_box" },
+        { "type": "video_box" },
+        { "type": "video_box" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  .video-grid-section-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    overflow: hidden;
+  }
+
+  .video-grid-wrapper-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.desktop_columns }}, 1fr);
+    gap: 20px;
+    {% if section.settings.full_width %}
+      max-width: 100%;
+    {% else %}
+      max-width: 1400px;
+    {% endif %}
+    margin: 0 auto;
+  }
+
+  /* Desktop Carousel Styles */
+  {% if section.settings.enable_desktop_carousel %}
+    .video-grid-wrapper-{{ section.id }} {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 20px;
+      gap: 20px;
+    }
+    .video-grid-wrapper-{{ section.id }}::-webkit-scrollbar {
+      height: 4px;
+    }
+    .video-grid-wrapper-{{ section.id }}::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .video-grid-wrapper-{{ section.id }}::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+    .video-box-link-{{ section.id }} {
+      /* Calculate width based on columns and peek percentage */
+      {% assign gap_total = section.settings.desktop_columns | minus: 1 | times: 20 %}
+      flex: 0 0 calc(({{ section.settings.desktop_peek }}% / {{ section.settings.desktop_columns }}) - ({{ gap_total }}px / {{ section.settings.desktop_columns }}));
+      scroll-snap-align: start;
+    }
+  {% endif %}
+
+  .video-box-{{ section.id }} {
+    position: relative;
+    border-radius: {{ section.settings.border_radius }}px;
+    overflow: hidden;
+    width: 100%;
+    background: #000;
+  }
+
+  .video-player-{{ section.id }} {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    {% case section.settings.video_ratio %}
+      {% when '16-9' %} aspect-ratio: 16 / 9;
+      {% when '3-2' %} aspect-ratio: 3 / 2;
+      {% when '4-3' %} aspect-ratio: 4 / 3;
+      {% when '1-1' %} aspect-ratio: 1 / 1;
+      {% when '4-5' %} aspect-ratio: 4 / 5;
+      {% when '9-16' %} aspect-ratio: 9 / 16;
+      {% when 'custom' %} 
+        width: {{ section.settings.custom_width }}px;
+        height: {{ section.settings.custom_height }}px;
+        max-width: 100%;
+    {% endcase %}
+  }
+
+  .video-box-link-{{ section.id }} {
+    text-decoration: none;
+    display: block;
+  }
+
+  .tag-overlay-{{ section.id }} {
+    position: absolute;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 2;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  /* Fade-in effect */
+  .fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .video-grid-section-{{ section.id }} {
+      padding-left: {{ section.settings.mobile_padding_left }}px;
+      padding-right: {{ section.settings.mobile_padding_right }}px;
+    }
+
+    {% if section.settings.enable_mobile_carousel %}
+      .video-grid-wrapper-{{ section.id }} {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .video-grid-wrapper-{{ section.id }}::-webkit-scrollbar {
+        display: none;
+      }
+
+      .video-box-link-{{ section.id }} {
+        flex: 0 0 {{ section.settings.mobile_peek }}%;
+        scroll-snap-align: center;
+      }
+    {% else %}
+      .video-grid-wrapper-{{ section.id }} {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .video-box-link-{{ section.id }} {
+        flex: none;
+      }
+    {% endif %}
+  }
+{%- endstyle -%}
+
+<section class="video-grid-section-{{ section.id }}">
+  <div class="video-grid-wrapper-{{ section.id }}">
+    {% for block in section.blocks %}
+      {% if block.settings.video_url != blank %}
+        {%- assign link_url = '#' -%}
+        {% if block.settings.product_link != blank %}
+          {%- assign link_url = block.settings.product_link.url -%}
+        {% elsif block.settings.collection_link != blank %}
+          {%- assign link_url = block.settings.collection_link.url -%}
+        {% endif %}
+
+        <a href="{{ link_url }}" class="video-box-link-{{ section.id }} fade-in-element" {{ block.shopify_attributes }}>
+          <div class="video-box-{{ section.id }}"
+            style="
+              padding-top: {{ block.settings.padding_top }}px;
+              padding-bottom: {{ block.settings.padding_bottom }}px;
+              padding-left: {{ block.settings.padding_left }}px;
+              padding-right: {{ block.settings.padding_right }}px;
+            "
+          >
+            <video
+              {% if block.settings.autoplay %}autoplay{% endif %}
+              {% if block.settings.loop %}loop{% endif %}
+              {% if block.settings.muted %}muted{% endif %}
+              {% if block.settings.controls %}controls{% endif %}
+              playsinline
+              class="video-player-{{ section.id }}"
+            >
+              <source src="{{ block.settings.video_url }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+            {% if block.settings.show_discount %}
+              {%- capture discount_styles -%}
+                background: {{ block.settings.discount_bg }};
+                color: {{ block.settings.discount_color }};
+                font-size: {{ block.settings.discount_size }}px;
+                {{ block.settings.discount_v_align }}: 15px;
+                {% if block.settings.discount_h_align == 'center' %}
+                  left: 50%;
+                  transform: translateX(-50%);
+                {% else %}
+                  {{ block.settings.discount_h_align }}: 15px;
+                {% endif %}
+              {%- endcapture -%}
+              <span class="tag-overlay-{{ section.id }}" style="{{ discount_styles }}">
+                {{ block.settings.discount_text }}
+              </span>
+            {% endif %}
+
+            {% if block.settings.show_secondary_tag %}
+              {%- capture secondary_styles -%}
+                background: {{ block.settings.secondary_tag_bg }};
+                color: {{ block.settings.secondary_tag_color }};
+                font-size: {{ block.settings.secondary_tag_size }}px;
+                {{ block.settings.secondary_v_align }}: 15px;
+                {% if block.settings.secondary_h_align == 'center' %}
+                  left: 50%;
+                  transform: translateX(-50%);
+                {% else %}
+                  {{ block.settings.secondary_h_align }}: 15px;
+                {% endif %}
+              {%- endcapture -%}
+              <span class="tag-overlay-{{ section.id }}" style="{{ secondary_styles }}">
+                {{ block.settings.secondary_tag_text }}
+              </span>
+            {% endif %}
+          </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".fade-in-element");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  elements.forEach((el) => observer.observe(el));
+});
+</script>

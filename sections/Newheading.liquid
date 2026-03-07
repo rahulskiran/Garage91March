@@ -1,0 +1,435 @@
+{% schema %}
+{
+  "name": "Custom Heading",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Your Custom Heading"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading Font Size (Desktop)",
+      "default": 36,
+      "min": 12,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading Font Size (Mobile)",
+      "default": 24,
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    {
+      "type": "header",
+      "content": "Subheading Settings"
+    },
+    {
+      "type": "text",
+      "id": "subheading_text",
+      "label": "Subheading Text",
+      "default": "Your Subheading"
+    },
+    {
+      "type": "font_picker",
+      "id": "subheading_font",
+      "label": "Subheading Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size_desktop",
+      "label": "Subheading Font Size (Desktop)",
+      "default": 20,
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size_mobile",
+      "label": "Subheading Font Size (Mobile)",
+      "default": 16,
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#444444"
+    },
+    {
+      "type": "select",
+      "id": "subheading_alignment",
+      "label": "Subheading Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    {
+      "type": "header",
+      "content": "Description Settings"
+    },
+    {
+      "type": "textarea",
+      "id": "description_text",
+      "label": "Description Text",
+      "default": "Add an optional paragraph here. This can be used for longer descriptive content."
+    },
+    {
+      "type": "font_picker",
+      "id": "description_font",
+      "label": "Description Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description Font Size",
+      "default": 16,
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "select",
+      "id": "description_alignment",
+      "label": "Description Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover",
+      "label": "Button Hover Background",
+      "default": "#333333"
+    },
+
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width Section",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "default": 60,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "default": 60,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Padding Left (Desktop)",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Padding Right (Desktop)",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 30,
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 30,
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Padding Left (Mobile)",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Padding Right (Mobile)",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Heading",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  {{ section.settings.heading_font | font_face }}
+  {{ section.settings.subheading_font | font_face }}
+  {{ section.settings.description_font | font_face }}
+{% endstyle %}
+
+<section 
+  id="custom-heading-{{ section.id }}" 
+  class="custom-heading-section {% if section.settings.full_width %}full-width{% else %}page-width{% endif %}"
+  style="background-color: {{ section.settings.background_color }};
+         padding-top: {{ section.settings.padding_top_desktop }}px;
+         padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+         padding-left: {{ section.settings.padding_left_desktop }}px;
+         padding-right: {{ section.settings.padding_right_desktop }}px;">
+
+  {% if section.settings.heading_text != blank %}
+    <h2 class="custom-heading-text fade-in-element">{{ section.settings.heading_text }}</h2>
+  {% endif %}
+
+  {% if section.settings.subheading_text != blank %}
+    <h3 class="custom-subheading-text fade-in-element">{{ section.settings.subheading_text }}</h3>
+  {% endif %}
+
+  {% if section.settings.description_text != blank %}
+    <p class="custom-description-text fade-in-element">{{ section.settings.description_text }}</p>
+  {% endif %}
+
+  {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+    <a href="{{ section.settings.button_link }}" class="custom-button fade-in-element">
+      {{ section.settings.button_text }}
+    </a>
+  {% endif %}
+</section>
+
+<style>
+/* Heading */
+#custom-heading-{{ section.id }} .custom-heading-text {
+  font-family: {{ section.settings.heading_font.family }};
+  font-weight: {{ section.settings.heading_font.weight }};
+  font-style: {{ section.settings.heading_font.style }};
+  font-size: {{ section.settings.heading_size_desktop }}px; /* Updated ID */
+  color: {{ section.settings.heading_color }};
+  text-align: {{ section.settings.heading_alignment }};
+  margin: 0 0 15px 0;
+}
+
+/* Subheading */
+#custom-heading-{{ section.id }} .custom-subheading-text {
+  font-family: {{ section.settings.subheading_font.family }};
+  font-weight: {{ section.settings.subheading_font.weight }};
+  font-style: {{ section.settings.subheading_font.style }};
+  font-size: {{ section.settings.subheading_size_desktop }}px; /* Updated ID */
+  color: {{ section.settings.subheading_color }};
+  text-align: {{ section.settings.subheading_alignment }};
+  margin: 0 0 10px 0;
+}
+
+/* Description */
+#custom-heading-{{ section.id }} .custom-description-text {
+  font-family: {{ section.settings.description_font.family }};
+  font-weight: {{ section.settings.description_font.weight }};
+  font-style: {{ section.settings.description_font.style }};
+  font-size: {{ section.settings.description_size }}px;
+  color: {{ section.settings.description_color }};
+  text-align: {{ section.settings.description_alignment }};
+  margin: 0 auto 20px auto;
+  max-width: 800px;
+}
+
+/* Button */
+#custom-heading-{{ section.id }} .custom-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: {{ section.settings.button_bg_color }};
+  color: {{ section.settings.button_color }};
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+#custom-heading-{{ section.id }} .custom-button:hover {
+  background: {{ section.settings.button_bg_hover }};
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  #custom-heading-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px !important;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px !important;
+    padding-left: {{ section.settings.padding_left_mobile }}px !important;
+    padding-right: {{ section.settings.padding_right_mobile }}px !important;
+  }
+  #custom-heading-{{ section.id }} .custom-heading-text {
+    font-size: {{ section.settings.heading_size_mobile }}px; /* Updated to use specific mobile setting */
+  }
+  #custom-heading-{{ section.id }} .custom-subheading-text {
+    font-size: {{ section.settings.subheading_size_mobile }}px; /* Updated to use specific mobile setting */
+  }
+}
+
+/* Full Width */
+#custom-heading-{{ section.id }}.full-width {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+#custom-heading-{{ section.id }}.page-width {
+  max-width: var(--page-width, 1200px);
+  margin: 0 auto;
+}
+
+/* Fade In Effect */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-in-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll("#custom-heading-{{ section.id }} .fade-in-element").forEach((el) => {
+    observer.observe(el);
+  });
+});
+</script>        

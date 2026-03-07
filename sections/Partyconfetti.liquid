@@ -1,0 +1,243 @@
+{% comment %}
+  Party Confetti Section for Shopify
+  Uses canvas-confetti library
+{% endcomment %}
+
+{%- if section.settings.enable_confetti -%}
+  <div
+    id="confetti-wrapper-{{ section.id }}"
+    data-section-id="{{ section.id }}"
+    style="display:none;"
+  ></div>
+
+  <!-- Load Confetti Library from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Configuration from Schema Settings
+      const config = {
+        particleCount: {{ section.settings.particle_count }},
+        spread: {{ section.settings.angle_spread }},
+        startVelocity: {{ section.settings.velocity }},
+        decay: {{ section.settings.gravity_decay | divided_by: 100.0 }},
+        scalar: {{ section.settings.particle_size | divided_by: 10.0 }},
+        ticks: 200,
+        zIndex: 9999, // Ensure it's on top of everything
+        colors: [
+          "{{ section.settings.color_1 }}",
+          "{{ section.settings.color_2 }}",
+          "{{ section.settings.color_3 }}",
+          "{{ section.settings.color_4 }}",
+          "{{ section.settings.color_5 }}"
+        ]
+      };
+
+      const delay = {{ section.settings.trigger_delay }} * 1000;
+      const frequency = "{{ section.settings.frequency }}";
+      const storageKey = "shopify-confetti-popped-{{ section.id }}";
+
+      // Function to trigger the cannons
+      function fireConfetti() {
+        const yPosition = {{ section.settings.y_position | divided_by: 100.0 }};
+
+        // Left Cannon
+        confetti(Object.assign({}, config, {
+          origin: { x: 0, y: yPosition },
+          angle: 60
+        }));
+
+        // Right Cannon
+        confetti(Object.assign({}, config, {
+          origin: { x: 1, y: yPosition },
+          angle: 120
+        }));
+      }
+
+      // Logic to determine if we should fire
+      function initConfetti() {
+        const alreadyPopped = sessionStorage.getItem(storageKey);
+
+        if (frequency === 'once_per_session' && alreadyPopped) {
+          return; // Do nothing if set to once per session and already happened
+        }
+
+        setTimeout(() => {
+          fireConfetti();
+          // Mark as popped in session storage
+          sessionStorage.setItem(storageKey, 'true');
+        }, delay);
+      }
+
+      // Check if library is loaded, then fire
+      if (typeof confetti !== 'undefined') {
+        initConfetti();
+      } else {
+        // Fallback if script loads slowly
+        window.onload = initConfetti;
+      }
+
+      // --- SHOPIFY THEME EDITOR EVENTS ---
+      // This allows the effect to replay when you change settings in the editor
+      if (Shopify.designMode) {
+        document.addEventListener('shopify:section:select', function(event) {
+          if (event.detail.sectionId === '{{ section.id }}') {
+            fireConfetti();
+          }
+        });
+        document.addEventListener('shopify:section:load', function(event) {
+             if (event.detail.sectionId === '{{ section.id }}') {
+            fireConfetti();
+          }
+        });
+      }
+    });
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "🎉 Party Confetti",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Activation"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_confetti",
+      "label": "Enable Confetti",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "frequency",
+      "label": "Frequency",
+      "options": [
+        {
+          "value": "every_page_load",
+          "label": "Every time page loads"
+        },
+        {
+          "value": "once_per_session",
+          "label": "Once per browser session (Refresh won't trigger)"
+        }
+      ],
+      "default": "every_page_load",
+      "info": "Choose 'Once per session' to avoid annoying repeat visitors."
+    },
+    {
+      "type": "range",
+      "id": "trigger_delay",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "sec",
+      "label": "Delay before popping",
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "Visuals & Physics"
+    },
+    {
+      "type": "range",
+      "id": "particle_count",
+      "min": 20,
+      "max": 400,
+      "step": 10,
+      "label": "Particle Amount",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "particle_size",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "label": "Particle Size",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "velocity",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "label": "Explosion Speed (Velocity)",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "angle_spread",
+      "min": 10,
+      "max": 180,
+      "step": 5,
+      "label": "Spread Width",
+      "default": 60,
+      "info": "How wide the confetti sprays out."
+    },
+    {
+      "type": "range",
+      "id": "gravity_decay",
+      "min": 80,
+      "max": 99,
+      "step": 1,
+      "label": "Hang Time (Gravity)",
+      "default": 90,
+      "info": "Higher numbers make confetti float longer."
+    },
+    {
+      "type": "range",
+      "id": "y_position",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Vertical Position",
+      "default": 80,
+      "info": "100% is the very bottom of the screen."
+    },
+    {
+      "type": "header",
+      "content": "Custom Colors"
+    },
+    {
+      "type": "color",
+      "id": "color_1",
+      "label": "Color 1",
+      "default": "#26ccff"
+    },
+    {
+      "type": "color",
+      "id": "color_2",
+      "label": "Color 2",
+      "default": "#a25afd"
+    },
+    {
+      "type": "color",
+      "id": "color_3",
+      "label": "Color 3",
+      "default": "#ff5e7e"
+    },
+    {
+      "type": "color",
+      "id": "color_4",
+      "label": "Color 4",
+      "default": "#88ff5a"
+    },
+    {
+      "type": "color",
+      "id": "color_5",
+      "label": "Color 5",
+      "default": "#fcff42"
+    }
+  ],
+  "presets": [
+    {
+      "name": "🎉 Party Confetti",
+      "category": "Effects"
+    }
+  ]
+}
+{% endschema %}
