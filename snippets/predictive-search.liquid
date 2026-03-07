@@ -181,7 +181,7 @@
     width: 100%;
     left: 0;
     z-index: var(--layer-raised);
-    display: flex;
+    display: none;
     flex-direction: column;
     border-radius: 0 0 var(--search-border-radius) var(--search-border-radius);
     transition: box-shadow var(--animation-speed) var(--animation-easing);
@@ -198,6 +198,10 @@
     }
   }
 
+  predictive-search-component:has(.predictive-search__reset-button:not([hidden])) .predictive-search-form__content-wrapper {
+    display: flex;
+  }
+
   /* Add new rule to apply bottom padding only when search button exists */
   .predictive-search-form__content-wrapper:has([data-search-results]):not(:has(.predictive-search-results__no-results))
     > .predictive-search-form__content {
@@ -206,7 +210,7 @@
 
   .predictive-search-form__header-inner {
     background: var(--color-background);
-    border: var(--search-border-width) solid var(--color-border);
+    border: 1px solid var(--color-border);
     color: var(--color-foreground);
     border-radius: var(--style-border-radius-popover);
     display: flex;
@@ -216,7 +220,6 @@
 
     @media screen and (max-width: 749px) {
       border-radius: var(--style-border-radius-inputs);
-      border: none;
     }
   }
 
