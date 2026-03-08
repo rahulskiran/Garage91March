@@ -219,7 +219,10 @@
     width: 100%;
 
     @media screen and (max-width: 749px) {
-      border-radius: var(--style-border-radius-inputs);
+      border-radius: 12px;
+      /* Subtle transparent grey background to distinguish from pitch black */
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
   }
 
@@ -243,7 +246,7 @@
     border-radius: var(--style-border-radius-inputs);
 
     @media screen and (max-width: 749px) {
-      padding: var(--padding-2xs) 0;
+      padding: var(--padding-2xs) 5px; /* Add 16px left and right padding */
       background-color: transparent;
       border: none;
     }
@@ -273,14 +276,20 @@
     border-radius: var(--style-border-radius-inputs);
     padding-block: var(--padding-sm);
     font-size: var(--font-size--md);
-    width: 100%;
+    flex-grow: 1;
     color: var(--color-foreground);
-    padding-inline: calc(var(--margin-lg) + var(--icon-size-lg)) 0;
+    padding-inline: calc(var(--margin-md) + 4px) var(--margin-md);
     background: transparent;
     text-overflow: ellipsis;
     overflow: hidden;
     outline: none;
     border: 0;
+
+    @media screen and (max-width: 749px) {
+      padding-inline: 24px 10px;
+      padding-block: 12px;
+      font-size: 16px;
+    }
   }
 
   .search-input::placeholder {
@@ -299,15 +308,17 @@
   }
 
   .predictive-search__icon {
-    position: absolute;
-    left: var(--margin-xl);
-    top: auto;
     width: var(--icon-size-lg);
     height: var(--icon-size-lg);
     color: rgb(var(--color-foreground-rgb) / var(--opacity-60));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 14px;
+    z-index: 2;
 
     @media screen and (min-width: 750px) {
-      left: var(--margin-md);
+      margin-right: var(--margin-md);
     }
   }
 
@@ -318,6 +329,9 @@
 
   .predictive-search__reset-button {
     cursor: pointer;
+    position: absolute;
+    right: 48px;
+    z-index: 3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,7 +354,7 @@
     }
 
     @media screen and (max-width: 749px) {
-      margin-right: var(--margin-md);
+      right: 40px;
     }
   }
 
@@ -403,7 +417,7 @@
     --button-color: var(--color-foreground);
     --button-background-color: transparent;
 
-    display: flex;
+    display: none !important; /* Hidden on all screens by user request */
     justify-content: center;
     align-items: center;
     width: var(--minimum-touch-target);
@@ -433,3 +447,61 @@
     --button-background-color: transparent;
   }
 {% endstylesheet %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInputs = document.querySelectorAll('.search-input');
+    if (!searchInputs.length) return;
+    
+    // Instead of collections, use the product types available in the store
+    const categories = [
+      "Side Mirrors",
+      "Exhaust",
+      "Fog Lights",
+      "Crash Guards"
+    ];
+    
+    let currentCategoryIndex = 0;
+    // Start with the base phrase
+    let currentText = 'Search for ';
+    let isDeleting = false;
+    
+    function typeEffect() {
+      // The word we are currently typing out
+      const targetWord = categories[currentCategoryIndex];
+      const fullText = `Search for ${targetWord}...`;
+      
+      if (isDeleting) {
+        // Remove a character from the end
+        currentText = fullText.substring(0, currentText.length - 1);
+        // We delete by shortening the string down to 'Search for '
+      } else {
+        // Add a character
+        currentText = fullText.substring(0, currentText.length + 1);
+      }
+      
+      searchInputs.forEach(input => {
+        // Only update if input is empty and not currently focused
+        if (input.value === '' && document.activeElement !== input) {
+          input.setAttribute('placeholder', currentText);
+        }
+      });
+      
+      let nextSpeed = isDeleting ? 30 : 60; // Typing speed vs deleting speed
+      
+      if (!isDeleting && currentText === fullText) {
+        nextSpeed = 2000; // Pause at end of word before deleting
+        isDeleting = true;
+      } else if (isDeleting && currentText === 'Search for ') {
+        isDeleting = false;
+        currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
+        nextSpeed = 500; // Pause before typing new word
+      }
+      
+      setTimeout(typeEffect, nextSpeed);
+    }
+    
+    // Start typing effect shortly after load
+    setTimeout(typeEffect, 500);
+  });
+</script>

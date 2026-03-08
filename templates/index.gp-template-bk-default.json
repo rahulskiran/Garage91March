@@ -1,1 +1,1775 @@
-{"order":["herotex_xbc7M9","three_sec_eFQfGE","product_list_LrnP4T","newheading_EFfJgw","logo_9pwxKH","newheading_EtYy7w","shop_by_bike_ARXncQ","video_grid_8xLtFD","product_list_M33xP3","product_list_w8Ey4X","product_list_zW97cw","video_grid_ecjbRh","three_sec_r3FwGq","video_layer_zaEk9U","section_BQYYfk","pop_zGF8Xx","partyconfetti_HmWg7z","snow_MFimY4","whatsapp_jeaBta","recent_sale_pop_zgtpBP","insta_reel_CUANmq"],"sections":{"herotex_xbc7M9":{"block_order":["slide_JBikiV","slide_WUDWNU"],"blocks":{"slide_JBikiV":{"settings":{"button_link":"shopify://collections/brake-pads","button_text":"","image_desktop":"shopify://shop_images/AKLSDFASFJ.webp","image_mobile":"shopify://shop_images/Break_Pads_Design_1_1.webp","overlay_heading":"","overlay_text":""},"type":"slide"},"slide_WUDWNU":{"settings":{"button_link":"shopify://products/handle-bar-end-side-mirror-new-edition-for-royal-enfiled-guerrilla-450-continental-gt-650-interceptor-650-bear-650-classic-650-super-meteor-650-classic-350-hunter-350-meteor-350-goan-classic-350-round-mirrors","button_text":"","image_desktop":"shopify://shop_images/AKLSDFASFJ.webp","image_mobile":"shopify://shop_images/CRASH_GUARDS_2.webp","overlay_heading":"","overlay_text":""},"type":"slide"}},"name":"Custom Media Carousel","settings":{"autoplay":true,"autoplay_speed":3,"background_color":"#ffffff","button_bg_color":"#000000","button_bg_hover":"#333333","button_color":"#ffffff","desktop_aspect_ratio":"auto","mobile_aspect_ratio":"auto","overlay_heading_color":"#ffffff","overlay_heading_font":"sans_serif_n4","overlay_heading_size":40,"overlay_opacity":0,"overlay_text_color":"#f0f0f0","overlay_text_font":"sans_serif_n4","overlay_text_size":18,"padding_bottom_desktop":0,"padding_bottom_mobile":0,"padding_top_desktop":0,"padding_top_mobile":0,"show_arrows":false,"show_dots":true,"text_alignment":"center","vertical_alignment":"center"},"type":"Herotex"},"insta_reel_CUANmq":{"block_order":["reel_77jRMa","reel_W79x4M","reel_TjYHRD","reel_kzkdac"],"blocks":{"reel_77jRMa":{"settings":{"collection":"","product":"bobo-bl1-premium-auxiliary-lights-6000-lumens-60w-led-with-strobe-wiring-harness","video_url":"https://cdn.shopify.com/videos/c/o/v/6a83b34e79754b2987b62f4d37306ffd.mp4"},"type":"reel"},"reel_TjYHRD":{"settings":{"collection":"","product":"","video_url":"https://cdn.shopify.com/videos/c/o/v/9bef057628ba4eb9b3155e7ee071fd0d.mp4"},"type":"reel"},"reel_W79x4M":{"settings":{"collection":"","product":"","video_url":"https://cdn.shopify.com/videos/c/o/v/62d017ceb4614da1a11da44af91b4402.mp4"},"type":"reel"},"reel_kzkdac":{"settings":{"collection":"","product":"","video_url":"https://cdn.shopify.com/videos/c/o/v/16b654d64fc74dd584162ff96408f5fa.mp4"},"type":"reel"}},"name":"Instagram Reels Carousel","settings":{"bg_color":"#000000","body_font":"bebas_neue_n4","heading_font":"bebas_neue_n4","logo":"shopify://shop_images/cropped_circle_image_5.png","padding_bottom":48,"padding_bottom_mobile":32,"padding_left":20,"padding_left_mobile":20,"padding_right":20,"padding_right_mobile":20,"padding_top":48,"padding_top_mobile":32,"subtitle":"Watch \u0026 Shop the latest trends","title":"Shop our Reels","video_ratio":"9:16"},"type":"InstaReel"},"logo_9pwxKH":{"block_order":["logo_3NQUW9","logo_HPJxfE","logo_NphigW","logo_TezeU3","logo_TDXzmE","logo_7RPGKb","logo_dketJJ","logo_pTDCce","logo_dea98M","logo_AwhjGQ"],"blocks":{"logo_3NQUW9":{"settings":{"link":"shopify://collections/bobo-gears","logo":"shopify://shop_images/7_5bf2afd5-3927-4a66-81f0-98754eef155e.png"},"type":"logo"},"logo_7RPGKb":{"settings":{"link":"shopify://collections/mad-dog","logo":"shopify://shop_images/5_a2678a8a-32f9-487a-9834-8408377149e7.png"},"type":"logo"},"logo_AwhjGQ":{"settings":{"link":"shopify://collections/bobo-gears","logo":"shopify://shop_images/7_5bf2afd5-3927-4a66-81f0-98754eef155e.png"},"type":"logo"},"logo_HPJxfE":{"settings":{"link":"shopify://collections/liuhjg","logo":"shopify://shop_images/1.png"},"type":"logo"},"logo_NphigW":{"settings":{"link":"shopify://collections/red-rooster-performance","logo":"shopify://shop_images/2_8d47ed21-e908-457d-b0db-e0b47800e965.png"},"type":"logo"},"logo_TDXzmE":{"settings":{"link":"shopify://collections/ngage","logo":"shopify://shop_images/Untitled_design-10.png"},"type":"logo"},"logo_TezeU3":{"settings":{"link":"shopify://collections/royal-enfield","logo":"shopify://shop_images/8_f3037f93-9be8-4c49-ac53-929cdc30286b.png"},"type":"logo"},"logo_dea98M":{"settings":{"link":"shopify://collections/motowolf-1","logo":"shopify://shop_images/3_6d08a783-fcc0-4305-b2bc-540f75ef2b53.png"},"type":"logo"},"logo_dketJJ":{"settings":{"link":"shopify://collections/moto-torque","logo":"shopify://shop_images/4_8e6085fa-f93d-43d3-9be8-b6fdcdc37d3b.png"},"type":"logo"},"logo_pTDCce":{"settings":{"link":"shopify://collections/ktc-racing","logo":"shopify://shop_images/6_8d5113dc-212e-4c56-97d0-4b72ebbe6a32.png"},"type":"logo"}},"name":"Scrolling Brand Logos","settings":{"background_color":"#000000","corner_radius":8,"logo_fit":"cover","logo_height":80,"logo_height_mobile":60,"logo_width":140,"logo_width_mobile":100,"padding_bottom":60,"padding_bottom_mobile":15,"padding_left":80,"padding_left_mobile":15,"padding_right":80,"padding_right_mobile":15,"padding_top":0,"padding_top_mobile":15},"type":"Logo"},"newheading_EFfJgw":{"name":"Custom Heading","settings":{"background_color":"#000000","button_bg_color":"#000000","button_bg_hover":"#333333","button_color":"#ffffff","button_link":"","button_text":"Learn More","description_alignment":"center","description_color":"#666666","description_font":"sans_serif_n4","description_size":16,"description_text":"","full_width":false,"heading_alignment":"left","heading_color":"#f2f2f2","heading_font":"bebas_neue_n4","heading_size_desktop":40,"heading_size_mobile":40,"heading_text":"Shop by brands","padding_bottom_desktop":10,"padding_bottom_mobile":10,"padding_left_desktop":80,"padding_left_mobile":15,"padding_right_desktop":80,"padding_right_mobile":15,"padding_top_desktop":30,"padding_top_mobile":40,"subheading_alignment":"center","subheading_color":"#ffffff","subheading_font":"sans_serif_n4","subheading_size_desktop":20,"subheading_size_mobile":16,"subheading_text":""},"type":"Newheading"},"newheading_EtYy7w":{"name":"Custom Heading","settings":{"background_color":"#000000","button_bg_color":"#000000","button_bg_hover":"#333333","button_color":"#ffffff","button_link":"","button_text":"Learn More","description_alignment":"center","description_color":"#666666","description_font":"sans_serif_n4","description_size":16,"description_text":"","full_width":false,"heading_alignment":"left","heading_color":"#f2f2f2","heading_font":"bebas_neue_n4","heading_size_desktop":40,"heading_size_mobile":40,"heading_text":"shop by bike","padding_bottom_desktop":10,"padding_bottom_mobile":20,"padding_left_desktop":80,"padding_left_mobile":15,"padding_right_desktop":80,"padding_right_mobile":15,"padding_top_desktop":30,"padding_top_mobile":40,"subheading_alignment":"center","subheading_color":"#ffffff","subheading_font":"sans_serif_n4","subheading_size_desktop":20,"subheading_size_mobile":16,"subheading_text":""},"type":"Newheading"},"partyconfetti_HmWg7z":{"disabled":true,"name":"🎉 Party Confetti","settings":{"angle_spread":60,"color_1":"#26ccff","color_2":"#a25afd","color_3":"#ff5e7e","color_4":"#88ff5a","color_5":"#fcff42","enable_confetti":true,"frequency":"every_page_load","gravity_decay":90,"particle_count":100,"particle_size":10,"trigger_delay":0.5,"velocity":45,"y_position":80},"type":"Partyconfetti"},"pop_zGF8Xx":{"name":"Subscribe Popup","settings":{"enable_popup":false,"popup_bg_color":"#ffffff","popup_button_text":"Subscribe","popup_delay":5,"popup_heading":"Subscribe to our Newsletter","popup_text":"Stay updated with our latest offers and news.","show_once":true},"type":"pop"},"product_list_LrnP4T":{"blocks":{"static-header":{"block_order":["product_list_text_hdX7eT","product_list_button_LYk3FQ"],"blocks":{"product_list_button_LYk3FQ":{"blocks":{},"name":"t:names.product_list_button","settings":{"custom_width":0,"custom_width_mobile":100,"label":"View all","open_in_new_tab":false,"style_class":"link","width":"fit-content","width_mobile":"fit-content"},"type":"_product-list-button"},"product_list_text_hdX7eT":{"blocks":{},"name":"t:names.collection_title","settings":{"alignment":"left","background":false,"background_color":"#00000026","case":"none","color":"var(--color-foreground-heading)","corner_radius":0,"font":"var(--font-heading--family)","font_size":"2.5rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"text":"\u003ch3\u003e{{ closest.collection.title }}\u003c/h3\u003e","type_preset":"custom","width":"fit-content","wrap":"pretty"},"type":"_product-list-text"}},"name":"t:names.header","settings":{"align_baseline":true,"background_image_position":"cover","background_media":"none","border":"none","border_opacity":100,"border_radius":0,"border_width":1,"color_scheme":"","content_direction":"row","custom_height":100,"custom_width":100,"custom_width_mobile":100,"gap":12,"height":"fit","horizontal_alignment":"space-between","horizontal_alignment_flex_direction_column":"flex-start","inherit_color_scheme":false,"padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"vertical_alignment":"flex-end","vertical_alignment_flex_direction_column":"center","vertical_on_mobile":false,"video_position":"cover","width":"fill","width_mobile":"fill"},"static":true,"type":"_product-list-content"},"static-product-card":{"block_order":["product_card_gallery_zYPcVm","product_title_hnCLhk","price_AQPYFG"],"blocks":{"price_AQPYFG":{"blocks":{},"name":"t:names.product_price","settings":{"alignment":"left","case":"uppercase","color":"var(--color-foreground)","font":"var(--font-subheading--family)","font_size":"1rem","letter_spacing":"normal","line_height":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"show_installments":false,"show_sale_price_first":true,"show_tax_info":false,"type_preset":"custom","width":"100%"},"type":"price"},"product_card_gallery_zYPcVm":{"blocks":{},"name":"t:names.product_card_media","settings":{"border":"none","border_opacity":100,"border_radius":7,"border_width":1,"image_ratio":"square","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0},"type":"_product-card-gallery"},"product_title_hnCLhk":{"blocks":{},"name":"t:names.product_title","settings":{"alignment":"left","background":false,"background_color":"#00000026","case":"none","color":"var(--color-primary)","corner_radius":0,"font":"var(--font-body--family)","font_size":"1rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":4,"padding-inline-end":0,"padding-inline-start":0,"type_preset":"custom","width":"100%","wrap":"pretty"},"type":"product-title"}},"name":"t:names.product_card","settings":{"border":"solid","border_opacity":100,"border_radius":12,"border_width":1,"color_scheme":"scheme-3","inherit_color_scheme":false,"padding-block-end":12,"padding-block-start":12,"padding-inline-end":12,"padding-inline-start":12,"product_card_gap":12},"static":true,"type":"_product-card"}},"custom_css":["@media (min-width: 768px) {.section-resource-list {padding-left: 80px; padding-right: 80px; }}","@media (max-width: 767px) {.section-resource-list {padding-left: 15px; padding-right: 15px; }}"],"name":"Fog Light Section","settings":{"carousel_on_mobile":true,"collection":"fog-lights","color_scheme":"scheme-2","columns":4,"columns_gap":12,"gap":12,"horizontal_alignment":"flex-start","icons_shape":"none","icons_style":"chevron","layout_type":"grid","max_products":4,"mobile_card_size":"60cqw","mobile_columns":"2","padding-block-end":26,"padding-block-start":26,"rows_gap":24,"section_width":"full-width"},"type":"product-list"},"product_list_M33xP3":{"blocks":{"static-header":{"block_order":["product_list_text_VfQfDJ","product_list_button_XLee37"],"blocks":{"product_list_button_XLee37":{"blocks":{},"name":"t:names.product_list_button","settings":{"custom_width":13,"custom_width_mobile":100,"label":"View all","open_in_new_tab":false,"style_class":"link","width":"custom","width_mobile":"fit-content"},"type":"_product-list-button"},"product_list_text_VfQfDJ":{"blocks":{},"name":"t:names.collection_title","settings":{"alignment":"left","background":false,"background_color":"#00000026","case":"none","color":"var(--color-foreground-heading)","corner_radius":0,"font":"var(--font-heading--family)","font_size":"2.5rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"text":"\u003ch3\u003e   BRAKE PADS\u003c/h3\u003e","type_preset":"custom","width":"fit-content","wrap":"pretty"},"type":"_product-list-text"}},"name":"t:names.header","settings":{"align_baseline":true,"background_image_position":"cover","background_media":"none","border":"none","border_opacity":100,"border_radius":0,"border_width":1,"color_scheme":"scheme-1","content_direction":"row","custom_height":100,"custom_width":100,"custom_width_mobile":100,"gap":12,"height":"fit","horizontal_alignment":"space-between","horizontal_alignment_flex_direction_column":"flex-start","inherit_color_scheme":false,"padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"vertical_alignment":"flex-end","vertical_alignment_flex_direction_column":"center","vertical_on_mobile":false,"video_position":"cover","width":"fill","width_mobile":"fill"},"static":true,"type":"_product-list-content"},"static-product-card":{"block_order":["product_card_gallery_4p4VDQ","product_title_jxtgph","price_eNGhh6"],"blocks":{"price_eNGhh6":{"blocks":{},"name":"t:names.product_price","settings":{"alignment":"left","case":"uppercase","color":"var(--color-foreground)","font":"var(--font-subheading--family)","font_size":"1rem","letter_spacing":"normal","line_height":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"show_installments":false,"show_sale_price_first":true,"show_tax_info":false,"type_preset":"custom","width":"100%"},"type":"price"},"product_card_gallery_4p4VDQ":{"blocks":{},"name":"t:names.product_card_media","settings":{"border":"none","border_opacity":100,"border_radius":7,"border_width":1,"image_ratio":"square","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0},"type":"_product-card-gallery"},"product_title_jxtgph":{"blocks":{},"name":"t:names.product_title","settings":{"alignment":"left","background":false,"background_color":"#00000026","case":"none","color":"var(--color-primary)","corner_radius":0,"font":"var(--font-body--family)","font_size":"1rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":4,"padding-inline-end":0,"padding-inline-start":0,"type_preset":"custom","width":"100%","wrap":"pretty"},"type":"product-title"}},"name":"t:names.product_card","settings":{"border":"solid","border_opacity":100,"border_radius":12,"border_width":1,"color_scheme":"scheme-3","inherit_color_scheme":false,"padding-block-end":12,"padding-block-start":12,"padding-inline-end":12,"padding-inline-start":12,"product_card_gap":4},"static":true,"type":"_product-card"}},"custom_css":["@media (min-width: 768px) {.section-resource-list {padding-left: 80px; padding-right: 80px; }}","@media (max-width: 767px) {.section-resource-list {padding-left: 15px; padding-right: 15px; }}"],"name":"Break Pads Section","settings":{"carousel_on_mobile":true,"collection":"brake-pads","color_scheme":"scheme-2","columns":4,"columns_gap":12,"gap":12,"horizontal_alignment":"flex-start","icons_shape":"none","icons_style":"arrow","layout_type":"grid","max_products":4,"mobile_card_size":"60cqw","mobile_columns":"2","padding-block-end":26,"padding-block-start":26,"rows_gap":24,"section_width":"full-width"},"type":"product-list"},"product_list_w8Ey4X":{"blocks":{"static-header":{"block_order":["product_list_text_NVDhHT","product_list_button_Ct8eGi"],"blocks":{"product_list_button_Ct8eGi":{"blocks":{},"name":"t:names.product_list_button","settings":{"custom_width":13,"custom_width_mobile":100,"label":"View all","open_in_new_tab":false,"style_class":"link","width":"custom","width_mobile":"fit-content"},"type":"_product-list-button"},"product_list_text_NVDhHT":{"blocks":{},"name":"t:names.collection_title","settings":{"alignment":"left","background":false,"background_color":"#00000026","case":"none","color":"var(--color-foreground-heading)","corner_radius":0,"font":"var(--font-heading--family)","font_size":"2.5rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"text":"\u003ch3\u003eCrash guards\u003c/h3\u003e","type_preset":"custom","width":"fit-content","wrap":"pretty"},"type":"_product-list-text"}},"name":"t:names.header","settings":{"align_baseline":true,"background_image_position":"cover","background_media":"none","border":"none","border_opacity":100,"border_radius":0,"border_width":1,"color_scheme":"","content_direction":"row","custom_height":100,"custom_width":100,"custom_width_mobile":100,"gap":12,"height":"fit","horizontal_alignment":"space-between","horizontal_alignment_flex_direction_column":"flex-start","inherit_color_scheme":false,"padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"vertical_alignment":"flex-end","vertical_alignment_flex_direction_column":"center","vertical_on_mobile":false,"video_position":"cover","width":"fill","width_mobile":"fill"},"static":true,"type":"_product-list-content"},"static-product-card":{"block_order":["product_card_gallery_EPX9fH","product_title_YN9agL","price_CD9qjn"],"blocks":{"price_CD9qjn":{"blocks":{},"name":"t:names.product_price","settings":{"alignment":"left","case":"uppercase","color":"var(--color-foreground)","font":"var(--font-subheading--family)","font_size":"1rem","letter_spacing":"normal","line_height":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"show_installments":false,"show_sale_price_first":true,"show_tax_info":false,"type_preset":"custom","width":"100%"},"type":"price"},"product_card_gallery_EPX9fH":{"blocks":{},"name":"t:names.product_card_media","settings":{"border":"none","border_opacity":100,"border_radius":7,"border_width":1,"image_ratio":"square","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0},"type":"_product-card-gallery"},"product_title_YN9agL":{"blocks":{},"name":"t:names.product_title","settings":{"alignment":"left","background":false,"background_color":"#00000026","case":"none","color":"var(--color-primary)","corner_radius":0,"font":"var(--font-body--family)","font_size":"1rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":4,"padding-inline-end":0,"padding-inline-start":0,"type_preset":"custom","width":"100%","wrap":"pretty"},"type":"product-title"}},"name":"t:names.product_card","settings":{"border":"solid","border_opacity":100,"border_radius":12,"border_width":1,"color_scheme":"scheme-3","inherit_color_scheme":false,"padding-block-end":12,"padding-block-start":12,"padding-inline-end":12,"padding-inline-start":12,"product_card_gap":4},"static":true,"type":"_product-card"}},"custom_css":["@media (min-width: 768px) {.section-resource-list {padding-left: 80px; padding-right: 80px; }}","@media (max-width: 767px) {.section-resource-list {padding-left: 15px; padding-right: 15px; }}"],"name":"Crash Guards Section","settings":{"carousel_on_mobile":true,"collection":"crash-guard-2","color_scheme":"scheme-2","columns":4,"columns_gap":8,"gap":12,"horizontal_alignment":"flex-start","icons_shape":"none","icons_style":"arrow","layout_type":"grid","max_products":4,"mobile_card_size":"60cqw","mobile_columns":"2","padding-block-end":26,"padding-block-start":26,"rows_gap":24,"section_width":"full-width"},"type":"product-list"},"product_list_zW97cw":{"blocks":{"static-header":{"block_order":["product_list_text_jkKByP","product_list_button_UpYwQ6"],"blocks":{"product_list_button_UpYwQ6":{"blocks":{},"name":"t:names.product_list_button","settings":{"custom_width":13,"custom_width_mobile":100,"label":"View all","open_in_new_tab":false,"style_class":"link","width":"custom","width_mobile":"fit-content"},"type":"_product-list-button"},"product_list_text_jkKByP":{"blocks":{},"name":"t:names.collection_title","settings":{"alignment":"left","background":false,"background_color":"#00000026","case":"none","color":"var(--color-foreground-heading)","corner_radius":0,"font":"var(--font-heading--family)","font_size":"2.5rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"text":"\u003ch3\u003eOffer zone\u003c/h3\u003e","type_preset":"custom","width":"fit-content","wrap":"pretty"},"type":"_product-list-text"}},"name":"t:names.header","settings":{"align_baseline":true,"background_image_position":"cover","background_media":"none","border":"none","border_opacity":100,"border_radius":0,"border_width":1,"color_scheme":"","content_direction":"row","custom_height":100,"custom_width":100,"custom_width_mobile":100,"gap":12,"height":"fit","horizontal_alignment":"space-between","horizontal_alignment_flex_direction_column":"flex-start","inherit_color_scheme":false,"padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"vertical_alignment":"flex-end","vertical_alignment_flex_direction_column":"center","vertical_on_mobile":false,"video_position":"cover","width":"fill","width_mobile":"fill"},"static":true,"type":"_product-list-content"},"static-product-card":{"block_order":["product_card_gallery_HdB7NX","product_title_XpW7A7","price_ErpecX"],"blocks":{"price_ErpecX":{"blocks":{},"name":"t:names.product_price","settings":{"alignment":"left","case":"uppercase","color":"var(--color-foreground)","font":"var(--font-subheading--family)","font_size":"1rem","letter_spacing":"normal","line_height":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"show_installments":false,"show_sale_price_first":true,"show_tax_info":false,"type_preset":"custom","width":"100%"},"type":"price"},"product_card_gallery_HdB7NX":{"blocks":{},"name":"t:names.product_card_media","settings":{"border":"none","border_opacity":100,"border_radius":12,"border_width":1,"image_ratio":"square","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0},"type":"_product-card-gallery"},"product_title_XpW7A7":{"blocks":{},"name":"t:names.product_title","settings":{"alignment":"left","background":false,"background_color":"#00000026","case":"none","color":"var(--color-primary)","corner_radius":0,"font":"var(--font-body--family)","font_size":"0.875rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":4,"padding-inline-end":0,"padding-inline-start":0,"type_preset":"custom","width":"100%","wrap":"pretty"},"type":"product-title"}},"name":"t:names.product_card","settings":{"border":"solid","border_opacity":100,"border_radius":12,"border_width":1,"color_scheme":"scheme-3","inherit_color_scheme":false,"padding-block-end":12,"padding-block-start":12,"padding-inline-end":12,"padding-inline-start":12,"product_card_gap":12},"static":true,"type":"_product-card"}},"custom_css":["@media (min-width: 768px) {.section-resource-list {padding-left: 80px; padding-right: 80px; }}","@media (max-width: 767px) {.section-resource-list {padding-left: 15px; padding-right: 15px; }}"],"name":"Crash Guards Section","settings":{"carousel_on_mobile":true,"collection":"offer-zone","color_scheme":"scheme-2","columns":4,"columns_gap":12,"gap":12,"horizontal_alignment":"flex-start","icons_shape":"none","icons_style":"arrow","layout_type":"grid","max_products":4,"mobile_card_size":"60cqw","mobile_columns":"2","padding-block-end":26,"padding-block-start":26,"rows_gap":24,"section_width":"full-width"},"type":"product-list"},"recent_sale_pop_zgtpBP":{"name":"Recent Sale Popup","settings":{"bg_color":"#ffffff","border_radius":12,"city_color":"#e62222","collection":"fog-lights","display_interval":20,"font_family":"sans_serif_n4","font_size_main":14,"font_size_sub":12,"initial_delay":5,"overlay_opacity":10,"popup_width":350,"text_color":"#333333","verified_color":"#27ae60"},"type":"recentSalePop"},"section_BQYYfk":{"block_order":["text_y7yjyC","button_9t4y4C"],"blocks":{"button_9t4y4C":{"blocks":{},"disabled":true,"settings":{"custom_width":24,"custom_width_mobile":100,"label":"Shop now","link":"shopify://collections/all","open_in_new_tab":false,"style_class":"button-secondary","width":"fit-content","width_mobile":"fit-content"},"type":"button"},"text_y7yjyC":{"blocks":{},"settings":{"alignment":"center","background":false,"background_color":"#00000026","case":"none","color":"var(--color-foreground)","corner_radius":0,"font":"var(--font-body--family)","font_size":"1rem","letter_spacing":"normal","line_height":"normal","max_width":"normal","padding-block-end":0,"padding-block-start":0,"padding-inline-end":0,"padding-inline-start":0,"text":"\u003cp\u003eat \u003cem\u003eGARAGE91\u003c/em\u003e    we fuel your passion for riding with premium bike spares custom wraps and full-scale modifications that make your machine truly yours.\u003c/p\u003e","type_preset":"h2","width":"100%","wrap":"pretty"},"type":"text"}},"name":"t:names.pull_quote","settings":{"align_baseline":false,"background_image_position":"cover","background_media":"none","border":"none","border_opacity":100,"border_radius":0,"border_width":1,"color_scheme":"scheme-1","content_direction":"column","gap":16,"gradient_direction":"to top","horizontal_alignment":"flex-start","horizontal_alignment_flex_direction_column":"center","overlay_color":"#00000026","overlay_style":"solid","padding-block-end":64,"padding-block-start":64,"section_height":"","section_height_custom":50,"section_width":"page-width","toggle_overlay":false,"vertical_alignment":"center","vertical_alignment_flex_direction_column":"center","vertical_on_mobile":true,"video_position":"cover"},"type":"section"},"shop_by_bike_ARXncQ":{"block_order":["media_box_EkbQzt","media_box_x3TDQJ","media_box_9LBbjV","media_box_pTgGDh","media_box_RMMbar","media_box_9XLYtj","media_box_PaPX4p"],"blocks":{"media_box_9LBbjV":{"settings":{"collection_link":"tvs","discount":"20% OFF","image":"shopify://shop_images/BIKE_ACCESSORIES_123_3.png","media_type":"image","show_discount":false,"text":"TVS","video_url":""},"type":"media_box"},"media_box_9XLYtj":{"settings":{"collection_link":"honda","discount":"20% OFF","image":"shopify://shop_images/12.png","media_type":"image","show_discount":false,"text":"HONDA","video_url":""},"type":"media_box"},"media_box_EkbQzt":{"settings":{"collection_link":"royal-enfield","discount":"20% OFF","image":"shopify://shop_images/11.png","media_type":"image","show_discount":false,"text":"ROYAL ENFIELD","video_url":""},"type":"media_box"},"media_box_PaPX4p":{"settings":{"collection_link":"triumph","discount":"20% OFF","image":"shopify://shop_images/BIKE_ACCESSORIES_123_03a910c0-71b7-44cc-a11c-885f6a1d7990.png","media_type":"image","show_discount":false,"text":"TRIUMPH","video_url":""},"type":"media_box"},"media_box_RMMbar":{"settings":{"collection_link":"yamaha","discount":"20% OFF","image":"shopify://shop_images/9_29b8c584-749f-4e12-a473-605f650611d3.png","media_type":"image","show_discount":false,"text":"YAMAHA","video_url":""},"type":"media_box"},"media_box_pTgGDh":{"settings":{"collection_link":"ktm","discount":"20% OFF","image":"shopify://shop_images/8_06b86a6e-6378-4be8-b270-7ef5dc7cc31d.png","media_type":"image","show_discount":false,"text":"KTM","video_url":""},"type":"media_box"},"media_box_x3TDQJ":{"settings":{"collection_link":"bajaj","discount":"20% OFF","image":"shopify://shop_images/10.png","media_type":"image","show_discount":false,"text":"BAJAJ","video_url":""},"type":"media_box"}},"name":"Media Box Carousel","settings":{"arrow_bg_color":"#ff0000","arrow_color":"#ffffff","arrow_opacity":100,"arrow_size":24,"background_color":"#000000","desktop_box_height":220,"desktop_box_width":300,"enable_fade_animation":true,"media_text_color":"#ffffff","media_text_font":"barlow_n5","media_text_size":18,"mobile_image_height":160,"mobile_image_width":300,"padding_bottom":20,"padding_bottom_mobile":15,"padding_left_desktop":80,"padding_left_mobile":15,"padding_right_desktop":30,"padding_right_mobile":15,"padding_top":0,"padding_top_mobile":15,"show_arrows":true},"type":"ShopByBike"},"snow_MFimY4":{"name":"Winter Snowfall","settings":{"density":50,"enable_snow":false,"max_size":8,"max_speed":9,"min_size":2,"min_speed":4,"snow_color":"#ffffff","wind_direction":"right"},"type":"snow"},"three_sec_eFQfGE":{"block_order":["item_mzWkgN","item_L3hrpF","item_LjAxH8"],"blocks":{"item_L3hrpF":{"settings":{"discount_bg":"#d5ff00","discount_color":"#ff0000","discount_size":14,"discount_text":"20% OFF","image":"shopify://shop_images/Air_Filters_25228c84-9fc4-44bb-b7e7-7c916517dcae.png","link":"shopify://collections/fog-lights","show_discount":true,"title":""},"type":"item"},"item_LjAxH8":{"settings":{"discount_bg":"#d5ff00","discount_color":"#ff0000","discount_size":14,"discount_text":"20% OFF","image":"shopify://shop_images/Air_Filters_24fe6078-5902-497b-b541-e1a3b909f051.png","link":"shopify://collections/air-filter-1","show_discount":true,"title":""},"type":"item"},"item_mzWkgN":{"settings":{"discount_bg":"#d5ff00","discount_color":"#ff0000","discount_size":14,"discount_text":"20% OFF","image":"shopify://shop_images/BREAK_PADS_4.png","link":"shopify://collections/brake-pads","show_discount":true,"title":""},"type":"item"}},"name":"Three Grid Layout","settings":{"background_color":"#000000","margin_bottom":0,"margin_top":0,"mobile_padding_bottom":20,"mobile_padding_left":15,"mobile_padding_right":15,"mobile_padding_top":35,"padding_bottom":25,"padding_left":80,"padding_right":80,"padding_top":50,"progress_bg":"#ffffff","progress_fill":"#ff0000","progress_height":3,"progress_margin_left":20,"progress_margin_right":20,"show_progress_bar":true,"text_color":"#333333","vertical_gap":20},"type":"ThreeSec"},"three_sec_r3FwGq":{"disabled":true,"name":"Three Grid Layout","settings":{"background_color":"#000000","margin_bottom":0,"margin_top":0,"mobile_padding_bottom":20,"mobile_padding_left":15,"mobile_padding_right":15,"mobile_padding_top":20,"padding_bottom":70,"padding_left":80,"padding_right":80,"padding_top":50,"progress_bg":"#ffffff","progress_fill":"#ff0000","progress_height":3,"progress_margin_left":20,"progress_margin_right":20,"show_progress_bar":true,"text_color":"#333333","vertical_gap":20},"type":"ThreeSec"},"video_grid_8xLtFD":{"block_order":["video_box_efa8EE","video_box_KHLewk","video_box_DNRcdN"],"blocks":{"video_box_DNRcdN":{"settings":{"autoplay":true,"collection_link":"exhaust-2","controls":false,"discount_bg":"#ff0000","discount_color":"#ffffff","discount_h_align":"left","discount_size":14,"discount_text":"20% OFF","discount_v_align":"top","loop":true,"muted":true,"padding_bottom":0,"padding_left":0,"padding_right":0,"padding_top":0,"product_link":"","secondary_h_align":"left","secondary_tag_bg":"#ed2a2a","secondary_tag_color":"#ffffff","secondary_tag_size":15,"secondary_tag_text":"SHOP EXHAUSTS","secondary_v_align":"top","show_discount":false,"show_secondary_tag":true,"video_url":"https://cdn.shopify.com/videos/c/o/v/62d017ceb4614da1a11da44af91b4402.mp4"},"type":"video_box"},"video_box_KHLewk":{"settings":{"autoplay":true,"collection_link":"air-filter-1","controls":false,"discount_bg":"#ff0000","discount_color":"#ffffff","discount_h_align":"left","discount_size":14,"discount_text":"20% OFF","discount_v_align":"top","loop":true,"muted":true,"padding_bottom":0,"padding_left":0,"padding_right":0,"padding_top":0,"product_link":"","secondary_h_align":"left","secondary_tag_bg":"#ed2a2a","secondary_tag_color":"#ffffff","secondary_tag_size":15,"secondary_tag_text":"SHOP AIR FILTERS","secondary_v_align":"top","show_discount":false,"show_secondary_tag":true,"video_url":"https://cdn.shopify.com/videos/c/o/v/9bef057628ba4eb9b3155e7ee071fd0d.mp4"},"type":"video_box"},"video_box_efa8EE":{"settings":{"autoplay":true,"collection_link":"fog-lights","controls":false,"discount_bg":"#ffffff","discount_color":"#f11111","discount_h_align":"left","discount_size":14,"discount_text":"20% OFF","discount_v_align":"top","loop":true,"muted":true,"padding_bottom":0,"padding_left":0,"padding_right":0,"padding_top":0,"product_link":"bobo-bl1-premium-auxiliary-lights-6000-lumens-60w-led-with-strobe-wiring-harness","secondary_h_align":"left","secondary_tag_bg":"#ed2a2a","secondary_tag_color":"#ffffff","secondary_tag_size":15,"secondary_tag_text":"SHOP BOBO BL1 FOG LIGHT","secondary_v_align":"top","show_discount":false,"show_secondary_tag":true,"video_url":"https://cdn.shopify.com/videos/c/o/v/6a83b34e79754b2987b62f4d37306ffd.mp4"},"type":"video_box"}},"name":"Video Grid","settings":{"background_color":"#000000","border_radius":10,"custom_height":500,"custom_width":400,"desktop_columns":3,"desktop_peek":100,"enable_desktop_carousel":false,"enable_mobile_carousel":true,"full_width":true,"mobile_padding_left":15,"mobile_padding_right":15,"mobile_peek":85,"padding_bottom":25,"padding_left":80,"padding_right":80,"padding_top":25,"video_ratio":"4-5"},"type":"VideoGrid"},"video_grid_ecjbRh":{"block_order":["video_box_rm8wgk","video_box_KHcwta","video_box_Qg7KdY"],"blocks":{"video_box_KHcwta":{"settings":{"autoplay":true,"collection_link":"","controls":false,"discount_bg":"#ff0000","discount_color":"#ffffff","discount_h_align":"left","discount_size":14,"discount_text":"20% OFF","discount_v_align":"top","loop":true,"muted":true,"padding_bottom":0,"padding_left":0,"padding_right":0,"padding_top":0,"product_link":"","secondary_h_align":"right","secondary_tag_bg":"#000000","secondary_tag_color":"#ffffff","secondary_tag_size":12,"secondary_tag_text":"NEW","secondary_v_align":"bottom","show_discount":false,"show_secondary_tag":false,"video_url":"https://cdn.shopify.com/videos/c/o/v/581868cc66944175a0669e27fd981580.mp4"},"type":"video_box"},"video_box_Qg7KdY":{"settings":{"autoplay":true,"collection_link":"","controls":false,"discount_bg":"#ff0000","discount_color":"#ffffff","discount_h_align":"left","discount_size":14,"discount_text":"20% OFF","discount_v_align":"top","loop":true,"muted":true,"padding_bottom":0,"padding_left":0,"padding_right":0,"padding_top":0,"product_link":"","secondary_h_align":"right","secondary_tag_bg":"#000000","secondary_tag_color":"#ffffff","secondary_tag_size":12,"secondary_tag_text":"NEW","secondary_v_align":"bottom","show_discount":false,"show_secondary_tag":false,"video_url":"https://cdn.shopify.com/videos/c/o/v/bc772914d5774d9ea1c21af9475feb25.mp4"},"type":"video_box"},"video_box_rm8wgk":{"settings":{"autoplay":true,"collection_link":"","controls":false,"discount_bg":"#ff0000","discount_color":"#ffffff","discount_h_align":"left","discount_size":14,"discount_text":"20% OFF","discount_v_align":"top","loop":true,"muted":true,"padding_bottom":0,"padding_left":0,"padding_right":0,"padding_top":0,"product_link":"","secondary_h_align":"right","secondary_tag_bg":"#000000","secondary_tag_color":"#ffffff","secondary_tag_size":12,"secondary_tag_text":"NEW","secondary_v_align":"bottom","show_discount":false,"show_secondary_tag":false,"video_url":"https://cdn.shopify.com/videos/c/o/v/67de2c1cd40c4a11bc8c78dd16527502.mp4"},"type":"video_box"}},"disabled":true,"name":"Video Grid","settings":{"background_color":"#000000","border_radius":10,"custom_height":500,"custom_width":400,"desktop_columns":3,"desktop_peek":100,"enable_desktop_carousel":false,"enable_mobile_carousel":true,"full_width":false,"mobile_padding_left":15,"mobile_padding_right":15,"mobile_peek":85,"padding_bottom":40,"padding_left":80,"padding_right":80,"padding_top":40,"video_ratio":"1-1"},"type":"VideoGrid"},"video_layer_zaEk9U":{"name":"Custom Video Section","settings":{"background_color":"#000000","button_bg_color":"#000000","button_bg_hover":"#ff0000","button_color":"#ffffff","button_link":"","button_text":"Shop Now","desktop_aspect_ratio":"21:9","mobile_aspect_ratio":"4:3","overlay_heading":"Performance Meets Personalization.","overlay_heading_color":"#ffffff","overlay_heading_font":"bebas_neue_n4","overlay_heading_size":36,"overlay_text":"Spare parts, wraps, and bike customization all in one place at Garage91.","overlay_text_color":"#f0f0f0","overlay_text_font":"lato_n4","overlay_text_size":18,"padding_bottom_desktop":0,"padding_bottom_mobile":30,"padding_top_desktop":0,"padding_top_mobile":30,"text_alignment":"center","video_autoplay":true,"video_controls":false,"video_file":"shopify://files/videos/0828.mp4","video_loop":true,"video_muted":true},"type":"VideoLayer"},"whatsapp_jeaBta":{"name":"WhatsApp Widget","settings":{"animation_style":"none","background_color":"#25d366","border_radius":23,"bottom_position":20,"button_size":56,"icon_color":"#ffffff","message":"Hello I want to talk to Garage91","phone_number":"+919150875439","right_position":20,"show_tooltip":true,"tooltip_background":"#ffffff","tooltip_font_size":14,"tooltip_text":"Talk To Garage91","tooltip_text_color":"#000000"},"type":"Whatsapp"}}}
+{
+    "order": [
+        "herotex_xbc7M9",
+        "three_sec_eFQfGE",
+        "product_list_LrnP4T",
+        "newheading_EFfJgw",
+        "logo_9pwxKH",
+        "newheading_EtYy7w",
+        "shop_by_bike_ARXncQ",
+        "video_grid_8xLtFD",
+        "product_list_M33xP3",
+        "product_list_w8Ey4X",
+        "product_list_zW97cw",
+        "video_grid_ecjbRh",
+        "three_sec_r3FwGq",
+        "video_layer_zaEk9U",
+        "section_BQYYfk",
+        "pop_zGF8Xx",
+        "partyconfetti_HmWg7z",
+        "snow_MFimY4",
+        "whatsapp_jeaBta",
+        "recent_sale_pop_zgtpBP",
+        "insta_reel_CUANmq"
+    ],
+    "sections": {
+        "herotex_xbc7M9": {
+            "block_order": [
+                "slide_JBikiV",
+                "slide_WUDWNU"
+            ],
+            "blocks": {
+                "slide_JBikiV": {
+                    "settings": {
+                        "button_link": "shopify://collections/brake-pads",
+                        "button_text": "",
+                        "image_desktop": "shopify://shop_images/AKLSDFASFJ.webp",
+                        "image_mobile": "shopify://shop_images/Break_Pads_Design_1_1.webp",
+                        "overlay_heading": "",
+                        "overlay_text": ""
+                    },
+                    "type": "slide"
+                },
+                "slide_WUDWNU": {
+                    "settings": {
+                        "button_link": "shopify://products/handle-bar-end-side-mirror-new-edition-for-royal-enfiled-guerrilla-450-continental-gt-650-interceptor-650-bear-650-classic-650-super-meteor-650-classic-350-hunter-350-meteor-350-goan-classic-350-round-mirrors",
+                        "button_text": "",
+                        "image_desktop": "shopify://shop_images/AKLSDFASFJ.webp",
+                        "image_mobile": "shopify://shop_images/CRASH_GUARDS_2.webp",
+                        "overlay_heading": "",
+                        "overlay_text": ""
+                    },
+                    "type": "slide"
+                }
+            },
+            "name": "Custom Media Carousel",
+            "settings": {
+                "autoplay": true,
+                "autoplay_speed": 3,
+                "background_color": "#ffffff",
+                "button_bg_color": "#000000",
+                "button_bg_hover": "#333333",
+                "button_color": "#ffffff",
+                "desktop_aspect_ratio": "auto",
+                "mobile_aspect_ratio": "auto",
+                "overlay_heading_color": "#ffffff",
+                "overlay_heading_font": "sans_serif_n4",
+                "overlay_heading_size": 40,
+                "overlay_opacity": 0,
+                "overlay_text_color": "#f0f0f0",
+                "overlay_text_font": "sans_serif_n4",
+                "overlay_text_size": 18,
+                "padding_bottom_desktop": 0,
+                "padding_bottom_mobile": 0,
+                "padding_top_desktop": 0,
+                "padding_top_mobile": 0,
+                "show_arrows": false,
+                "show_dots": true,
+                "text_alignment": "center",
+                "vertical_alignment": "center"
+            },
+            "type": "Herotex"
+        },
+        "insta_reel_CUANmq": {
+            "block_order": [
+                "reel_77jRMa",
+                "reel_W79x4M",
+                "reel_TjYHRD",
+                "reel_kzkdac"
+            ],
+            "blocks": {
+                "reel_77jRMa": {
+                    "settings": {
+                        "collection": "",
+                        "product": "bobo-bl1-premium-auxiliary-lights-6000-lumens-60w-led-with-strobe-wiring-harness",
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/6a83b34e79754b2987b62f4d37306ffd.mp4"
+                    },
+                    "type": "reel"
+                },
+                "reel_TjYHRD": {
+                    "settings": {
+                        "collection": "",
+                        "product": "",
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/9bef057628ba4eb9b3155e7ee071fd0d.mp4"
+                    },
+                    "type": "reel"
+                },
+                "reel_W79x4M": {
+                    "settings": {
+                        "collection": "",
+                        "product": "",
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/62d017ceb4614da1a11da44af91b4402.mp4"
+                    },
+                    "type": "reel"
+                },
+                "reel_kzkdac": {
+                    "settings": {
+                        "collection": "",
+                        "product": "",
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/16b654d64fc74dd584162ff96408f5fa.mp4"
+                    },
+                    "type": "reel"
+                }
+            },
+            "name": "Instagram Reels Carousel",
+            "settings": {
+                "bg_color": "#000000",
+                "body_font": "bebas_neue_n4",
+                "heading_font": "bebas_neue_n4",
+                "logo": "shopify://shop_images/cropped_circle_image_5.png",
+                "padding_bottom": 48,
+                "padding_bottom_mobile": 32,
+                "padding_left": 20,
+                "padding_left_mobile": 20,
+                "padding_right": 20,
+                "padding_right_mobile": 20,
+                "padding_top": 48,
+                "padding_top_mobile": 32,
+                "subtitle": "Watch \u0026 Shop the latest trends",
+                "title": "Shop our Reels",
+                "video_ratio": "9:16"
+            },
+            "type": "InstaReel"
+        },
+        "logo_9pwxKH": {
+            "block_order": [
+                "logo_3NQUW9",
+                "logo_HPJxfE",
+                "logo_NphigW",
+                "logo_TezeU3",
+                "logo_TDXzmE",
+                "logo_7RPGKb",
+                "logo_dketJJ",
+                "logo_pTDCce",
+                "logo_dea98M",
+                "logo_AwhjGQ"
+            ],
+            "blocks": {
+                "logo_3NQUW9": {
+                    "settings": {
+                        "link": "shopify://collections/bobo-gears",
+                        "logo": "shopify://shop_images/7_5bf2afd5-3927-4a66-81f0-98754eef155e.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_7RPGKb": {
+                    "settings": {
+                        "link": "shopify://collections/mad-dog",
+                        "logo": "shopify://shop_images/5_a2678a8a-32f9-487a-9834-8408377149e7.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_AwhjGQ": {
+                    "settings": {
+                        "link": "shopify://collections/bobo-gears",
+                        "logo": "shopify://shop_images/7_5bf2afd5-3927-4a66-81f0-98754eef155e.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_HPJxfE": {
+                    "settings": {
+                        "link": "shopify://collections/liuhjg",
+                        "logo": "shopify://shop_images/1.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_NphigW": {
+                    "settings": {
+                        "link": "shopify://collections/red-rooster-performance",
+                        "logo": "shopify://shop_images/2_8d47ed21-e908-457d-b0db-e0b47800e965.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_TDXzmE": {
+                    "settings": {
+                        "link": "shopify://collections/ngage",
+                        "logo": "shopify://shop_images/Untitled_design-10.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_TezeU3": {
+                    "settings": {
+                        "link": "shopify://collections/royal-enfield",
+                        "logo": "shopify://shop_images/8_f3037f93-9be8-4c49-ac53-929cdc30286b.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_dea98M": {
+                    "settings": {
+                        "link": "shopify://collections/motowolf-1",
+                        "logo": "shopify://shop_images/3_6d08a783-fcc0-4305-b2bc-540f75ef2b53.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_dketJJ": {
+                    "settings": {
+                        "link": "shopify://collections/moto-torque",
+                        "logo": "shopify://shop_images/4_8e6085fa-f93d-43d3-9be8-b6fdcdc37d3b.png"
+                    },
+                    "type": "logo"
+                },
+                "logo_pTDCce": {
+                    "settings": {
+                        "link": "shopify://collections/ktc-racing",
+                        "logo": "shopify://shop_images/6_8d5113dc-212e-4c56-97d0-4b72ebbe6a32.png"
+                    },
+                    "type": "logo"
+                }
+            },
+            "name": "Scrolling Brand Logos",
+            "settings": {
+                "background_color": "#000000",
+                "corner_radius": 8,
+                "logo_fit": "cover",
+                "logo_height": 80,
+                "logo_height_mobile": 60,
+                "logo_width": 140,
+                "logo_width_mobile": 100,
+                "padding_bottom": 60,
+                "padding_bottom_mobile": 15,
+                "padding_left": 80,
+                "padding_left_mobile": 15,
+                "padding_right": 80,
+                "padding_right_mobile": 15,
+                "padding_top": 0,
+                "padding_top_mobile": 15
+            },
+            "type": "Logo"
+        },
+        "newheading_EFfJgw": {
+            "name": "Custom Heading",
+            "settings": {
+                "background_color": "#000000",
+                "button_bg_color": "#000000",
+                "button_bg_hover": "#333333",
+                "button_color": "#ffffff",
+                "button_link": "",
+                "button_text": "Learn More",
+                "description_alignment": "center",
+                "description_color": "#666666",
+                "description_font": "sans_serif_n4",
+                "description_size": 16,
+                "description_text": "",
+                "full_width": false,
+                "heading_alignment": "left",
+                "heading_color": "#f2f2f2",
+                "heading_font": "bebas_neue_n4",
+                "heading_size_desktop": 40,
+                "heading_size_mobile": 40,
+                "heading_text": "Shop by brands",
+                "padding_bottom_desktop": 10,
+                "padding_bottom_mobile": 10,
+                "padding_left_desktop": 80,
+                "padding_left_mobile": 15,
+                "padding_right_desktop": 80,
+                "padding_right_mobile": 15,
+                "padding_top_desktop": 30,
+                "padding_top_mobile": 40,
+                "subheading_alignment": "center",
+                "subheading_color": "#ffffff",
+                "subheading_font": "sans_serif_n4",
+                "subheading_size_desktop": 20,
+                "subheading_size_mobile": 16,
+                "subheading_text": ""
+            },
+            "type": "Newheading"
+        },
+        "newheading_EtYy7w": {
+            "name": "Custom Heading",
+            "settings": {
+                "background_color": "#000000",
+                "button_bg_color": "#000000",
+                "button_bg_hover": "#333333",
+                "button_color": "#ffffff",
+                "button_link": "",
+                "button_text": "Learn More",
+                "description_alignment": "center",
+                "description_color": "#666666",
+                "description_font": "sans_serif_n4",
+                "description_size": 16,
+                "description_text": "",
+                "full_width": false,
+                "heading_alignment": "left",
+                "heading_color": "#f2f2f2",
+                "heading_font": "bebas_neue_n4",
+                "heading_size_desktop": 40,
+                "heading_size_mobile": 40,
+                "heading_text": "shop by bike",
+                "padding_bottom_desktop": 10,
+                "padding_bottom_mobile": 20,
+                "padding_left_desktop": 80,
+                "padding_left_mobile": 15,
+                "padding_right_desktop": 80,
+                "padding_right_mobile": 15,
+                "padding_top_desktop": 30,
+                "padding_top_mobile": 40,
+                "subheading_alignment": "center",
+                "subheading_color": "#ffffff",
+                "subheading_font": "sans_serif_n4",
+                "subheading_size_desktop": 20,
+                "subheading_size_mobile": 16,
+                "subheading_text": ""
+            },
+            "type": "Newheading"
+        },
+        "partyconfetti_HmWg7z": {
+            "disabled": true,
+            "name": "🎉 Party Confetti",
+            "settings": {
+                "angle_spread": 60,
+                "color_1": "#26ccff",
+                "color_2": "#a25afd",
+                "color_3": "#ff5e7e",
+                "color_4": "#88ff5a",
+                "color_5": "#fcff42",
+                "enable_confetti": true,
+                "frequency": "every_page_load",
+                "gravity_decay": 90,
+                "particle_count": 100,
+                "particle_size": 10,
+                "trigger_delay": 0.5,
+                "velocity": 45,
+                "y_position": 80
+            },
+            "type": "Partyconfetti"
+        },
+        "pop_zGF8Xx": {
+            "name": "Subscribe Popup",
+            "settings": {
+                "enable_popup": false,
+                "popup_bg_color": "#ffffff",
+                "popup_button_text": "Subscribe",
+                "popup_delay": 5,
+                "popup_heading": "Subscribe to our Newsletter",
+                "popup_text": "Stay updated with our latest offers and news.",
+                "show_once": true
+            },
+            "type": "pop"
+        },
+        "product_list_LrnP4T": {
+            "blocks": {
+                "static-header": {
+                    "block_order": [
+                        "product_list_text_hdX7eT",
+                        "product_list_button_LYk3FQ"
+                    ],
+                    "blocks": {
+                        "product_list_button_LYk3FQ": {
+                            "blocks": {},
+                            "name": "t:names.product_list_button",
+                            "settings": {
+                                "custom_width": 0,
+                                "custom_width_mobile": 100,
+                                "label": "View all",
+                                "open_in_new_tab": false,
+                                "style_class": "link",
+                                "width": "fit-content",
+                                "width_mobile": "fit-content"
+                            },
+                            "type": "_product-list-button"
+                        },
+                        "product_list_text_hdX7eT": {
+                            "blocks": {},
+                            "name": "t:names.collection_title",
+                            "settings": {
+                                "alignment": "left",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "case": "none",
+                                "color": "var(--color-foreground-heading)",
+                                "corner_radius": 0,
+                                "font": "var(--font-heading--family)",
+                                "font_size": "2.5rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "max_width": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "text": "\u003ch3\u003e{{ closest.collection.title }}\u003c/h3\u003e",
+                                "type_preset": "custom",
+                                "width": "fit-content",
+                                "wrap": "pretty"
+                            },
+                            "type": "_product-list-text"
+                        }
+                    },
+                    "name": "t:names.header",
+                    "settings": {
+                        "align_baseline": true,
+                        "background_image_position": "cover",
+                        "background_media": "none",
+                        "border": "none",
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "border_width": 1,
+                        "color_scheme": "",
+                        "content_direction": "row",
+                        "custom_height": 100,
+                        "custom_width": 100,
+                        "custom_width_mobile": 100,
+                        "gap": 12,
+                        "height": "fit",
+                        "horizontal_alignment": "space-between",
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "inherit_color_scheme": false,
+                        "padding-block-end": 0,
+                        "padding-block-start": 0,
+                        "padding-inline-end": 0,
+                        "padding-inline-start": 0,
+                        "vertical_alignment": "flex-end",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "vertical_on_mobile": false,
+                        "video_position": "cover",
+                        "width": "fill",
+                        "width_mobile": "fill"
+                    },
+                    "static": true,
+                    "type": "_product-list-content"
+                },
+                "static-product-card": {
+                    "block_order": [
+                        "product_card_gallery_zYPcVm",
+                        "product_title_hnCLhk",
+                        "price_AQPYFG"
+                    ],
+                    "blocks": {
+                        "price_AQPYFG": {
+                            "blocks": {},
+                            "name": "t:names.product_price",
+                            "settings": {
+                                "alignment": "left",
+                                "case": "uppercase",
+                                "color": "var(--color-foreground)",
+                                "font": "var(--font-subheading--family)",
+                                "font_size": "1rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "show_installments": false,
+                                "show_sale_price_first": true,
+                                "show_tax_info": false,
+                                "type_preset": "custom",
+                                "width": "100%"
+                            },
+                            "type": "price"
+                        },
+                        "product_card_gallery_zYPcVm": {
+                            "blocks": {},
+                            "name": "t:names.product_card_media",
+                            "settings": {
+                                "border": "none",
+                                "border_opacity": 100,
+                                "border_radius": 7,
+                                "border_width": 1,
+                                "image_ratio": "square",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0
+                            },
+                            "type": "_product-card-gallery"
+                        },
+                        "product_title_hnCLhk": {
+                            "blocks": {},
+                            "name": "t:names.product_title",
+                            "settings": {
+                                "alignment": "left",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "case": "none",
+                                "color": "var(--color-primary)",
+                                "corner_radius": 0,
+                                "font": "var(--font-body--family)",
+                                "font_size": "1rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "max_width": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 4,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "type_preset": "custom",
+                                "width": "100%",
+                                "wrap": "pretty"
+                            },
+                            "type": "product-title"
+                        }
+                    },
+                    "name": "t:names.product_card",
+                    "settings": {
+                        "border": "solid",
+                        "border_opacity": 100,
+                        "border_radius": 12,
+                        "border_width": 1,
+                        "color_scheme": "scheme-3",
+                        "inherit_color_scheme": false,
+                        "padding-block-end": 12,
+                        "padding-block-start": 12,
+                        "padding-inline-end": 12,
+                        "padding-inline-start": 12,
+                        "product_card_gap": 12
+                    },
+                    "static": true,
+                    "type": "_product-card"
+                }
+            },
+            "custom_css": [
+                "@media (min-width: 768px) {.section-resource-list {padding-left: 80px; padding-right: 80px; }}",
+                "@media (max-width: 767px) {.section-resource-list {padding-left: 15px; padding-right: 15px; }}"
+            ],
+            "name": "Fog Light Section",
+            "settings": {
+                "carousel_on_mobile": true,
+                "collection": "fog-lights",
+                "color_scheme": "scheme-2",
+                "columns": 4,
+                "columns_gap": 12,
+                "gap": 12,
+                "horizontal_alignment": "flex-start",
+                "icons_shape": "none",
+                "icons_style": "chevron",
+                "layout_type": "grid",
+                "max_products": 4,
+                "mobile_card_size": "60cqw",
+                "mobile_columns": "2",
+                "padding-block-end": 26,
+                "padding-block-start": 26,
+                "rows_gap": 24,
+                "section_width": "full-width"
+            },
+            "type": "product-list"
+        },
+        "product_list_M33xP3": {
+            "blocks": {
+                "static-header": {
+                    "block_order": [
+                        "product_list_text_VfQfDJ",
+                        "product_list_button_XLee37"
+                    ],
+                    "blocks": {
+                        "product_list_button_XLee37": {
+                            "blocks": {},
+                            "name": "t:names.product_list_button",
+                            "settings": {
+                                "custom_width": 13,
+                                "custom_width_mobile": 100,
+                                "label": "View all",
+                                "open_in_new_tab": false,
+                                "style_class": "link",
+                                "width": "custom",
+                                "width_mobile": "fit-content"
+                            },
+                            "type": "_product-list-button"
+                        },
+                        "product_list_text_VfQfDJ": {
+                            "blocks": {},
+                            "name": "t:names.collection_title",
+                            "settings": {
+                                "alignment": "left",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "case": "none",
+                                "color": "var(--color-foreground-heading)",
+                                "corner_radius": 0,
+                                "font": "var(--font-heading--family)",
+                                "font_size": "2.5rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "max_width": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "text": "\u003ch3\u003e   BRAKE PADS\u003c/h3\u003e",
+                                "type_preset": "custom",
+                                "width": "fit-content",
+                                "wrap": "pretty"
+                            },
+                            "type": "_product-list-text"
+                        }
+                    },
+                    "name": "t:names.header",
+                    "settings": {
+                        "align_baseline": true,
+                        "background_image_position": "cover",
+                        "background_media": "none",
+                        "border": "none",
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "border_width": 1,
+                        "color_scheme": "scheme-1",
+                        "content_direction": "row",
+                        "custom_height": 100,
+                        "custom_width": 100,
+                        "custom_width_mobile": 100,
+                        "gap": 12,
+                        "height": "fit",
+                        "horizontal_alignment": "space-between",
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "inherit_color_scheme": false,
+                        "padding-block-end": 0,
+                        "padding-block-start": 0,
+                        "padding-inline-end": 0,
+                        "padding-inline-start": 0,
+                        "vertical_alignment": "flex-end",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "vertical_on_mobile": false,
+                        "video_position": "cover",
+                        "width": "fill",
+                        "width_mobile": "fill"
+                    },
+                    "static": true,
+                    "type": "_product-list-content"
+                },
+                "static-product-card": {
+                    "block_order": [
+                        "product_card_gallery_4p4VDQ",
+                        "product_title_jxtgph",
+                        "price_eNGhh6"
+                    ],
+                    "blocks": {
+                        "price_eNGhh6": {
+                            "blocks": {},
+                            "name": "t:names.product_price",
+                            "settings": {
+                                "alignment": "left",
+                                "case": "uppercase",
+                                "color": "var(--color-foreground)",
+                                "font": "var(--font-subheading--family)",
+                                "font_size": "1rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "show_installments": false,
+                                "show_sale_price_first": true,
+                                "show_tax_info": false,
+                                "type_preset": "custom",
+                                "width": "100%"
+                            },
+                            "type": "price"
+                        },
+                        "product_card_gallery_4p4VDQ": {
+                            "blocks": {},
+                            "name": "t:names.product_card_media",
+                            "settings": {
+                                "border": "none",
+                                "border_opacity": 100,
+                                "border_radius": 7,
+                                "border_width": 1,
+                                "image_ratio": "square",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0
+                            },
+                            "type": "_product-card-gallery"
+                        },
+                        "product_title_jxtgph": {
+                            "blocks": {},
+                            "name": "t:names.product_title",
+                            "settings": {
+                                "alignment": "left",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "case": "none",
+                                "color": "var(--color-primary)",
+                                "corner_radius": 0,
+                                "font": "var(--font-body--family)",
+                                "font_size": "1rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "max_width": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 4,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "type_preset": "custom",
+                                "width": "100%",
+                                "wrap": "pretty"
+                            },
+                            "type": "product-title"
+                        }
+                    },
+                    "name": "t:names.product_card",
+                    "settings": {
+                        "border": "solid",
+                        "border_opacity": 100,
+                        "border_radius": 12,
+                        "border_width": 1,
+                        "color_scheme": "scheme-3",
+                        "inherit_color_scheme": false,
+                        "padding-block-end": 12,
+                        "padding-block-start": 12,
+                        "padding-inline-end": 12,
+                        "padding-inline-start": 12,
+                        "product_card_gap": 4
+                    },
+                    "static": true,
+                    "type": "_product-card"
+                }
+            },
+            "custom_css": [
+                "@media (min-width: 768px) {.section-resource-list {padding-left: 80px; padding-right: 80px; }}",
+                "@media (max-width: 767px) {.section-resource-list {padding-left: 15px; padding-right: 15px; }}"
+            ],
+            "name": "Break Pads Section",
+            "settings": {
+                "carousel_on_mobile": true,
+                "collection": "brake-pads",
+                "color_scheme": "scheme-2",
+                "columns": 4,
+                "columns_gap": 12,
+                "gap": 12,
+                "horizontal_alignment": "flex-start",
+                "icons_shape": "none",
+                "icons_style": "arrow",
+                "layout_type": "grid",
+                "max_products": 4,
+                "mobile_card_size": "60cqw",
+                "mobile_columns": "2",
+                "padding-block-end": 26,
+                "padding-block-start": 26,
+                "rows_gap": 24,
+                "section_width": "full-width"
+            },
+            "type": "product-list"
+        },
+        "product_list_w8Ey4X": {
+            "blocks": {
+                "static-header": {
+                    "block_order": [
+                        "product_list_text_NVDhHT",
+                        "product_list_button_Ct8eGi"
+                    ],
+                    "blocks": {
+                        "product_list_button_Ct8eGi": {
+                            "blocks": {},
+                            "name": "t:names.product_list_button",
+                            "settings": {
+                                "custom_width": 13,
+                                "custom_width_mobile": 100,
+                                "label": "View all",
+                                "open_in_new_tab": false,
+                                "style_class": "link",
+                                "width": "custom",
+                                "width_mobile": "fit-content"
+                            },
+                            "type": "_product-list-button"
+                        },
+                        "product_list_text_NVDhHT": {
+                            "blocks": {},
+                            "name": "t:names.collection_title",
+                            "settings": {
+                                "alignment": "left",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "case": "none",
+                                "color": "var(--color-foreground-heading)",
+                                "corner_radius": 0,
+                                "font": "var(--font-heading--family)",
+                                "font_size": "2.5rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "max_width": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "text": "\u003ch3\u003eCrash guards\u003c/h3\u003e",
+                                "type_preset": "custom",
+                                "width": "fit-content",
+                                "wrap": "pretty"
+                            },
+                            "type": "_product-list-text"
+                        }
+                    },
+                    "name": "t:names.header",
+                    "settings": {
+                        "align_baseline": true,
+                        "background_image_position": "cover",
+                        "background_media": "none",
+                        "border": "none",
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "border_width": 1,
+                        "color_scheme": "",
+                        "content_direction": "row",
+                        "custom_height": 100,
+                        "custom_width": 100,
+                        "custom_width_mobile": 100,
+                        "gap": 12,
+                        "height": "fit",
+                        "horizontal_alignment": "space-between",
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "inherit_color_scheme": false,
+                        "padding-block-end": 0,
+                        "padding-block-start": 0,
+                        "padding-inline-end": 0,
+                        "padding-inline-start": 0,
+                        "vertical_alignment": "flex-end",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "vertical_on_mobile": false,
+                        "video_position": "cover",
+                        "width": "fill",
+                        "width_mobile": "fill"
+                    },
+                    "static": true,
+                    "type": "_product-list-content"
+                },
+                "static-product-card": {
+                    "block_order": [
+                        "product_card_gallery_EPX9fH",
+                        "product_title_YN9agL",
+                        "price_CD9qjn"
+                    ],
+                    "blocks": {
+                        "price_CD9qjn": {
+                            "blocks": {},
+                            "name": "t:names.product_price",
+                            "settings": {
+                                "alignment": "left",
+                                "case": "uppercase",
+                                "color": "var(--color-foreground)",
+                                "font": "var(--font-subheading--family)",
+                                "font_size": "1rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "show_installments": false,
+                                "show_sale_price_first": true,
+                                "show_tax_info": false,
+                                "type_preset": "custom",
+                                "width": "100%"
+                            },
+                            "type": "price"
+                        },
+                        "product_card_gallery_EPX9fH": {
+                            "blocks": {},
+                            "name": "t:names.product_card_media",
+                            "settings": {
+                                "border": "none",
+                                "border_opacity": 100,
+                                "border_radius": 7,
+                                "border_width": 1,
+                                "image_ratio": "square",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0
+                            },
+                            "type": "_product-card-gallery"
+                        },
+                        "product_title_YN9agL": {
+                            "blocks": {},
+                            "name": "t:names.product_title",
+                            "settings": {
+                                "alignment": "left",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "case": "none",
+                                "color": "var(--color-primary)",
+                                "corner_radius": 0,
+                                "font": "var(--font-body--family)",
+                                "font_size": "1rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "max_width": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 4,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "type_preset": "custom",
+                                "width": "100%",
+                                "wrap": "pretty"
+                            },
+                            "type": "product-title"
+                        }
+                    },
+                    "name": "t:names.product_card",
+                    "settings": {
+                        "border": "solid",
+                        "border_opacity": 100,
+                        "border_radius": 12,
+                        "border_width": 1,
+                        "color_scheme": "scheme-3",
+                        "inherit_color_scheme": false,
+                        "padding-block-end": 12,
+                        "padding-block-start": 12,
+                        "padding-inline-end": 12,
+                        "padding-inline-start": 12,
+                        "product_card_gap": 4
+                    },
+                    "static": true,
+                    "type": "_product-card"
+                }
+            },
+            "custom_css": [
+                "@media (min-width: 768px) {.section-resource-list {padding-left: 80px; padding-right: 80px; }}",
+                "@media (max-width: 767px) {.section-resource-list {padding-left: 15px; padding-right: 15px; }}"
+            ],
+            "name": "Crash Guards Section",
+            "settings": {
+                "carousel_on_mobile": true,
+                "collection": "crash-guard-2",
+                "color_scheme": "scheme-2",
+                "columns": 4,
+                "columns_gap": 8,
+                "gap": 12,
+                "horizontal_alignment": "flex-start",
+                "icons_shape": "none",
+                "icons_style": "arrow",
+                "layout_type": "grid",
+                "max_products": 4,
+                "mobile_card_size": "60cqw",
+                "mobile_columns": "2",
+                "padding-block-end": 26,
+                "padding-block-start": 26,
+                "rows_gap": 24,
+                "section_width": "full-width"
+            },
+            "type": "product-list"
+        },
+        "product_list_zW97cw": {
+            "blocks": {
+                "static-header": {
+                    "block_order": [
+                        "product_list_text_jkKByP",
+                        "product_list_button_UpYwQ6"
+                    ],
+                    "blocks": {
+                        "product_list_button_UpYwQ6": {
+                            "blocks": {},
+                            "name": "t:names.product_list_button",
+                            "settings": {
+                                "custom_width": 13,
+                                "custom_width_mobile": 100,
+                                "label": "View all",
+                                "open_in_new_tab": false,
+                                "style_class": "link",
+                                "width": "custom",
+                                "width_mobile": "fit-content"
+                            },
+                            "type": "_product-list-button"
+                        },
+                        "product_list_text_jkKByP": {
+                            "blocks": {},
+                            "name": "t:names.collection_title",
+                            "settings": {
+                                "alignment": "left",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "case": "none",
+                                "color": "var(--color-foreground-heading)",
+                                "corner_radius": 0,
+                                "font": "var(--font-heading--family)",
+                                "font_size": "2.5rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "max_width": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "text": "\u003ch3\u003eOffer zone\u003c/h3\u003e",
+                                "type_preset": "custom",
+                                "width": "fit-content",
+                                "wrap": "pretty"
+                            },
+                            "type": "_product-list-text"
+                        }
+                    },
+                    "name": "t:names.header",
+                    "settings": {
+                        "align_baseline": true,
+                        "background_image_position": "cover",
+                        "background_media": "none",
+                        "border": "none",
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "border_width": 1,
+                        "color_scheme": "",
+                        "content_direction": "row",
+                        "custom_height": 100,
+                        "custom_width": 100,
+                        "custom_width_mobile": 100,
+                        "gap": 12,
+                        "height": "fit",
+                        "horizontal_alignment": "space-between",
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "inherit_color_scheme": false,
+                        "padding-block-end": 0,
+                        "padding-block-start": 0,
+                        "padding-inline-end": 0,
+                        "padding-inline-start": 0,
+                        "vertical_alignment": "flex-end",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "vertical_on_mobile": false,
+                        "video_position": "cover",
+                        "width": "fill",
+                        "width_mobile": "fill"
+                    },
+                    "static": true,
+                    "type": "_product-list-content"
+                },
+                "static-product-card": {
+                    "block_order": [
+                        "product_card_gallery_HdB7NX",
+                        "product_title_XpW7A7",
+                        "price_ErpecX"
+                    ],
+                    "blocks": {
+                        "price_ErpecX": {
+                            "blocks": {},
+                            "name": "t:names.product_price",
+                            "settings": {
+                                "alignment": "left",
+                                "case": "uppercase",
+                                "color": "var(--color-foreground)",
+                                "font": "var(--font-subheading--family)",
+                                "font_size": "1rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "show_installments": false,
+                                "show_sale_price_first": true,
+                                "show_tax_info": false,
+                                "type_preset": "custom",
+                                "width": "100%"
+                            },
+                            "type": "price"
+                        },
+                        "product_card_gallery_HdB7NX": {
+                            "blocks": {},
+                            "name": "t:names.product_card_media",
+                            "settings": {
+                                "border": "none",
+                                "border_opacity": 100,
+                                "border_radius": 12,
+                                "border_width": 1,
+                                "image_ratio": "square",
+                                "padding-block-end": 0,
+                                "padding-block-start": 0,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0
+                            },
+                            "type": "_product-card-gallery"
+                        },
+                        "product_title_XpW7A7": {
+                            "blocks": {},
+                            "name": "t:names.product_title",
+                            "settings": {
+                                "alignment": "left",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "case": "none",
+                                "color": "var(--color-primary)",
+                                "corner_radius": 0,
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "letter_spacing": "normal",
+                                "line_height": "normal",
+                                "max_width": "normal",
+                                "padding-block-end": 0,
+                                "padding-block-start": 4,
+                                "padding-inline-end": 0,
+                                "padding-inline-start": 0,
+                                "type_preset": "custom",
+                                "width": "100%",
+                                "wrap": "pretty"
+                            },
+                            "type": "product-title"
+                        }
+                    },
+                    "name": "t:names.product_card",
+                    "settings": {
+                        "border": "solid",
+                        "border_opacity": 100,
+                        "border_radius": 12,
+                        "border_width": 1,
+                        "color_scheme": "scheme-3",
+                        "inherit_color_scheme": false,
+                        "padding-block-end": 12,
+                        "padding-block-start": 12,
+                        "padding-inline-end": 12,
+                        "padding-inline-start": 12,
+                        "product_card_gap": 12
+                    },
+                    "static": true,
+                    "type": "_product-card"
+                }
+            },
+            "custom_css": [
+                "@media (min-width: 768px) {.section-resource-list {padding-left: 80px; padding-right: 80px; }}",
+                "@media (max-width: 767px) {.section-resource-list {padding-left: 15px; padding-right: 15px; }}"
+            ],
+            "name": "Crash Guards Section",
+            "settings": {
+                "carousel_on_mobile": true,
+                "collection": "offer-zone",
+                "color_scheme": "scheme-2",
+                "columns": 4,
+                "columns_gap": 12,
+                "gap": 12,
+                "horizontal_alignment": "flex-start",
+                "icons_shape": "none",
+                "icons_style": "arrow",
+                "layout_type": "grid",
+                "max_products": 4,
+                "mobile_card_size": "60cqw",
+                "mobile_columns": "2",
+                "padding-block-end": 26,
+                "padding-block-start": 26,
+                "rows_gap": 24,
+                "section_width": "full-width"
+            },
+            "type": "product-list"
+        },
+        "recent_sale_pop_zgtpBP": {
+            "name": "Recent Sale Popup",
+            "settings": {
+                "bg_color": "#ffffff",
+                "border_radius": 12,
+                "city_color": "#e62222",
+                "collection": "fog-lights",
+                "display_interval": 20,
+                "font_family": "sans_serif_n4",
+                "font_size_main": 14,
+                "font_size_sub": 12,
+                "initial_delay": 5,
+                "overlay_opacity": 10,
+                "popup_width": 350,
+                "text_color": "#333333",
+                "verified_color": "#27ae60"
+            },
+            "type": "recentSalePop"
+        },
+        "section_BQYYfk": {
+            "block_order": [
+                "text_y7yjyC",
+                "button_9t4y4C"
+            ],
+            "blocks": {
+                "button_9t4y4C": {
+                    "blocks": {},
+                    "disabled": true,
+                    "settings": {
+                        "custom_width": 24,
+                        "custom_width_mobile": 100,
+                        "label": "Shop now",
+                        "link": "shopify://collections/all",
+                        "open_in_new_tab": false,
+                        "style_class": "button-secondary",
+                        "width": "fit-content",
+                        "width_mobile": "fit-content"
+                    },
+                    "type": "button"
+                },
+                "text_y7yjyC": {
+                    "blocks": {},
+                    "settings": {
+                        "alignment": "center",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "case": "none",
+                        "color": "var(--color-foreground)",
+                        "corner_radius": 0,
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "letter_spacing": "normal",
+                        "line_height": "normal",
+                        "max_width": "normal",
+                        "padding-block-end": 0,
+                        "padding-block-start": 0,
+                        "padding-inline-end": 0,
+                        "padding-inline-start": 0,
+                        "text": "\u003cp\u003eat \u003cem\u003eGARAGE91\u003c/em\u003e    we fuel your passion for riding with premium bike spares custom wraps and full-scale modifications that make your machine truly yours.\u003c/p\u003e",
+                        "type_preset": "h2",
+                        "width": "100%",
+                        "wrap": "pretty"
+                    },
+                    "type": "text"
+                }
+            },
+            "name": "t:names.pull_quote",
+            "settings": {
+                "align_baseline": false,
+                "background_image_position": "cover",
+                "background_media": "none",
+                "border": "none",
+                "border_opacity": 100,
+                "border_radius": 0,
+                "border_width": 1,
+                "color_scheme": "scheme-1",
+                "content_direction": "column",
+                "gap": 16,
+                "gradient_direction": "to top",
+                "horizontal_alignment": "flex-start",
+                "horizontal_alignment_flex_direction_column": "center",
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "padding-block-end": 64,
+                "padding-block-start": 64,
+                "section_height": "",
+                "section_height_custom": 50,
+                "section_width": "page-width",
+                "toggle_overlay": false,
+                "vertical_alignment": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "vertical_on_mobile": true,
+                "video_position": "cover"
+            },
+            "type": "section"
+        },
+        "shop_by_bike_ARXncQ": {
+            "block_order": [
+                "media_box_EkbQzt",
+                "media_box_x3TDQJ",
+                "media_box_9LBbjV",
+                "media_box_pTgGDh",
+                "media_box_RMMbar",
+                "media_box_9XLYtj",
+                "media_box_PaPX4p"
+            ],
+            "blocks": {
+                "media_box_9LBbjV": {
+                    "settings": {
+                        "collection_link": "tvs",
+                        "discount": "20% OFF",
+                        "image": "shopify://shop_images/BIKE_ACCESSORIES_123_3.png",
+                        "media_type": "image",
+                        "show_discount": false,
+                        "text": "TVS",
+                        "video_url": ""
+                    },
+                    "type": "media_box"
+                },
+                "media_box_9XLYtj": {
+                    "settings": {
+                        "collection_link": "honda",
+                        "discount": "20% OFF",
+                        "image": "shopify://shop_images/12.png",
+                        "media_type": "image",
+                        "show_discount": false,
+                        "text": "HONDA",
+                        "video_url": ""
+                    },
+                    "type": "media_box"
+                },
+                "media_box_EkbQzt": {
+                    "settings": {
+                        "collection_link": "royal-enfield",
+                        "discount": "20% OFF",
+                        "image": "shopify://shop_images/11.png",
+                        "media_type": "image",
+                        "show_discount": false,
+                        "text": "ROYAL ENFIELD",
+                        "video_url": ""
+                    },
+                    "type": "media_box"
+                },
+                "media_box_PaPX4p": {
+                    "settings": {
+                        "collection_link": "triumph",
+                        "discount": "20% OFF",
+                        "image": "shopify://shop_images/BIKE_ACCESSORIES_123_03a910c0-71b7-44cc-a11c-885f6a1d7990.png",
+                        "media_type": "image",
+                        "show_discount": false,
+                        "text": "TRIUMPH",
+                        "video_url": ""
+                    },
+                    "type": "media_box"
+                },
+                "media_box_RMMbar": {
+                    "settings": {
+                        "collection_link": "yamaha",
+                        "discount": "20% OFF",
+                        "image": "shopify://shop_images/9_29b8c584-749f-4e12-a473-605f650611d3.png",
+                        "media_type": "image",
+                        "show_discount": false,
+                        "text": "YAMAHA",
+                        "video_url": ""
+                    },
+                    "type": "media_box"
+                },
+                "media_box_pTgGDh": {
+                    "settings": {
+                        "collection_link": "ktm",
+                        "discount": "20% OFF",
+                        "image": "shopify://shop_images/8_06b86a6e-6378-4be8-b270-7ef5dc7cc31d.png",
+                        "media_type": "image",
+                        "show_discount": false,
+                        "text": "KTM",
+                        "video_url": ""
+                    },
+                    "type": "media_box"
+                },
+                "media_box_x3TDQJ": {
+                    "settings": {
+                        "collection_link": "bajaj",
+                        "discount": "20% OFF",
+                        "image": "shopify://shop_images/10.png",
+                        "media_type": "image",
+                        "show_discount": false,
+                        "text": "BAJAJ",
+                        "video_url": ""
+                    },
+                    "type": "media_box"
+                }
+            },
+            "name": "Media Box Carousel",
+            "settings": {
+                "arrow_bg_color": "#ff0000",
+                "arrow_color": "#ffffff",
+                "arrow_opacity": 100,
+                "arrow_size": 24,
+                "background_color": "#000000",
+                "desktop_box_height": 220,
+                "desktop_box_width": 300,
+                "enable_fade_animation": true,
+                "media_text_color": "#ffffff",
+                "media_text_font": "barlow_n5",
+                "media_text_size": 18,
+                "mobile_image_height": 160,
+                "mobile_image_width": 300,
+                "padding_bottom": 20,
+                "padding_bottom_mobile": 15,
+                "padding_left_desktop": 80,
+                "padding_left_mobile": 15,
+                "padding_right_desktop": 30,
+                "padding_right_mobile": 15,
+                "padding_top": 0,
+                "padding_top_mobile": 15,
+                "show_arrows": true
+            },
+            "type": "ShopByBike"
+        },
+        "snow_MFimY4": {
+            "name": "Winter Snowfall",
+            "settings": {
+                "density": 50,
+                "enable_snow": false,
+                "max_size": 8,
+                "max_speed": 9,
+                "min_size": 2,
+                "min_speed": 4,
+                "snow_color": "#ffffff",
+                "wind_direction": "right"
+            },
+            "type": "snow"
+        },
+        "three_sec_eFQfGE": {
+            "block_order": [
+                "item_mzWkgN",
+                "item_L3hrpF",
+                "item_LjAxH8"
+            ],
+            "blocks": {
+                "item_L3hrpF": {
+                    "settings": {
+                        "discount_bg": "#d5ff00",
+                        "discount_color": "#ff0000",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "image": "shopify://shop_images/Air_Filters_25228c84-9fc4-44bb-b7e7-7c916517dcae.png",
+                        "link": "shopify://collections/fog-lights",
+                        "show_discount": true,
+                        "title": ""
+                    },
+                    "type": "item"
+                },
+                "item_LjAxH8": {
+                    "settings": {
+                        "discount_bg": "#d5ff00",
+                        "discount_color": "#ff0000",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "image": "shopify://shop_images/Air_Filters_24fe6078-5902-497b-b541-e1a3b909f051.png",
+                        "link": "shopify://collections/air-filter-1",
+                        "show_discount": true,
+                        "title": ""
+                    },
+                    "type": "item"
+                },
+                "item_mzWkgN": {
+                    "settings": {
+                        "discount_bg": "#d5ff00",
+                        "discount_color": "#ff0000",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "image": "shopify://shop_images/BREAK_PADS_4.png",
+                        "link": "shopify://collections/brake-pads",
+                        "show_discount": true,
+                        "title": ""
+                    },
+                    "type": "item"
+                }
+            },
+            "name": "Three Grid Layout",
+            "settings": {
+                "background_color": "#000000",
+                "margin_bottom": 0,
+                "margin_top": 0,
+                "mobile_padding_bottom": 20,
+                "mobile_padding_left": 15,
+                "mobile_padding_right": 15,
+                "mobile_padding_top": 35,
+                "padding_bottom": 25,
+                "padding_left": 80,
+                "padding_right": 80,
+                "padding_top": 50,
+                "progress_bg": "#ffffff",
+                "progress_fill": "#ff0000",
+                "progress_height": 3,
+                "progress_margin_left": 20,
+                "progress_margin_right": 20,
+                "show_progress_bar": true,
+                "text_color": "#333333",
+                "vertical_gap": 20
+            },
+            "type": "ThreeSec"
+        },
+        "three_sec_r3FwGq": {
+            "disabled": true,
+            "name": "Three Grid Layout",
+            "settings": {
+                "background_color": "#000000",
+                "margin_bottom": 0,
+                "margin_top": 0,
+                "mobile_padding_bottom": 20,
+                "mobile_padding_left": 15,
+                "mobile_padding_right": 15,
+                "mobile_padding_top": 20,
+                "padding_bottom": 70,
+                "padding_left": 80,
+                "padding_right": 80,
+                "padding_top": 50,
+                "progress_bg": "#ffffff",
+                "progress_fill": "#ff0000",
+                "progress_height": 3,
+                "progress_margin_left": 20,
+                "progress_margin_right": 20,
+                "show_progress_bar": true,
+                "text_color": "#333333",
+                "vertical_gap": 20
+            },
+            "type": "ThreeSec"
+        },
+        "video_grid_8xLtFD": {
+            "block_order": [
+                "video_box_efa8EE",
+                "video_box_KHLewk",
+                "video_box_DNRcdN"
+            ],
+            "blocks": {
+                "video_box_DNRcdN": {
+                    "settings": {
+                        "autoplay": true,
+                        "collection_link": "exhaust-2",
+                        "controls": false,
+                        "discount_bg": "#ff0000",
+                        "discount_color": "#ffffff",
+                        "discount_h_align": "left",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "discount_v_align": "top",
+                        "loop": true,
+                        "muted": true,
+                        "padding_bottom": 0,
+                        "padding_left": 0,
+                        "padding_right": 0,
+                        "padding_top": 0,
+                        "product_link": "",
+                        "secondary_h_align": "left",
+                        "secondary_tag_bg": "#ed2a2a",
+                        "secondary_tag_color": "#ffffff",
+                        "secondary_tag_size": 15,
+                        "secondary_tag_text": "SHOP EXHAUSTS",
+                        "secondary_v_align": "top",
+                        "show_discount": false,
+                        "show_secondary_tag": true,
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/62d017ceb4614da1a11da44af91b4402.mp4"
+                    },
+                    "type": "video_box"
+                },
+                "video_box_KHLewk": {
+                    "settings": {
+                        "autoplay": true,
+                        "collection_link": "air-filter-1",
+                        "controls": false,
+                        "discount_bg": "#ff0000",
+                        "discount_color": "#ffffff",
+                        "discount_h_align": "left",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "discount_v_align": "top",
+                        "loop": true,
+                        "muted": true,
+                        "padding_bottom": 0,
+                        "padding_left": 0,
+                        "padding_right": 0,
+                        "padding_top": 0,
+                        "product_link": "",
+                        "secondary_h_align": "left",
+                        "secondary_tag_bg": "#ed2a2a",
+                        "secondary_tag_color": "#ffffff",
+                        "secondary_tag_size": 15,
+                        "secondary_tag_text": "SHOP AIR FILTERS",
+                        "secondary_v_align": "top",
+                        "show_discount": false,
+                        "show_secondary_tag": true,
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/9bef057628ba4eb9b3155e7ee071fd0d.mp4"
+                    },
+                    "type": "video_box"
+                },
+                "video_box_efa8EE": {
+                    "settings": {
+                        "autoplay": true,
+                        "collection_link": "fog-lights",
+                        "controls": false,
+                        "discount_bg": "#ffffff",
+                        "discount_color": "#f11111",
+                        "discount_h_align": "left",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "discount_v_align": "top",
+                        "loop": true,
+                        "muted": true,
+                        "padding_bottom": 0,
+                        "padding_left": 0,
+                        "padding_right": 0,
+                        "padding_top": 0,
+                        "product_link": "bobo-bl1-premium-auxiliary-lights-6000-lumens-60w-led-with-strobe-wiring-harness",
+                        "secondary_h_align": "left",
+                        "secondary_tag_bg": "#ed2a2a",
+                        "secondary_tag_color": "#ffffff",
+                        "secondary_tag_size": 15,
+                        "secondary_tag_text": "SHOP BOBO BL1 FOG LIGHT",
+                        "secondary_v_align": "top",
+                        "show_discount": false,
+                        "show_secondary_tag": true,
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/6a83b34e79754b2987b62f4d37306ffd.mp4"
+                    },
+                    "type": "video_box"
+                }
+            },
+            "name": "Video Grid",
+            "settings": {
+                "background_color": "#000000",
+                "border_radius": 10,
+                "custom_height": 500,
+                "custom_width": 400,
+                "desktop_columns": 3,
+                "desktop_peek": 100,
+                "enable_desktop_carousel": false,
+                "enable_mobile_carousel": true,
+                "full_width": true,
+                "mobile_padding_left": 15,
+                "mobile_padding_right": 15,
+                "mobile_peek": 85,
+                "padding_bottom": 25,
+                "padding_left": 80,
+                "padding_right": 80,
+                "padding_top": 25,
+                "video_ratio": "4-5"
+            },
+            "type": "VideoGrid"
+        },
+        "video_grid_ecjbRh": {
+            "block_order": [
+                "video_box_rm8wgk",
+                "video_box_KHcwta",
+                "video_box_Qg7KdY"
+            ],
+            "blocks": {
+                "video_box_KHcwta": {
+                    "settings": {
+                        "autoplay": true,
+                        "collection_link": "",
+                        "controls": false,
+                        "discount_bg": "#ff0000",
+                        "discount_color": "#ffffff",
+                        "discount_h_align": "left",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "discount_v_align": "top",
+                        "loop": true,
+                        "muted": true,
+                        "padding_bottom": 0,
+                        "padding_left": 0,
+                        "padding_right": 0,
+                        "padding_top": 0,
+                        "product_link": "",
+                        "secondary_h_align": "right",
+                        "secondary_tag_bg": "#000000",
+                        "secondary_tag_color": "#ffffff",
+                        "secondary_tag_size": 12,
+                        "secondary_tag_text": "NEW",
+                        "secondary_v_align": "bottom",
+                        "show_discount": false,
+                        "show_secondary_tag": false,
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/581868cc66944175a0669e27fd981580.mp4"
+                    },
+                    "type": "video_box"
+                },
+                "video_box_Qg7KdY": {
+                    "settings": {
+                        "autoplay": true,
+                        "collection_link": "",
+                        "controls": false,
+                        "discount_bg": "#ff0000",
+                        "discount_color": "#ffffff",
+                        "discount_h_align": "left",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "discount_v_align": "top",
+                        "loop": true,
+                        "muted": true,
+                        "padding_bottom": 0,
+                        "padding_left": 0,
+                        "padding_right": 0,
+                        "padding_top": 0,
+                        "product_link": "",
+                        "secondary_h_align": "right",
+                        "secondary_tag_bg": "#000000",
+                        "secondary_tag_color": "#ffffff",
+                        "secondary_tag_size": 12,
+                        "secondary_tag_text": "NEW",
+                        "secondary_v_align": "bottom",
+                        "show_discount": false,
+                        "show_secondary_tag": false,
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/bc772914d5774d9ea1c21af9475feb25.mp4"
+                    },
+                    "type": "video_box"
+                },
+                "video_box_rm8wgk": {
+                    "settings": {
+                        "autoplay": true,
+                        "collection_link": "",
+                        "controls": false,
+                        "discount_bg": "#ff0000",
+                        "discount_color": "#ffffff",
+                        "discount_h_align": "left",
+                        "discount_size": 14,
+                        "discount_text": "20% OFF",
+                        "discount_v_align": "top",
+                        "loop": true,
+                        "muted": true,
+                        "padding_bottom": 0,
+                        "padding_left": 0,
+                        "padding_right": 0,
+                        "padding_top": 0,
+                        "product_link": "",
+                        "secondary_h_align": "right",
+                        "secondary_tag_bg": "#000000",
+                        "secondary_tag_color": "#ffffff",
+                        "secondary_tag_size": 12,
+                        "secondary_tag_text": "NEW",
+                        "secondary_v_align": "bottom",
+                        "show_discount": false,
+                        "show_secondary_tag": false,
+                        "video_url": "https://cdn.shopify.com/videos/c/o/v/67de2c1cd40c4a11bc8c78dd16527502.mp4"
+                    },
+                    "type": "video_box"
+                }
+            },
+            "disabled": true,
+            "name": "Video Grid",
+            "settings": {
+                "background_color": "#000000",
+                "border_radius": 10,
+                "custom_height": 500,
+                "custom_width": 400,
+                "desktop_columns": 3,
+                "desktop_peek": 100,
+                "enable_desktop_carousel": false,
+                "enable_mobile_carousel": true,
+                "full_width": false,
+                "mobile_padding_left": 15,
+                "mobile_padding_right": 15,
+                "mobile_peek": 85,
+                "padding_bottom": 40,
+                "padding_left": 80,
+                "padding_right": 80,
+                "padding_top": 40,
+                "video_ratio": "1-1"
+            },
+            "type": "VideoGrid"
+        },
+        "video_layer_zaEk9U": {
+            "name": "Custom Video Section",
+            "settings": {
+                "background_color": "#000000",
+                "button_bg_color": "#000000",
+                "button_bg_hover": "#ff0000",
+                "button_color": "#ffffff",
+                "button_link": "",
+                "button_text": "Shop Now",
+                "desktop_aspect_ratio": "21:9",
+                "mobile_aspect_ratio": "4:3",
+                "overlay_heading": "Performance Meets Personalization.",
+                "overlay_heading_color": "#ffffff",
+                "overlay_heading_font": "bebas_neue_n4",
+                "overlay_heading_size": 36,
+                "overlay_text": "Spare parts, wraps, and bike customization all in one place at Garage91.",
+                "overlay_text_color": "#f0f0f0",
+                "overlay_text_font": "lato_n4",
+                "overlay_text_size": 18,
+                "padding_bottom_desktop": 0,
+                "padding_bottom_mobile": 30,
+                "padding_top_desktop": 0,
+                "padding_top_mobile": 30,
+                "text_alignment": "center",
+                "video_autoplay": true,
+                "video_controls": false,
+                "video_file": "",
+                "video_loop": true,
+                "video_muted": true
+            },
+            "type": "VideoLayer"
+        },
+        "whatsapp_jeaBta": {
+            "name": "WhatsApp Widget",
+            "settings": {
+                "animation_style": "none",
+                "background_color": "#25d366",
+                "border_radius": 23,
+                "bottom_position": 20,
+                "button_size": 56,
+                "icon_color": "#ffffff",
+                "message": "Hello I want to talk to Garage91",
+                "phone_number": "+919150875439",
+                "right_position": 20,
+                "show_tooltip": true,
+                "tooltip_background": "#ffffff",
+                "tooltip_font_size": 14,
+                "tooltip_text": "Talk To Garage91",
+                "tooltip_text_color": "#000000"
+            },
+            "type": "Whatsapp"
+        }
+    }
+}
