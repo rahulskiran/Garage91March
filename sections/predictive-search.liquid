@@ -39,76 +39,104 @@
 
       {% if predictive_search.performed %}
         {%- if search_results_count > 0 -%}
+          {%- comment -%} Tab Navigation Bar {%- endcomment -%}
+          <div class="search-tabs" data-search-tabs>
+            <button class="search-tabs__tab search-tabs__tab--active" data-tab="all" type="button">All</button>
+            {% if predictive_search.resources.products.size > 0 %}
+              <button class="search-tabs__tab" data-tab="products" type="button">Products <span class="search-tabs__count">{{ predictive_search.resources.products.size }}</span></button>
+            {% endif %}
+            {% if predictive_search.resources.collections.size > 0 %}
+              <button class="search-tabs__tab" data-tab="collections" type="button">Collections <span class="search-tabs__count">{{ predictive_search.resources.collections.size }}</span></button>
+            {% endif %}
+          </div>
+
           {% assign shared_results_index = 0 %}
+
+          {%- comment -%} Suggestion pills {%- endcomment -%}
           {% if predictive_search.resources.queries.size > 0 %}
             {% assign shared_results_index = shared_results_index
               | plus: predictive_search.resources.collections.size
             %}
-            <ul
-              class="predictive-search-results__list predictive-search-results__wrapper predictive-search-results__wrapper-queries list-unstyled"
-              role="listbox"
-              aria-labelledby="predictive-search-queries"
-            >
-              {%- for resource in predictive_search.resources.queries -%}
-                <li
-                  class="predictive-search-results__card--query"
-                  ref="resultsItems[]"
-                  data-search-result-index="search-results-{{ shared_results_index | plus: forloop.index }}"
-                  on:keydown="/onSearchKeyDown"
-                >
-                  <a
-                    class="pills__pill predictive-search-results__pill"
-                    href="{{ resource.url }}"
+            <div data-search-tab-content="all">
+              <ul
+                class="predictive-search-results__list predictive-search-results__wrapper predictive-search-results__wrapper-queries list-unstyled"
+                role="listbox"
+                aria-labelledby="predictive-search-queries"
+              >
+                {%- for resource in predictive_search.resources.queries -%}
+                  <li
+                    class="predictive-search-results__card--query"
+                    ref="resultsItems[]"
+                    data-search-result-index="search-results-{{ shared_results_index | plus: forloop.index }}"
+                    on:keydown="/onSearchKeyDown"
                   >
-                    <span
-                      aria-label="{{ resource.text }}"
+                    <a
+                      class="pills__pill predictive-search-results__pill"
+                      href="{{ resource.url }}"
                     >
-                      {{ resource.styled_text }}
-                    </span>
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
+                      <span
+                        aria-label="{{ resource.text }}"
+                      >
+                        {{ resource.styled_text }}
+                      </span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
           {% endif %}
+
+          {%- comment -%} Products section {%- endcomment -%}
           {% if predictive_search.resources.products.size > 0 %}
-            {%- liquid
-              assign title = 'content.search_results_resource_products' | t
-              assign products = predictive_search.resources.products
-              render 'predictive-search-products-list', title: title, products: products
-            -%}
+            <div data-search-tab-content="products">
+              {%- liquid
+                assign title = 'content.search_results_resource_products' | t
+                assign products = predictive_search.resources.products
+                render 'predictive-search-products-list', title: title, products: products
+              -%}
+            </div>
           {% endif %}
 
+          {%- comment -%} Collections section {%- endcomment -%}
           {% if predictive_search.resources.collections.size > 0 %}
-            {% assign shared_results_index = shared_results_index | plus: predictive_search.resources.articles.size %}
-            {% assign resource_title = 'content.search_results_resource_collections' | t %}
+            <div data-search-tab-content="collections">
+              {% assign shared_results_index = shared_results_index | plus: predictive_search.resources.articles.size %}
+              {% assign resource_title = 'content.search_results_resource_collections' | t %}
 
-            {% render 'predictive-search-resource-carousel',
-              title: resource_title,
-              resource_type: 'collection',
-              resources: predictive_search.resources.collections
-            %}
+              {% render 'predictive-search-resource-carousel',
+                title: resource_title,
+                resource_type: 'collection',
+                resources: predictive_search.resources.collections
+              %}
+            </div>
           {% endif %}
 
+          {%- comment -%} Pages section {%- endcomment -%}
           {% if predictive_search.resources.pages.size > 0 %}
-            {% assign shared_results_index = shared_results_index | plus: predictive_search.resources.products.size %}
-            {% assign resource_title = 'content.search_results_resource_pages' | t %}
+            <div data-search-tab-content="all">
+              {% assign shared_results_index = shared_results_index | plus: predictive_search.resources.products.size %}
+              {% assign resource_title = 'content.search_results_resource_pages' | t %}
 
-            {% render 'predictive-search-resource-carousel',
-              title: resource_title,
-              resource_type: 'page',
-              resources: predictive_search.resources.pages
-            %}
+              {% render 'predictive-search-resource-carousel',
+                title: resource_title,
+                resource_type: 'page',
+                resources: predictive_search.resources.pages
+              %}
+            </div>
           {% endif %}
 
+          {%- comment -%} Articles section {%- endcomment -%}
           {% if predictive_search.resources.articles.size > 0 %}
-            {% assign shared_results_index = shared_results_index | plus: predictive_search.resources.pages.size %}
-            {% assign resource_title = 'content.search_results_resource_articles' | t %}
+            <div data-search-tab-content="all">
+              {% assign shared_results_index = shared_results_index | plus: predictive_search.resources.pages.size %}
+              {% assign resource_title = 'content.search_results_resource_articles' | t %}
 
-            {% render 'predictive-search-resource-carousel',
-              title: resource_title,
-              resource_type: 'article',
-              resources: predictive_search.resources.articles
-            %}
+              {% render 'predictive-search-resource-carousel',
+                title: resource_title,
+                resource_type: 'article',
+                resources: predictive_search.resources.articles
+              %}
+            </div>
           {% endif %}
         {% else %}
           <p class="predictive-search-results__no-results">
@@ -627,7 +655,139 @@
       transform: scale(0.97);
     }
   }
+
+  /* ═══ Premium Tab Bar ═══ */
+  .search-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 12px var(--padding-xl) 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: var(--color-background);
+  }
+
+  .search-tabs__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .search-tabs__tab:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .search-tabs__tab--active {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .search-tabs__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .search-tabs__tab--active .search-tabs__count {
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  /* Tab content reveal animation */
+  [data-search-tab-content] {
+    animation: tabFadeIn 0.25s ease forwards;
+  }
+
+  [data-search-tab-content].search-tab--hidden {
+    display: none !important;
+  }
+
+  @keyframes tabFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ═══ Premium Pill Refinement ═══ */
+  .predictive-search-results__pill {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* ═══ Premium Product Card Refinement ═══ */
+  .predictive-search-results__card--product {
+    border-radius: var(--product-corner-radius);
+    overflow: hidden;
+  }
+
+  .predictive-search-results__title {
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 11px !important;
+    opacity: 0.7;
+  }
 {% endstylesheet %}
+
+<script>
+  // Tab switching logic – runs after morph updates
+  document.addEventListener('click', (e) => {
+    const tab = e.target.closest('[data-tab]');
+    if (!tab) return;
+    
+    const tabsContainer = tab.closest('[data-search-tabs]');
+    if (!tabsContainer) return;
+    
+    const resultsInner = tabsContainer.closest('.predictive-search-results__inner');
+    if (!resultsInner) return;
+    
+    const activeTab = tab.dataset.tab;
+    
+    // Update active tab button
+    tabsContainer.querySelectorAll('.search-tabs__tab').forEach(t => {
+      t.classList.toggle('search-tabs__tab--active', t === tab);
+    });
+    
+    // Show/hide content sections
+    resultsInner.querySelectorAll('[data-search-tab-content]').forEach(section => {
+      const sectionType = section.dataset.searchTabContent;
+      
+      if (activeTab === 'all') {
+        section.classList.remove('search-tab--hidden');
+      } else if (sectionType === activeTab) {
+        section.classList.remove('search-tab--hidden');
+      } else {
+        section.classList.add('search-tab--hidden');
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
