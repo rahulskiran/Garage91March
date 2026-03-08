@@ -242,9 +242,13 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    padding: var(--padding-2xs) 16px;
     background-color: transparent;
     border: none;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 749px) {
+      padding: var(--padding-2xs) 16px;
+    }
   }
 
   .predictive-search-form__header:focus-within,
