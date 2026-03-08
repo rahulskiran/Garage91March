@@ -28,10 +28,17 @@
     height: 44px; /* Prevent stretching full into the header height */
   }
 
+  /* Desktop: search fills all available center space between logo and actions */
   @media screen and (min-width: 750px) {
     .header__column--center .search-action {
-      width: 280px; /* Not full width into the header */
-      margin-inline-start: calc(var(--gap-xl) * 2); 
+      width: 100%;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header__column--center .search-action predictive-search,
+    .header__column--center .search-action form {
+      width: 100%;
     }
   }
 
@@ -47,11 +54,31 @@
     }
   }
 
+  /* Mobile: search bar becomes the full-width header */
   @media screen and (max-width: 749px) {
     .header__column--center .search-action {
       width: 100%;
       height: 40px;
       margin-inline-start: 0;
+    }
+
+    /* Make search span the full header width on mobile */
+    .header__columns .search-action {
+      grid-area: 1 / 1 / 2 / -1;
+      width: 100%;
+      padding-inline: var(--padding-3xs);
+    }
+
+    .header__columns .search-action predictive-search,
+    .header__columns .search-action form {
+      width: 100%;
+    }
+
+    /* Hide logo, hamburger, and actions on mobile when search is in center */
+    .header__columns:has(.header__column--center .search-action) .header-logo,
+    .header__columns:has(.header__column--center .search-action) header-actions,
+    .header__columns:has(.header__column--center .search-action) .header__icon--menu {
+      display: none;
     }
   }
 {% endstylesheet %}

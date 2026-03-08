@@ -492,6 +492,13 @@
       --header-right: minmax(max-content, 1fr);
     }
 
+    /* If search is in center column: let center grow to fill all available space */
+    &:has(.header__column--center .search-action) {
+      --header-center: 1fr;
+      --header-left: auto;
+      --header-right: auto;
+    }
+
     /* If there is no center column, make the column the menu is in grow eagerly */
     &:where(:not(:has(.header__column--center))) {
       @media screen and (min-width: 750px) {
@@ -542,6 +549,24 @@
 
       header-actions {
         grid-area: rightB;
+      }
+
+      /* Mobile: when search is in center, make the grid a single row and search fills it */
+      &:has(.header__column--center .search-action) {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'center';
+        padding-inline: var(--padding-3xs);
+
+        .header__column--left,
+        .header__column--right {
+          display: none;
+        }
+
+        .header__column--center {
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
       }
     }
   }
