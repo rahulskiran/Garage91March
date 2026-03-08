@@ -311,10 +311,16 @@
     justify-content: center;
     margin-right: 14px;
     z-index: 2;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
 
     @media screen and (min-width: 750px) {
       margin-right: var(--margin-md);
     }
+  }
+
+  /* Hide search icon when cancel/reset button is visible (user is typing) */
+  predictive-search-component:has(.predictive-search__reset-button:not([hidden])) .predictive-search__icon {
+    display: none !important;
   }
 
   .predictive-search__icon > svg {
@@ -325,7 +331,7 @@
   .predictive-search__reset-button {
     cursor: pointer;
     position: absolute;
-    right: 48px;
+    right: 14px;
     z-index: 3;
     display: flex;
     align-items: center;
@@ -346,10 +352,6 @@
     &:active {
       transform: scale(0.9);
       transition: transform 100ms var(--animation-timing-active);
-    }
-
-    @media screen and (max-width: 749px) {
-      right: 40px;
     }
   }
 
