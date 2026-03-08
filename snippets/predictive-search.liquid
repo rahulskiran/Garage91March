@@ -195,6 +195,8 @@
 
     @media screen and (min-width: 750px) {
       max-height: var(--modal-max-height);
+      width: 70%;
+      left: 15%; /* To center underneath the 70% inner search bar */
     }
   }
 
@@ -209,20 +211,18 @@
   }
 
   .predictive-search-form__header-inner {
-    background: var(--color-background);
-    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08); /* Subtle transparent grey background to distinguish from pitch black */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--color-foreground);
-    border-radius: var(--style-border-radius-popover);
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    margin: 0 auto;
 
-    @media screen and (max-width: 749px) {
-      border-radius: 12px;
-      /* Subtle transparent grey background to distinguish from pitch black */
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    @media screen and (min-width: 750px) {
+      width: 70%;
     }
   }
 
@@ -241,15 +241,10 @@
     z-index: var(--layer-heightened);
     width: 100%;
     align-items: center;
-    background-color: var(--color-input-background);
-    border: var(--search-border-width) solid var(--color-border);
-    border-radius: var(--style-border-radius-inputs);
-
-    @media screen and (max-width: 749px) {
-      padding: var(--padding-2xs) 5px; /* Add 16px left and right padding */
-      background-color: transparent;
-      border: none;
-    }
+    justify-content: center;
+    padding: var(--padding-2xs) 16px;
+    background-color: transparent;
+    border: none;
   }
 
   .predictive-search-form__header:focus-within,
@@ -274,22 +269,18 @@
 
   .search-input {
     border-radius: var(--style-border-radius-inputs);
-    padding-block: var(--padding-sm);
-    font-size: var(--font-size--md);
     flex-grow: 1;
     color: var(--color-foreground);
-    padding-inline: calc(var(--margin-md) + 4px) var(--margin-md);
     background: transparent;
     text-overflow: ellipsis;
     overflow: hidden;
     outline: none;
     border: 0;
-
-    @media screen and (max-width: 749px) {
-      padding-inline: 24px 10px;
-      padding-block: 12px;
-      font-size: 16px;
-    }
+    
+    /* Apply globally for consistent height/spacing */
+    padding-inline: 24px 40px;
+    padding-block: 12px;
+    font-size: 16px;
   }
 
   .search-input::placeholder {
@@ -465,6 +456,18 @@
     // Start with the base phrase
     let currentText = 'Search for ';
     let isDeleting = false;
+    
+    // Clear placeholder on focus, restore on blur
+    searchInputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        input.setAttribute('placeholder', '');
+      });
+      input.addEventListener('blur', () => {
+        if (input.value === '') {
+          input.setAttribute('placeholder', currentText);
+        }
+      });
+    });
     
     function typeEffect() {
       // The word we are currently typing out
