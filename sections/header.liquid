@@ -551,22 +551,13 @@
         grid-area: rightB;
       }
 
-      /* Mobile: when search is in center, make the grid a single row and search fills it */
+      /* Mobile: when search is in center, place it on a new full-width row below other items */
       &:has(.header__column--center .search-action) {
-        grid-template-columns: 1fr;
-        grid-template-areas: 'center';
-        padding-inline: var(--padding-3xs);
-
-        .header__column--left,
-        .header__column--right {
-          display: none;
-        }
-
-        .header__column--center {
-          display: flex;
-          align-items: center;
-          width: 100%;
-        }
+        grid-template-areas: 
+          'leftA leftB center rightA rightB'
+          'search search search search search';
+        row-gap: 15px;
+        padding-bottom: 15px;
       }
     }
   }
