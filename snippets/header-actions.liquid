@@ -23,9 +23,49 @@
       {% render 'cart-icon-component' %}
     </a>
   {% endif %}
+
+  <!-- ── Riders Club CTA ── -->
+  <a href="/pages/riders-club" class="rc-header-btn" aria-label="Riders Club">
+    <span class="rc-header-btn__icon">🏍</span>
+    <span class="rc-header-btn__label">Riders Club</span>
+  </a>
 </header-actions>
 
 {% stylesheet %}
+  /* ── Riders Club Header CTA ── */
+  .rc-header-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #ff7a1a, #e84c00);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    box-shadow: 0 3px 16px rgba(255, 100, 0, 0.4);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s;
+    margin-left: 8px;
+    align-self: center;
+  }
+  .rc-header-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(255, 100, 0, 0.55);
+    opacity: 0.9;
+  }
+  .rc-header-btn__icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+  @media screen and (max-width: 749px) {
+    .rc-header-btn__label { display: none; }
+    .rc-header-btn { padding: 8px 10px; }
+  }
+
   .cart-drawer {
     --cart-drawer-padding: var(--padding-lg) var(--padding-xl);
     --cart-drawer-padding-desktop: var(--padding-xl) var(--padding-2xl);

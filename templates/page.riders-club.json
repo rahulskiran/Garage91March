@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "riders-club": {
+      "type": "riders-club",
+      "settings": {},
+      "blocks": {}
+    }
+  },
+  "order": ["riders-club"]
+}

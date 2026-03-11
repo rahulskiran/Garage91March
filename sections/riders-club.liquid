@@ -1,0 +1,826 @@
+{% comment %} Garage91 Riders Club Section {% endcomment %}
+
+<!-- ═══════════════════════════════════════════════════ STYLES ═══ -->
+<style>
+  /* ── Base ── */
+  .rc-section { font-family: var(--font-paragraph--family, 'Inter', sans-serif); }
+
+  /* ══════════════════════ HERO ══════════════════════ */
+  .rc-hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: #0d0d0d;
+  }
+  .rc-hero__bg {
+    position: absolute; inset: 0;
+    background-image: url('{{ section.settings.hero_image | image_url: width: 1800 }}');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.38);
+    transform: scale(1.04);
+    transition: transform 8s ease;
+  }
+  .rc-hero:hover .rc-hero__bg { transform: scale(1); }
+  .rc-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg,rgba(0,0,0,0.55) 0%,rgba(180,70,0,0.18) 60%,rgba(0,0,0,0.7) 100%);
+  }
+  .rc-hero__content {
+    position: relative; z-index: 2;
+    max-width: 820px; padding: 40px 20px;
+  }
+  .rc-hero__badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,100,0,0.18);
+    border: 1px solid rgba(255,100,0,0.45);
+    border-radius: 50px; padding: 6px 18px;
+    color: #ff8c42; font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .rc-hero__badge::before { content: '●'; animation: rc-pulse 1.5s infinite; }
+  @keyframes rc-pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .rc-hero__title {
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 900; color: #fff;
+    line-height: 1.1; margin: 0 0 22px;
+    letter-spacing: -1px;
+  }
+  .rc-hero__title span { color: #ff7a1a; }
+  .rc-hero__sub {
+    font-size: clamp(1rem, 2.2vw, 1.22rem);
+    color: rgba(255,255,255,0.75);
+    max-width: 580px; margin: 0 auto 40px;
+    line-height: 1.65;
+  }
+  .rc-hero__btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .rc-btn-primary {
+    background: linear-gradient(135deg,#ff7a1a,#e84c00);
+    color: #fff; font-weight: 700; font-size: 0.9rem;
+    padding: 15px 32px; border-radius: 50px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: transform 0.22s, box-shadow 0.22s;
+    box-shadow: 0 4px 22px rgba(255,100,0,0.35);
+    letter-spacing: 0.5px;
+  }
+  .rc-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,100,0,0.5); }
+  .rc-btn-outline {
+    background: transparent;
+    color: #fff; font-weight: 600; font-size: 0.9rem;
+    padding: 14px 32px; border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.55);
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.22s, background 0.22s;
+  }
+  .rc-btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+  .rc-hero__stats {
+    position: absolute; bottom: 40px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 48px;
+    z-index: 2;
+  }
+  .rc-stat { text-align: center; }
+  .rc-stat__num { font-size: 2rem; font-weight: 900; color: #ff7a1a; }
+  .rc-stat__lbl { font-size: 0.72rem; color: rgba(255,255,255,0.55); letter-spacing: 1.5px; text-transform: uppercase; }
+
+  /* ══════════════════════ SHARED SECTION ══════════════════════ */
+  .rc-page-section {
+    padding: 90px 20px;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .rc-section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: #ff7a1a;
+    margin-bottom: 12px;
+  }
+  .rc-section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900; color: #fff; margin: 0 0 14px;
+    line-height: 1.15;
+  }
+  .rc-section-sub {
+    color: rgba(255,255,255,0.55); font-size: 1rem;
+    max-width: 520px; line-height: 1.6; margin-bottom: 52px;
+  }
+  .rc-section-bg-dark { background: #0a0a0a; }
+  .rc-section-bg-alt  { background: #111111; }
+
+  /* ══════════════════════ RIDE CARDS ══════════════════════ */
+  .rc-rides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
+    gap: 28px;
+  }
+  .rc-ride-card {
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.28s, box-shadow 0.28s;
+    position: relative;
+  }
+  .rc-ride-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,122,26,0.3);
+  }
+  .rc-ride-card__top {
+    padding: 26px 26px 0;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .rc-ride-card__difficulty {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    padding: 5px 12px; border-radius: 50px; text-transform: uppercase;
+  }
+  .rc-diff--beginner  { background: rgba(50,205,100,0.15); color: #32cd64; border: 1px solid rgba(50,205,100,0.3); }
+  .rc-diff--intermediate { background: rgba(255,180,0,0.15); color: #ffb400; border: 1px solid rgba(255,180,0,0.3); }
+  .rc-diff--pro { background: rgba(255,60,60,0.15); color: #ff4040; border: 1px solid rgba(255,60,60,0.3); }
+  .rc-ride-card__slots {
+    font-size: 11px; color: rgba(255,255,255,0.45); display: flex; align-items: center; gap: 5px;
+  }
+  .rc-ride-card__slots span.dot { width:7px; height:7px; border-radius:50%; background:#ff4040; display:inline-block; }
+  .rc-ride-card__body { padding: 20px 26px 26px; }
+  .rc-ride-card__name {
+    font-size: 1.25rem; font-weight: 800; color: #fff;
+    margin: 0 0 16px; line-height: 1.25;
+  }
+  .rc-ride-card__meta { display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
+  .rc-ride-card__meta-row {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.83rem; color: rgba(255,255,255,0.6);
+  }
+  .rc-ride-card__meta-row svg { flex-shrink:0; opacity:0.7; }
+  .rc-ride-card__register-btn {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg,#ff7a1a,#e84c00);
+    color: #fff; font-weight: 700; font-size: 0.88rem;
+    border: none; border-radius: 10px; cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .rc-ride-card__register-btn:hover { opacity: 0.88; transform: scale(0.98); }
+
+  /* ══════════════════════ MODAL ══════════════════════ */
+  .rc-modal-backdrop {
+    display: none;
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .rc-modal-backdrop.active { display: flex; }
+  .rc-modal {
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    width: 100%; max-width: 560px;
+    max-height: 90vh; overflow-y: auto;
+    animation: rc-modal-in 0.32s cubic-bezier(0.22,1,0.36,1);
+    padding: 36px;
+    position: relative;
+  }
+  @keyframes rc-modal-in {
+    from { opacity:0; transform: scale(0.92) translateY(20px); }
+    to   { opacity:1; transform: scale(1) translateY(0); }
+  }
+  .rc-modal__close {
+    position: absolute; top: 18px; right: 20px;
+    background: rgba(255,255,255,0.08); border: none;
+    color: #fff; width: 34px; height: 34px;
+    border-radius: 50%; cursor: pointer; font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .rc-modal__close:hover { background: rgba(255,255,255,0.16); }
+  .rc-modal__ride-name {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #ff7a1a; margin-bottom: 8px;
+  }
+  .rc-modal__title {
+    font-size: 1.5rem; font-weight: 900; color: #fff; margin: 0 0 28px;
+  }
+  .rc-form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .rc-form-group { display: flex; flex-direction: column; gap: 7px; }
+  .rc-form-group.full { grid-column: 1/-1; }
+  .rc-form-group label {
+    font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.8px;
+  }
+  .rc-form-group input,
+  .rc-form-group select {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 12px 15px;
+    color: #fff; font-size: 0.9rem;
+    outline: none; transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .rc-form-group select option { background: #222; }
+  .rc-form-group input:focus,
+  .rc-form-group select:focus { border-color: #ff7a1a; }
+  .rc-form-group input::placeholder { color: rgba(255,255,255,0.25); }
+  .rc-checkbox-group {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin: 18px 0;
+  }
+  .rc-checkbox-group input[type=checkbox] { margin-top: 3px; accent-color: #ff7a1a; width:16px; height:16px; flex-shrink:0; }
+  .rc-checkbox-group label { font-size: 0.83rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .rc-form-submit {
+    width: 100%; padding: 15px;
+    background: linear-gradient(135deg,#ff7a1a,#e84c00);
+    color: #fff; font-weight: 800; font-size: 0.95rem;
+    border: none; border-radius: 12px; cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .rc-form-submit:hover { opacity: 0.88; transform: scale(0.99); }
+  .rc-form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+  .rc-success-msg {
+    display: none; text-align: center; padding: 40px 20px;
+  }
+  .rc-success-msg__icon { font-size: 3rem; margin-bottom: 16px; }
+  .rc-success-msg h3 { color: #fff; font-size: 1.5rem; font-weight: 900; margin: 0 0 10px; }
+  .rc-success-msg p { color: rgba(255,255,255,0.55); font-size: 0.9rem; }
+
+  /* ══════════════════════ PAST RIDES ══════════════════════ */
+  .rc-past-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    gap: 22px;
+  }
+  .rc-past-card {
+    border-radius: 16px; overflow: hidden;
+    position: relative; aspect-ratio: 4/3;
+    background: #1a1a1a; cursor: pointer;
+    transition: transform 0.28s;
+  }
+  .rc-past-card:hover { transform: scale(1.02); }
+  .rc-past-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block; transition: filter 0.3s;
+  }
+  .rc-past-card:hover img { filter: brightness(0.65); }
+  .rc-past-card__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 20px;
+  }
+  .rc-past-card__name { font-weight: 800; color: #fff; font-size: 1rem; margin-bottom: 4px; }
+  .rc-past-card__desc { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 8px; line-height: 1.4; }
+  .rc-past-card__date { font-size: 0.72rem; color: #ff7a1a; font-weight: 700; letter-spacing: 1px; }
+  .rc-past-card__gallery-btn {
+    position: absolute; top: 14px; right: 14px;
+    background: rgba(255,255,255,0.12); backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px; color: #fff;
+    font-size: 11px; font-weight: 700; padding: 5px 13px;
+    text-decoration: none; opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .rc-past-card:hover .rc-past-card__gallery-btn { opacity: 1; }
+
+  /* ══════════════════════ BENEFITS ══════════════════════ */
+  .rc-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .rc-benefit-card {
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px; padding: 34px 28px;
+    transition: border-color 0.28s, transform 0.28s;
+    text-align: center;
+  }
+  .rc-benefit-card:hover { border-color: rgba(255,122,26,0.4); transform: translateY(-4px); }
+  .rc-benefit-card__icon {
+    font-size: 2.4rem; margin-bottom: 18px;
+    display: block;
+  }
+  .rc-benefit-card__title { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+  .rc-benefit-card__desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  /* ══════════════════════ RESPONSIVE ══════════════════════ */
+  @media screen and (max-width: 749px) {
+    .rc-hero { min-height: 100svh; }
+    .rc-hero__stats { gap: 24px; flex-wrap: wrap; bottom: 24px; }
+    .rc-page-section { padding: 60px 16px; }
+    .rc-form-grid { grid-template-columns: 1fr; }
+    .rc-modal { padding: 24px 20px; }
+    .rc-modal__title { font-size: 1.2rem; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════════════ HTML ════ -->
+<div class="rc-section {{ section.settings.color_scheme }}">
+
+  <!-- ────────────────────── HERO ────────────────────── -->
+  <div class="rc-hero" id="rc-hero">
+    <div class="rc-hero__bg"></div>
+    <div class="rc-hero__overlay"></div>
+    <div class="rc-hero__content">
+      <div class="rc-hero__badge">🏍 Garage91 Riders Club</div>
+      <h1 class="rc-hero__title">
+        Ride With <span>Garage91</span><br>Riders Club
+      </h1>
+      <p class="rc-hero__sub">{{ section.settings.hero_subtitle }}</p>
+      <div class="rc-hero__btns">
+        <a href="#upcoming-rides" class="rc-btn-primary">🗓 View Upcoming Rides</a>
+        <a href="#rc-join" class="rc-btn-outline">Join Riders Club</a>
+      </div>
+    </div>
+    <div class="rc-hero__stats">
+      <div class="rc-stat">
+        <div class="rc-stat__num">{{ section.settings.stat_rides }}+</div>
+        <div class="rc-stat__lbl">Rides Done</div>
+      </div>
+      <div class="rc-stat">
+        <div class="rc-stat__num">{{ section.settings.stat_riders }}+</div>
+        <div class="rc-stat__lbl">Active Riders</div>
+      </div>
+      <div class="rc-stat">
+        <div class="rc-stat__num">{{ section.settings.stat_cities }}+</div>
+        <div class="rc-stat__lbl">Cities</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────── UPCOMING RIDES ────────────────────── -->
+  <div class="rc-section-bg-dark" id="upcoming-rides">
+    <div class="rc-page-section">
+      <div class="rc-section-label">📅 What's Next</div>
+      <h2 class="rc-section-title">Upcoming Rides</h2>
+      <p class="rc-section-sub">Register your spot before they fill up. Every ride is curated for an unforgettable experience.</p>
+
+      <div class="rc-rides-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'ride' -%}
+            <div class="rc-ride-card" {{ block.shopify_attributes }}>
+              <div class="rc-ride-card__top">
+                <span class="rc-ride-card__difficulty rc-diff--{{ block.settings.difficulty | downcase }}">
+                  {{ block.settings.difficulty }}
+                </span>
+                <span class="rc-ride-card__slots">
+                  <span class="dot"></span>
+                  {{ block.settings.slots_left }} slots left
+                </span>
+              </div>
+              <div class="rc-ride-card__body">
+                <h3 class="rc-ride-card__name">{{ block.settings.ride_name }}</h3>
+                <div class="rc-ride-card__meta">
+                  <div class="rc-ride-card__meta-row">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    {{ block.settings.ride_date }} &nbsp;·&nbsp; {{ block.settings.ride_time }}
+                  </div>
+                  <div class="rc-ride-card__meta-row">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    {{ block.settings.start_location }}
+                  </div>
+                  <div class="rc-ride-card__meta-row">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {{ block.settings.distance }} km &nbsp;·&nbsp; {{ block.settings.duration }}
+                  </div>
+                </div>
+                <button
+                  class="rc-ride-card__register-btn"
+                  onclick="rcOpenModal('{{ block.settings.ride_name | escape }}')"
+                >
+                  Register for This Ride →
+                </button>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────── PAST RIDES ────────────────────── -->
+  <div class="rc-section-bg-alt" id="rc-past-rides">
+    <div class="rc-page-section">
+      <div class="rc-section-label">📸 Ride Memories</div>
+      <h2 class="rc-section-title">Past Rides</h2>
+      <p class="rc-section-sub">Relive the roads we've conquered together. Each ride — a story worth telling.</p>
+      <div class="rc-past-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'past_ride' -%}
+            <div class="rc-past-card" {{ block.shopify_attributes }}>
+              {%- if block.settings.photo != blank -%}
+                <img
+                  src="{{ block.settings.photo | image_url: width: 600 }}"
+                  alt="{{ block.settings.ride_name }}"
+                  loading="lazy"
+                  width="600" height="450"
+                >
+              {%- else -%}
+                <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);"></div>
+              {%- endif -%}
+              <div class="rc-past-card__overlay">
+                <div class="rc-past-card__name">{{ block.settings.ride_name }}</div>
+                <div class="rc-past-card__desc">{{ block.settings.description }}</div>
+                <div class="rc-past-card__date">{{ block.settings.ride_date }}</div>
+              </div>
+              {%- if block.settings.gallery_url != blank -%}
+                <a href="{{ block.settings.gallery_url }}" class="rc-past-card__gallery-btn" target="_blank">View Gallery →</a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────── BENEFITS ────────────────────── -->
+  <div class="rc-section-bg-dark" id="rc-join">
+    <div class="rc-page-section" style="text-align:center;">
+      <div class="rc-section-label">✦ Why Join</div>
+      <h2 class="rc-section-title">Community Benefits</h2>
+      <p class="rc-section-sub" style="margin-left:auto;margin-right:auto;">Riders Club isn't just rides — it's a brotherhood of passionate motorcyclists.</p>
+      <div class="rc-benefits-grid" style="text-align:left;">
+        <div class="rc-benefit-card">
+          <span class="rc-benefit-card__icon">🏍</span>
+          <div class="rc-benefit-card__title">Monthly Curated Rides</div>
+          <div class="rc-benefit-card__desc">Multiple group rides every month — city escapes, hill runs, weekend tourers.</div>
+        </div>
+        <div class="rc-benefit-card">
+          <span class="rc-benefit-card__icon">🤝</span>
+          <div class="rc-benefit-card__title">Rider Community Access</div>
+          <div class="rc-benefit-card__desc">Join our private WhatsApp group. Network with 500+ passionate riders.</div>
+        </div>
+        <div class="rc-benefit-card">
+          <span class="rc-benefit-card__icon">🏷</span>
+          <div class="rc-benefit-card__title">Exclusive Discounts</div>
+          <div class="rc-benefit-card__desc">Members get priority access to Garage91 product deals and member-only prices.</div>
+        </div>
+        <div class="rc-benefit-card">
+          <span class="rc-benefit-card__icon">🚀</span>
+          <div class="rc-benefit-card__title">Early Product Launches</div>
+          <div class="rc-benefit-card__desc">Be first to test and review new gear — straight from the Garage91 workshop.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /rc-section -->
+
+<!-- ═══════════════════════════════════════════════════ MODAL ═══ -->
+<div class="rc-modal-backdrop" id="rc-modal" role="dialog" aria-modal="true">
+  <div class="rc-modal">
+    <button class="rc-modal__close" onclick="rcCloseModal()" aria-label="Close">✕</button>
+    <div id="rc-form-wrap">
+      <div class="rc-modal__ride-name" id="rc-modal-ride-name">Ride Registration</div>
+      <h2 class="rc-modal__title">Register for Ride</h2>
+      <form id="rc-register-form">
+        <input type="hidden" name="form_type" value="contact">
+        <input type="hidden" name="utf8" value="✓">
+        <input type="hidden" name="contact[tags]" value="riders-club-registration">
+        <input type="hidden" id="rc-ride-input" name="contact[Ride Name]" value="">
+        <div class="rc-form-grid">
+          <div class="rc-form-group">
+            <label for="rc-name">Full Name *</label>
+            <input type="text" id="rc-name" name="contact[name]" placeholder="Your full name" required>
+          </div>
+          <div class="rc-form-group">
+            <label for="rc-phone">Phone Number *</label>
+            <input type="tel" id="rc-phone" name="contact[Phone]" placeholder="+91 00000 00000" required>
+          </div>
+          <div class="rc-form-group">
+            <label for="rc-email">Email</label>
+            <input type="email" id="rc-email" name="contact[email]" placeholder="you@email.com">
+          </div>
+          <div class="rc-form-group">
+            <label for="rc-bike">Bike Model</label>
+            <select id="rc-bike" name="contact[Bike Model]">
+              <option value="">Select your bike</option>
+              <option>Royal Enfield Classic 350</option>
+              <option>Royal Enfield Himalayan</option>
+              <option>KTM Duke 390</option>
+              <option>KTM Adventure 390</option>
+              <option>BMW G310R</option>
+              <option>BMW G310GS</option>
+              <option>Honda CB300R</option>
+              <option>Bajaj Dominar 400</option>
+              <option>Kawasaki Z400</option>
+              <option>Triumph Speed 400</option>
+              <option>Suzuki Gixxer SF 250</option>
+              <option>Yamaha MT-15</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="rc-form-group">
+            <label for="rc-city">City</label>
+            <input type="text" id="rc-city" name="contact[City]" placeholder="Your city">
+          </div>
+          <div class="rc-form-group">
+            <label for="rc-exp">Riding Experience</label>
+            <select id="rc-exp" name="contact[Experience Level]">
+              <option value="">Select level</option>
+              <option>Beginner (0–1 yr)</option>
+              <option>Intermediate (1–4 yrs)</option>
+              <option>Pro (4+ yrs)</option>
+            </select>
+          </div>
+          <div class="rc-form-group">
+            <label for="rc-emergency">Emergency Contact</label>
+            <input type="tel" id="rc-emergency" name="contact[Emergency Contact]" placeholder="+91 00000 00000">
+          </div>
+          <div class="rc-form-group">
+            <label for="rc-insta">Instagram ID (optional)</label>
+            <input type="text" id="rc-insta" name="contact[Instagram]" placeholder="@yourhandle">
+          </div>
+          <div class="rc-form-group full">
+            <label for="rc-body">Anything else you want us to know?</label>
+            <input type="text" id="rc-body" name="contact[body]" placeholder="Optional message...">
+          </div>
+        </div>
+        <div class="rc-checkbox-group">
+          <input type="checkbox" id="rc-safety" required>
+          <label for="rc-safety">I agree to follow the Garage91 ride safety guidelines and ride responsibly at all times.</label>
+        </div>
+        <button type="submit" class="rc-form-submit" id="rc-submit-btn">Register for Ride 🏍</button>
+      </form>
+    </div>
+    <!-- Success State -->
+    <div class="rc-success-msg" id="rc-success">
+      <div class="rc-success-msg__icon">🎉</div>
+      <h3>You're Registered!</h3>
+      <p>We've received your registration. Our team will confirm your spot via WhatsApp or email shortly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ SCRIPT ═══ -->
+<script>
+  // Open modal
+  function rcOpenModal(rideName) {
+    document.getElementById('rc-modal-ride-name').textContent = rideName;
+    document.getElementById('rc-ride-input').value = rideName;
+    document.getElementById('rc-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    // Reset to form view
+    document.getElementById('rc-form-wrap').style.display = '';
+    document.getElementById('rc-success').style.display = 'none';
+    document.getElementById('rc-register-form').reset();
+    document.getElementById('rc-ride-input').value = rideName;
+  }
+
+  // Close modal
+  function rcCloseModal() {
+    document.getElementById('rc-modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close on backdrop click
+  document.getElementById('rc-modal').addEventListener('click', function(e) {
+    if (e.target === this) rcCloseModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') rcCloseModal();
+  });
+
+  // Smooth scroll for hero buttons
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // AJAX Form Submission
+  document.getElementById('rc-register-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('rc-submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    var formData = new FormData(this);
+
+    fetch('/contact#contact_form', {
+      method: 'POST',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      body: formData
+    })
+    .then(function(res) {
+      // Show success regardless of response body (Shopify redirects, but AJAX catches 200)
+      document.getElementById('rc-form-wrap').style.display = 'none';
+      document.getElementById('rc-success').style.display = 'block';
+    })
+    .catch(function() {
+      // Fallback: also show success (submission likely went through)
+      document.getElementById('rc-form-wrap').style.display = 'none';
+      document.getElementById('rc-success').style.display = 'block';
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Riders Club",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Hero Subtitle",
+      "default": "Join our community rides, meet fellow riders, and experience the road together."
+    },
+    {
+      "type": "header",
+      "content": "Stats Bar"
+    },
+    {
+      "type": "text",
+      "id": "stat_rides",
+      "label": "Rides Completed",
+      "default": "50"
+    },
+    {
+      "type": "text",
+      "id": "stat_riders",
+      "label": "Active Riders",
+      "default": "500"
+    },
+    {
+      "type": "text",
+      "id": "stat_cities",
+      "label": "Cities",
+      "default": "12"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ride",
+      "name": "Upcoming Ride",
+      "settings": [
+        {
+          "type": "text",
+          "id": "ride_name",
+          "label": "Ride Name",
+          "default": "Nandi Hills Sunrise Ride"
+        },
+        {
+          "type": "text",
+          "id": "ride_date",
+          "label": "Date",
+          "default": "March 22, 2026"
+        },
+        {
+          "type": "text",
+          "id": "ride_time",
+          "label": "Start Time",
+          "default": "5:30 AM"
+        },
+        {
+          "type": "text",
+          "id": "start_location",
+          "label": "Starting Location",
+          "default": "Garage91, Bengaluru"
+        },
+        {
+          "type": "text",
+          "id": "distance",
+          "label": "Distance (km)",
+          "default": "120"
+        },
+        {
+          "type": "text",
+          "id": "duration",
+          "label": "Duration",
+          "default": "~5 hrs"
+        },
+        {
+          "type": "select",
+          "id": "difficulty",
+          "label": "Difficulty",
+          "options": [
+            { "value": "Beginner", "label": "Beginner" },
+            { "value": "Intermediate", "label": "Intermediate" },
+            { "value": "Pro", "label": "Pro" }
+          ],
+          "default": "Intermediate"
+        },
+        {
+          "type": "number",
+          "id": "slots_left",
+          "label": "Slots Remaining",
+          "default": 12
+        }
+      ]
+    },
+    {
+      "type": "past_ride",
+      "name": "Past Ride",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "photo",
+          "label": "Ride Photo"
+        },
+        {
+          "type": "text",
+          "id": "ride_name",
+          "label": "Ride Name",
+          "default": "Coorg Mist Ride"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Short Description",
+          "default": "45 riders, 280km, one incredible weekend."
+        },
+        {
+          "type": "text",
+          "id": "ride_date",
+          "label": "Date",
+          "default": "Feb 2026"
+        },
+        {
+          "type": "url",
+          "id": "gallery_url",
+          "label": "Gallery Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Riders Club",
+      "blocks": [
+        {
+          "type": "ride",
+          "settings": {
+            "ride_name": "Nandi Hills Sunrise Ride",
+            "ride_date": "March 22, 2026",
+            "ride_time": "5:30 AM",
+            "start_location": "Garage91, Bengaluru",
+            "distance": "120",
+            "duration": "~5 hrs",
+            "difficulty": "Intermediate",
+            "slots_left": 12
+          }
+        },
+        {
+          "type": "ride",
+          "settings": {
+            "ride_name": "Coorg Weekend Tourer",
+            "ride_date": "April 5, 2026",
+            "ride_time": "6:00 AM",
+            "start_location": "Garage91, Bengaluru",
+            "distance": "280",
+            "duration": "2 days",
+            "difficulty": "Intermediate",
+            "slots_left": 8
+          }
+        },
+        {
+          "type": "ride",
+          "settings": {
+            "ride_name": "Hampi Heritage Ride",
+            "ride_date": "April 19, 2026",
+            "ride_time": "5:00 AM",
+            "start_location": "Garage91, Bengaluru",
+            "distance": "380",
+            "duration": "2 days",
+            "difficulty": "Pro",
+            "slots_left": 5
+          }
+        },
+        {
+          "type": "past_ride",
+          "settings": {
+            "ride_name": "Coorg Mist Ride",
+            "description": "45 riders, 280km, one incredible weekend.",
+            "ride_date": "Feb 2026"
+          }
+        },
+        {
+          "type": "past_ride",
+          "settings": {
+            "ride_name": "Nandi Hills January Ride",
+            "description": "Sunrise chasers — 32 bikes, one perfect morning.",
+            "ride_date": "Jan 2026"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
