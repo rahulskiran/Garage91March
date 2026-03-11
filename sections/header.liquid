@@ -270,6 +270,28 @@
         padding-top: 20px !important;
 
   }
+
+  /* ---- WIDER SEARCH BAR ---- */
+  /* Right-column search: give it a fixed wide min-width */
+  .header__column--right .search-action,
+  .header__column--left .search-action {
+    min-width: 420px !important;
+    width: 420px !important;
+  }
+
+  /* Make the input and form fill their container */
+  .header__column--right .search-action predictive-search,
+  .header__column--right .search-action form,
+  .header__column--left .search-action predictive-search,
+  .header__column--left .search-action form {
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  /* Center-column search already fills space, just ensure a good minimum */
+  .header__column--center .search-action {
+    min-width: 480px !important;
+  }
 }
 
 
