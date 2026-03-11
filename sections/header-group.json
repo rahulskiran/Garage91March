@@ -16,7 +16,8 @@
       "name": "Custom Announcement Bar",
       "settings": {
         "show_announcement": true,
-        "text": "<p><strong>🏍️  SUMMER SALE IS LIVE 20 PERCENT OFF  🏍️ </strong></p>",
+        "text": "<p>SUMMER SALE IS LIVE 20 PERCENT OFF</p>",
+        "custom_font": "oswald_n4",
         "text_size": 15,
         "mobile_text_size": 12,
         "bg_color": "#ecff00",
