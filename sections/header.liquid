@@ -292,6 +292,36 @@
   .header__column--center .search-action {
     min-width: 480px !important;
   }
+
+  /* ---- FORCE ALL MENU ITEMS WHITE ---- */
+  .menu-list .menu-list__link,
+  .menu-list .menu-list__link:hover,
+  .menu-list .menu-list__link:focus,
+  .menu-list:where(:has(.menu-list__list-item:hover)) .menu-list__link,
+  .menu-list:where(:has(.menu-list__list-item:focus-within)) .menu-list__link {
+    color: #ffffff !important;
+    --menu-top-level-font-color: #ffffff !important;
+  }
+
+  /* ---- DROPDOWN CHEVRON ARROW ---- */
+  /* Show arrow only on links that have a submenu (aria-haspopup) */
+  .menu-list__link[aria-haspopup] .menu-list__link-title::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.2s ease;
+    vertical-align: middle;
+  }
+
+  /* Rotate arrow up when submenu is open */
+  .menu-list__link[aria-haspopup][aria-expanded='true'] .menu-list__link-title::after {
+    transform: rotate(-135deg) translateY(-2px);
+  }
 }
 
 
