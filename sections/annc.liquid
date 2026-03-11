@@ -4,11 +4,20 @@
   - UPDATED: Now uses a "Seamless Loop" technique by duplicating text to remove gaps.
 {% endcomment %}
 
+{%- if section.settings.custom_font != blank -%}
+  {{ section.settings.custom_font | font_face: font_display: 'swap' }}
+{%- endif -%}
+
 {%- style -%}
   .announcement-bar-{{ section.id }} {
     background-color: {{ section.settings.bg_color }};
     color: {{ section.settings.text_color }};
     font-size: {{ section.settings.text_size }}px;
+    {%- if section.settings.custom_font != blank -%}
+      font-family: {{ section.settings.custom_font.family }}, {{ section.settings.custom_font.fallback_families }};
+      font-weight: {{ section.settings.custom_font.weight }};
+      font-style: {{ section.settings.custom_font.style }};
+    {%- endif -%}
     padding: 10px 0;
     position: relative;
     overflow: hidden;
@@ -170,6 +179,17 @@
       "id": "text",
       "label": "Text",
       "default": "<p>Welcome to our store</p>"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "custom_font",
+      "label": "Font",
+      "default": "helvetica_n4",
+      "info": "Choose any font from the Shopify font library. Includes Google Fonts and system fonts."
     },
     {
       "type": "header",
