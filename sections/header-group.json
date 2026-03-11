@@ -13,7 +13,6 @@
   "sections": {
     "annc_zk7PaT": {
       "type": "annc",
-      "disabled": true,
       "name": "Custom Announcement Bar",
       "settings": {
         "show_announcement": true,
