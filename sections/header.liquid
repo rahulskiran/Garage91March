@@ -293,34 +293,65 @@
     min-width: 480px !important;
   }
 
-  /* ---- FORCE ALL MENU ITEMS WHITE ---- */
+  /* ---- FORCE ALL MENU ITEMS WHITE (all states) ---- */
   .menu-list .menu-list__link,
   .menu-list .menu-list__link:hover,
   .menu-list .menu-list__link:focus,
   .menu-list:where(:has(.menu-list__list-item:hover)) .menu-list__link,
-  .menu-list:where(:has(.menu-list__list-item:focus-within)) .menu-list__link {
+  .menu-list:where(:has(.menu-list__list-item:focus-within)) .menu-list__link,
+  .menu-list:where(:has(.menu-list__link--active)) .menu-list__link {
     color: #ffffff !important;
     --menu-top-level-font-color: #ffffff !important;
+    --menu-top-level-font-color-rgb: 255, 255, 255 !important;
   }
 
-  /* ---- DROPDOWN CHEVRON ARROW ---- */
-  /* Show arrow only on links that have a submenu (aria-haspopup) */
+  /* ---- WHITE UNDERLINE ON HOVER ---- */
+  /* Wrap the link title so we can animate an underline */
+  .menu-list__link-title {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 2px;
+  }
+
+  /* Underline pseudo element — hidden by default */
+  .menu-list__link-title::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: #ffffff;
+    transition: width 0.25s ease;
+  }
+
+  /* Expand underline on hover/focus/active */
+  .menu-list__list-item:where(:hover, :focus-within) .menu-list__link-title::before,
+  .menu-list__link--active .menu-list__link-title::before {
+    width: 100%;
+  }
+
+  /* ---- THIN DROPDOWN CHEVRON ARROW ---- */
+  /* Placed using a span via gap in flex, perfectly centered */
   .menu-list__link[aria-haspopup] .menu-list__link-title::after {
     content: '';
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-left: 5px;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-    transform: rotate(45deg) translateY(-2px);
-    transition: transform 0.2s ease;
-    vertical-align: middle;
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 0.22s ease, border-color 0.22s ease;
+    position: relative;
+    top: -1px;
   }
 
-  /* Rotate arrow up when submenu is open */
+  /* Rotate arrow upward when submenu is open */
   .menu-list__link[aria-haspopup][aria-expanded='true'] .menu-list__link-title::after {
-    transform: rotate(-135deg) translateY(-2px);
+    transform: rotate(-135deg) translateY(1px);
   }
 }
 
