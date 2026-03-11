@@ -11,37 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "header_announcements_NrKghy": {
-      "type": "header-announcements",
-      "blocks": {
-        "announcement_VPeeFN": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Shop our latest arrivals!",
-            "link": "",
-            "font": "var(--font-heading--family)",
-            "font_size": "1rem",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "announcement_VPeeFN"
-      ],
-      "disabled": true,
-      "name": "t:names.announcement_bar",
-      "settings": {
-        "speed": 5,
-        "section_width": "full-width",
-        "color_scheme": "scheme-8",
-        "divider_width": 0,
-        "padding-block-start": 10,
-        "padding-block-end": 10
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -137,7 +106,6 @@
     }
   },
   "order": [
-    "header_announcements_NrKghy",
     "header_section",
     "annc_zk7PaT"
   ]
