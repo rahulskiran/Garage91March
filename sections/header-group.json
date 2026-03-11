@@ -11,6 +11,21 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "annc_zk7PaT": {
+      "type": "annc",
+      "name": "Custom Announcement Bar",
+      "settings": {
+        "show_announcement": true,
+        "text": "<p>SUMMER SALE IS LIVE 20 PERCENT OFF</p>",
+        "custom_font": "inter_n7",
+        "text_size": 15,
+        "mobile_text_size": 12,
+        "bg_color": "#ecff00",
+        "text_color": "#000000",
+        "enable_scroll": true,
+        "scroll_speed": 100
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -88,25 +103,10 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
-    },
-    "annc_zk7PaT": {
-      "type": "annc",
-      "name": "Custom Announcement Bar",
-      "settings": {
-        "show_announcement": true,
-        "text": "<p>SUMMER SALE IS LIVE 20 PERCENT OFF</p>",
-        "custom_font": "inter_n7",
-        "text_size": 15,
-        "mobile_text_size": 12,
-        "bg_color": "#ecff00",
-        "text_color": "#000000",
-        "enable_scroll": true,
-        "scroll_speed": 100
-      }
     }
   },
   "order": [
-    "header_section",
-    "annc_zk7PaT"
+    "annc_zk7PaT",
+    "header_section"
   ]
 }
