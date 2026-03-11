@@ -305,31 +305,30 @@
     --menu-top-level-font-color-rgb: 255, 255, 255 !important;
   }
 
-  /* ---- WHITE UNDERLINE ON HOVER ---- */
-  /* Wrap the link title so we can animate an underline */
+  /* ---- WHITE UNDERLINE ON HOVER ONLY ---- */
   .menu-list__link-title {
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    padding-bottom: 2px;
+    overflow: visible;
   }
 
-  /* Underline pseudo element — hidden by default */
+  /* Underline — starts at 0 width, slides in on hover only */
   .menu-list__link-title::before {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -3px;
     left: 0;
-    width: 0%;
+    width: 0;
     height: 1px;
     background-color: #ffffff;
     transition: width 0.25s ease;
+    pointer-events: none;
   }
 
-  /* Expand underline on hover/focus/active */
-  .menu-list__list-item:where(:hover, :focus-within) .menu-list__link-title::before,
-  .menu-list__link--active .menu-list__link-title::before {
+  /* Only expand on TRUE hover — no active/focus state bleed */
+  .menu-list__list-item:hover > .menu-list__link .menu-list__link-title::before {
     width: 100%;
   }
 
