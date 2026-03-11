@@ -296,6 +296,9 @@
     background-color: {{ section.settings.background_color }};
     padding-top: {{ section.settings.padding_top_desktop }}px;
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    /* Ensure the section stays in a low stacking context */
+    position: relative;
+    z-index: 1; 
   }
 
   @media (max-width: 767px) {
@@ -328,12 +331,10 @@
                       desktop-ratio-{{ section.settings.desktop_aspect_ratio | replace: ':', '-' }} 
                       mobile-ratio-{{ section.settings.mobile_aspect_ratio | replace: ':', '-' }}">
             
-            {% comment %} Stretch full-slide link to make everything clickable {% endcomment %}
             {% if block.settings.button_link != blank %}
               <a href="{{ block.settings.button_link }}" class="full-slide-link" aria-label="{{ block.settings.overlay_heading | default: 'Slide link' | escape }}"></a>
             {% endif %}
             
-            {% comment %} Desktop Media (Video prioritised over Image) {% endcomment %}
             <div class="media-wrapper desktop-media-wrapper">
               {% if block.settings.video_desktop != blank %}
                 {{ block.settings.video_desktop | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '2500x', class: 'background-media' }}
@@ -348,7 +349,6 @@
               {% endif %}
             </div>
 
-            {% comment %} Mobile Media (Video prioritised over Image) {% endcomment %}
             <div class="media-wrapper mobile-media-wrapper">
               {% if block.settings.video_mobile != blank %}
                  {{ block.settings.video_mobile | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1200x', class: 'background-media' }}
@@ -426,7 +426,7 @@
   transition: transform 0.5s ease-out;
   width: 100%;
   cursor: grab;
-  touch-action: pan-y; /* Allows vertical scrolling natively but traps horizontal swipe */
+  touch-action: pan-y;
 }
 
 .carousel-track:active {
@@ -452,8 +452,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5; /* Sits above text but below arrows/dots */
-  -webkit-user-drag: none; /* Prevents ghost dragging the link */
+  z-index: 3; /* Lowered from 5 */
+  -webkit-user-drag: none;
 }
 
 .media-wrapper {
@@ -469,13 +469,8 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  user-select: none; /* Prevents text/media selection while dragging */
-  -webkit-user-drag: none; /* Prevents image ghost dragging */
-}
-
-/* Specific styling to ensure video ignores inner padding in some themes */
-video.background-media {
-  max-width: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .placeholder-svg {
@@ -485,7 +480,7 @@ video.background-media {
   background: #eee;
 }
 
-/* Navigation UI */
+/* Navigation UI - Lowered z-index to avoid overlapping theme headers/menus */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -497,7 +492,7 @@ video.background-media {
   height: 44px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 10;
+  z-index: 4; /* Lowered from 10 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -517,7 +512,7 @@ video.background-media {
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  z-index: 10;
+  z-index: 4; /* Lowered from 10 */
 }
 
 .dot {
@@ -575,12 +570,11 @@ video.background-media {
   left: 50%;
   width: 90%;
   max-width: 900px;
-  z-index: 2;
+  z-index: 2; /* Lowered to keep UI stack tight */
   color: #fff;
-  pointer-events: none; /* Let clicks pass through to the full slide link */
+  pointer-events: none;
 }
 
-/* Vertical Positioning Classes */
 .v-align-top { top: 10%; transform: translateX(-50%); }
 .v-align-center { top: 50%; transform: translate(-50%, -50%); }
 .v-align-bottom { top: auto; bottom: 10%; transform: translateX(-50%); }
@@ -614,13 +608,11 @@ video.background-media {
   transition: all 0.3s ease;
 }
 
-/* Hover effect triggers when hovering anywhere on the slide */
 .carousel-slide:hover .overlay-button {
   background-color: {{ section.settings.button_bg_hover }};
   color: {{ section.settings.button_color }};
 }
 
-/* Animations (only in active slide) */
 .carousel-slide.is-active .fade-in-element {
   opacity: 1;
   transform: translateY(0);
@@ -652,28 +644,24 @@ document.addEventListener("DOMContentLoaded", function() {
   let autoplayTimer = null;
   const autoplayEnabled = {{ section.settings.autoplay | json }};
   const autoplaySpeed = {{ section.settings.autoplay_speed | times: 1000 | json }};
-  const transitionSpeed = 500; // Match the 0.5s CSS transition
+  const transitionSpeed = 500;
 
   if (slidesList.length <= 1) {
       slidesList.forEach(slide => slide.classList.add('is-active'));
       return;
   }
 
-  // Clone first and last slide for true infinite loop
   const firstClone = slidesList[0].cloneNode(true);
   const lastClone = slidesList[slidesList.length - 1].cloneNode(true);
-  
   firstClone.classList.add('clone');
   lastClone.classList.add('clone');
-  
   track.appendChild(firstClone);
   track.insertBefore(lastClone, slidesList[0]);
 
   const allSlides = Array.from(section.querySelectorAll('.carousel-slide'));
-  let currentIndex = 1; // 1 is the first "real" slide since 0 is the clone of the last
+  let currentIndex = 1;
   let isTransitioning = false;
 
-  // Touch and Drag Variables
   let isDragging = false;
   let startX = 0;
   let currentX = 0;
@@ -681,7 +669,6 @@ document.addEventListener("DOMContentLoaded", function() {
   let didDrag = false;
   const swipeThreshold = 50;
 
-  // Set initial position
   track.style.transition = 'none';
   track.style.transform = `translateX(-100%)`;
 
@@ -689,52 +676,43 @@ document.addEventListener("DOMContentLoaded", function() {
     if (isTransitioning || index === currentIndex) return;
     isTransitioning = true;
     
-    // Enable animation and slide
     track.style.transition = `transform ${transitionSpeed}ms ease-out`;
     currentIndex = index;
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
     
-    // Determine the real index for dots
     let realIndex = currentIndex - 1;
     if (currentIndex === 0) realIndex = slidesList.length - 1;
     if (currentIndex === allSlides.length - 1) realIndex = 0;
 
-    // Toggle states for animations and videos
     allSlides.forEach((slide, i) => {
       const isActive = (i === currentIndex);
       slide.classList.toggle('is-active', isActive);
-      
       const videos = slide.querySelectorAll('video');
       videos.forEach(video => {
         if (isActive) {
-          if (typeof video.play === 'function') video.play().catch(e => console.log('Autoplay blocked'));
+          if (typeof video.play === 'function') video.play().catch(e => {});
         } else {
           if (typeof video.pause === 'function') video.pause();
         }
       });
     });
 
-    // Update dots
     dots.forEach((dot, i) => {
       dot.classList.toggle('is-active', i === realIndex);
     });
 
-    // Handle Infinite Loop Jump after transition completes
     setTimeout(() => {
       if (allSlides[currentIndex].classList.contains('clone')) {
         track.style.transition = 'none';
-        
-        // Jump to real slide
         if (currentIndex === 0) {
           currentIndex = slidesList.length;
         } else if (currentIndex === allSlides.length - 1) {
           currentIndex = 1;
         }
-        
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
       }
       isTransitioning = false;
-    }, transitionSpeed + 20); // Minor buffer to ensure CSS transition completes
+    }, transitionSpeed + 20);
   }
 
   function startAutoplay() {
@@ -749,59 +727,42 @@ document.addEventListener("DOMContentLoaded", function() {
     if (autoplayTimer) clearInterval(autoplayTimer);
   }
 
-  // --- Drag & Swipe Handlers ---
   function dragStart(e) {
-    // Ignore clicks on buttons/dots
     if (e.target.closest('.carousel-btn') || e.target.closest('.dot')) return;
     if (isTransitioning) return;
-    
     isDragging = true;
     didDrag = false;
     startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
     viewportWidth = section.querySelector('.carousel-viewport').offsetWidth;
-    
     stopAutoplay();
-    track.style.transition = 'none'; // Disable transition for 1:1 dragging mapping
+    track.style.transition = 'none';
   }
 
   function dragMove(e) {
     if (!isDragging) return;
     currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
     const diffX = currentX - startX;
-    
-    if (Math.abs(diffX) > 5) {
-      didDrag = true; // Mark as dragged so we can prevent unwanted link clicks
-    }
-    
+    if (Math.abs(diffX) > 5) didDrag = true;
     const diffPercent = (diffX / viewportWidth) * 100;
     const targetPercent = -(currentIndex * 100) + diffPercent;
-    
     track.style.transform = `translateX(${targetPercent}%)`;
   }
 
   function dragEnd(e) {
     if (!isDragging) return;
     isDragging = false;
-    
     const endX = e.type.includes('mouse') ? e.pageX : e.changedTouches[0].clientX;
     const diffX = endX - startX;
-    
     if (Math.abs(diffX) > swipeThreshold) {
-      if (diffX < 0) {
-        goToSlide(currentIndex + 1); // Swiped Left
-      } else {
-        goToSlide(currentIndex - 1); // Swiped Right
-      }
+      if (diffX < 0) goToSlide(currentIndex + 1);
+      else goToSlide(currentIndex - 1);
     } else {
-      // Didn't drag enough, snap back to the current slide
       track.style.transition = `transform ${transitionSpeed}ms ease-out`;
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-    
     startAutoplay();
   }
 
-  // Prevent link click when dragged
   track.addEventListener('click', (e) => {
     if (didDrag) {
       e.preventDefault();
@@ -809,61 +770,33 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }, true);
 
-  // Bind Drag/Swipe Events
   track.addEventListener('touchstart', dragStart, { passive: true });
   track.addEventListener('touchmove', dragMove, { passive: true });
   track.addEventListener('touchend', dragEnd);
-
   track.addEventListener('mousedown', dragStart);
   track.addEventListener('mousemove', dragMove);
   track.addEventListener('mouseup', dragEnd);
   track.addEventListener('mouseleave', dragEnd);
 
-  // Bind UI Events
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      goToSlide(currentIndex + 1);
-      startAutoplay();
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      goToSlide(currentIndex - 1);
-      startAutoplay();
-    });
-  }
+  if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoplay(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoplay(); });
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      goToSlide(i + 1); // +1 offset because of clones
-      startAutoplay();
-    });
+    dot.addEventListener('click', () => { goToSlide(i + 1); startAutoplay(); });
   });
 
-  // Pause on hover
   section.addEventListener('mouseenter', stopAutoplay);
   section.addEventListener('mouseleave', startAutoplay);
 
-  // Trigger animations for the first slide on load
-  setTimeout(() => {
-      goToSlide(1);
-  }, 50);
-
+  setTimeout(() => { goToSlide(1); }, 50);
   startAutoplay();
 
-  // Shopify Editor support
   if (window.Shopify && Shopify.designMode) {
     document.addEventListener('shopify:block:select', (e) => {
       const blockIndex = slidesList.findIndex(s => s.contains(e.target) || s === e.target);
-      if (blockIndex > -1) {
-        stopAutoplay();
-        goToSlide(blockIndex + 1);
-      }
+      if (blockIndex > -1) { stopAutoplay(); goToSlide(blockIndex + 1); }
     });
-    document.addEventListener('shopify:block:deselect', () => {
-      startAutoplay();
-    });
+    document.addEventListener('shopify:block:deselect', () => startAutoplay());
   }
 });
 </script>
