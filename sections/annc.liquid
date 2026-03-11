@@ -5,7 +5,9 @@
 {% endcomment %}
 
 {%- if section.settings.custom_font != blank -%}
-  {{ section.settings.custom_font | font_face: font_display: 'swap' }}
+  <style>
+    {{ section.settings.custom_font | font_face: font_display: 'swap' }}
+  </style>
 {%- endif -%}
 
 {%- style -%}
