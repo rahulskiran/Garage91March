@@ -1,10 +1,13 @@
 {
   "sections": {
-    "riders-club": {
+    "riders-club-main": {
       "type": "riders-club",
-      "settings": {},
-      "blocks": {}
+      "block_order": [],
+      "blocks": {},
+      "settings": {}
     }
   },
-  "order": ["riders-club"]
+  "order": [
+    "riders-club-main"
+  ]
 }
