@@ -660,7 +660,7 @@
     }
 
     @media screen and (max-width: 749px) {
-      /* Mobile layout: LOGO left | spacer | IG + account + cart + hamburger right */
+      /* Mobile layout: LOGO left | spacer | actions + hamburger right */
       --header-template-columns: auto 1fr auto auto;
 
       grid-template-areas: 'logo . actions hamburger';
@@ -669,34 +669,6 @@
       align-items: center;
       padding-block: 12px;
       padding-inline: 12px 4px;
-
-      /* Logo — pinned left */
-      .header-logo {
-        grid-area: logo;
-        justify-self: start;
-      }
-
-      /* Hamburger — pinned far right */
-      header-drawer,
-      .header__drawer {
-        grid-area: hamburger;
-        justify-self: end;
-      }
-
-      /* Hide the full search bar on mobile */
-      .search-action {
-        display: none;
-      }
-
-      /* IG badge + account + cart grouped right, before hamburger */
-      header-actions {
-        grid-area: actions;
-        justify-self: end;
-      }
-
-      &:has(.header__column--center .search-action) {
-        grid-template-areas: 'logo . actions hamburger';
-      }
     }
   }
 
@@ -790,6 +762,35 @@
     /* Make sticky content immediately stick to the top of the page */
     .sticky-content {
       margin-top: calc(var(--header-height) * var(--transparent-header-offset-boolean) * -1);
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     MOBILE HEADER LAYOUT OVERRIDES
+     Logo LEFT  |  spacer  |  IG + account + cart  |  hamburger
+     ═══════════════════════════════════════════════════════════ */
+  @media screen and (max-width: 749px) {
+    /* Logo — first column, left-aligned */
+    .header__columns .header-logo {
+      grid-area: logo !important;
+      justify-self: start !important;
+    }
+
+    /* Hamburger wrapper — last column, right edge */
+    .header__columns .header__drawer {
+      grid-area: hamburger !important;
+      justify-self: end !important;
+    }
+
+    /* Actions (IG badge + account + cart) — right, before hamburger */
+    .header__columns header-actions {
+      grid-area: actions !important;
+      justify-self: end !important;
+    }
+
+    /* Hide desktop search bar on mobile */
+    .header__columns .search-action {
+      display: none !important;
     }
   }
 {% endstylesheet %}
