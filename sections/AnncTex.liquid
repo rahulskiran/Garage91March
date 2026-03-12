@@ -1,5 +1,6 @@
 {%- if section.settings.show_announcement and section.blocks.size > 0 -%}
 <div id="g91-bar-{{ section.id }}" class="g91-bar" role="region" aria-label="Announcement" aria-live="polite">
+  <div class="g91-bar__top-border"></div>
   <div class="g91-bar__track">
     {%- for block in section.blocks -%}
       <div class="g91-bar__slide {% if forloop.first %}g91-bar__slide--visible{% endif %}" 
@@ -32,6 +33,7 @@
             {%- endif -%}
 
           {%- if block.settings.link != blank -%}
+              <span class="g91-bar__arrow">&nbsp;→</span>
             </a>
           {%- endif -%}
         </div>
@@ -46,6 +48,7 @@
     --g91-bg: {{ section.settings.bg_color }};
     --g91-text: {{ section.settings.text_color }};
     --g91-accent: {{ section.settings.accent_color }};
+    --g91-border-top: {{ section.settings.top_border_color | default: '#dfff00' }};
     --g91-fs-desktop: {{ section.settings.text_size }}px;
     --g91-fs-mobile: {{ section.settings.mobile_text_size }}px;
     --g91-height-desktop: {{ section.settings.bar_height }}px;
@@ -81,6 +84,16 @@
     width: 100% !important;
   }
 
+  .g91-bar__top-border {
+    height: 4px;
+    background: var(--g91-border-top);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
   .g91-bar__track {
     position: relative !important;
     width: 100% !important;
@@ -89,6 +102,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    padding-top: 4px; /* Space for the top border */
   }
 
   /* ══════════ Slides ══════════ */
@@ -136,7 +150,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     transition: opacity 0.2s ease;
   }
   
@@ -146,7 +160,11 @@
 
   .g91-bar__hi {
     color: var(--g91-accent) !important;
-    /* Removed g91-glow animation */
+  }
+
+  .g91-bar__arrow {
+    color: var(--g91-accent) !important;
+    font-weight: bold;
   }
 
   .g91-bar__dot {
@@ -169,6 +187,7 @@
     .g91-bar__track {
       min-height: var(--g91-height-mobile) !important;
       padding: 0 15px !important;
+      padding-top: 4px;
     }
     .g91-bar__slide {
       white-space: normal !important;
@@ -293,6 +312,12 @@
       "default": "#EA580C"
     },
     {
+      "type": "color",
+      "id": "top_border_color",
+      "label": "Top border color",
+      "default": "#dfff00"
+    },
+    {
       "type": "range",
       "id": "bar_height",
       "min": 30,
@@ -411,10 +436,10 @@
         {
           "type": "announcement",
           "settings": {
-            "text_prefix": "60,000+",
-            "highlight_text": "Followers",
-            "text_suffix": "on Instagram",
-            "show_pulse": true
+            "text_prefix": "Join 60,000+ gearheads on Instagram",
+            "highlight_text": "@garage91_automotive",
+            "text_suffix": "",
+            "show_pulse": false
           }
         },
         {
