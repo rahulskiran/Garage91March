@@ -716,15 +716,45 @@
     }
 
     @media screen and (max-width: 749px) {
-      /* Mobile layout: LOGO left | spacer | actions + hamburger right */
-      --header-template-columns: auto 1fr auto auto;
+      /* Adjusted for logo on left, menu on right */
+      --header-template-columns: 1fr var(--header-mobile-bookend) var(--header-mobile-bookend) var(--header-mobile-bookend);
 
-      grid-template-areas: 'logo . actions hamburger';
+      grid-template-areas: 'logo search actions menu';
       grid-column: span 3;
-      column-gap: 6px;
+      column-gap: 0;
       align-items: center;
-      padding-block: 12px;
-      padding-inline: 12px 4px;
+      padding-block: 15px;
+      padding-inline: 0 var(--padding-3xs);
+
+      .header-logo {
+        grid-area: logo;
+        justify-self: flex-start;
+        padding-left: 10px; /* Optional slight padding */
+      }
+
+      .header__drawer {
+        grid-area: menu;
+        justify-self: flex-end;
+      }
+
+      .search-action {
+        grid-area: search;
+      }
+
+      header-actions {
+        grid-area: actions;
+        justify-self: flex-end;
+      }
+
+      /* Mobile: when search is in center, place it on a new full-width row below other items */
+      &:has(.header__column--center .search-action) {
+        grid-template-areas: 
+          'logo actions menu menu'
+          'search search search search';
+        --header-template-columns: 1fr var(--header-mobile-bookend) var(--header-mobile-bookend) var(--header-mobile-bookend);
+        row-gap: 15px;
+        padding-bottom: 15px;
+      }
     }
   }
 
