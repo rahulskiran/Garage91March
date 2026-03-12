@@ -40,6 +40,9 @@
       </div>
     {%- endfor -%}
   </div>
+  {%- if section.settings.show_bottom_stroke -%}
+    <div class="g91-bar__bottom-stroke"></div>
+  {%- endif -%}
 </div>
 
 <style>
@@ -48,7 +51,10 @@
     --g91-bg: {{ section.settings.bg_color }};
     --g91-text: {{ section.settings.text_color }};
     --g91-accent: {{ section.settings.accent_color }};
-    --g91-border-top: {{ section.settings.top_border_color | default: '#dfff00' }};
+    --g91-border-top-color: {{ section.settings.top_border_color | default: '#dfff00' }};
+    --g91-border-top-height: {{ section.settings.top_border_height }}px;
+    --g91-stroke-bottom-color: {{ section.settings.bottom_stroke_color | default: 'rgba(255,255,255,0.1)' }};
+    --g91-stroke-bottom-height: {{ section.settings.bottom_stroke_height }}px;
     --g91-fs-desktop: {{ section.settings.text_size }}px;
     --g91-fs-mobile: {{ section.settings.mobile_text_size }}px;
     --g91-height-desktop: {{ section.settings.bar_height }}px;
@@ -79,17 +85,26 @@
     position: relative !important;
     z-index: 1000 !important;
     overflow: hidden !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     animation: g91-entrance 0.5s ease-out both !important;
     width: 100% !important;
   }
 
   .g91-bar__top-border {
-    height: 4px;
-    background: var(--g91-border-top);
+    height: var(--g91-border-top-height);
+    background: var(--g91-border-top-color);
     width: 100%;
     position: absolute;
     top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .g91-bar__bottom-stroke {
+    height: var(--g91-stroke-bottom-height);
+    background: var(--g91-stroke-bottom-color);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
     left: 0;
     z-index: 2;
   }
@@ -102,7 +117,8 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding-top: 4px; /* Space for the top border */
+    padding-top: var(--g91-border-top-height); /* Space for the top border */
+    padding-bottom: var(--g91-stroke-bottom-height); /* Space for the bottom stroke */
   }
 
   /* ══════════ Slides ══════════ */
@@ -187,7 +203,8 @@
     .g91-bar__track {
       min-height: var(--g91-height-mobile) !important;
       padding: 0 15px !important;
-      padding-top: 4px;
+      padding-top: var(--g91-border-top-height);
+      padding-bottom: var(--g91-stroke-bottom-height);
     }
     .g91-bar__slide {
       white-space: normal !important;
@@ -312,10 +329,55 @@
       "default": "#EA580C"
     },
     {
+      "type": "header",
+      "content": "Top Border"
+    },
+    {
       "type": "color",
       "id": "top_border_color",
       "label": "Top border color",
       "default": "#dfff00"
+    },
+    {
+      "type": "range",
+      "id": "top_border_height",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Top border height",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Bottom Stroke"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bottom_stroke",
+      "label": "Show bottom minimal stroke",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bottom_stroke_color",
+      "label": "Bottom stroke color",
+      "default": "#ffffff",
+      "info": "Opacity is handled via the color picker if supported, or default is subtle."
+    },
+    {
+      "type": "range",
+      "id": "bottom_stroke_height",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom stroke height",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Bar Sizing"
     },
     {
       "type": "range",
