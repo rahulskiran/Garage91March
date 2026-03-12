@@ -11,54 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "annc_tex_wjCTNd": {
-      "type": "AnncTex",
-      "blocks": {
-        "announcement_gmeYUH": {
-          "type": "announcement",
-          "settings": {
-            "show_pulse": true,
-            "full_text": "",
-            "text_prefix": "60,000+",
-            "highlight_text": "Followers",
-            "text_suffix": "on Instagram",
-            "link": ""
-          }
-        },
-        "announcement_aNYNdH": {
-          "type": "announcement",
-          "settings": {
-            "show_pulse": false,
-            "full_text": "Free Shipping on All Orders Over ₹2,999",
-            "text_prefix": "Join the",
-            "highlight_text": "Riders Club",
-            "text_suffix": "Today",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_gmeYUH",
-        "announcement_aNYNdH"
-      ],
-      "name": "Premium Announcement Bar",
-      "settings": {
-        "show_announcement": true,
-        "bg_color": "#1e1e1e",
-        "text_color": "#ff0000",
-        "accent_color": "#ea580c",
-        "top_border_color": "#dfff00",
-        "top_border_height": 0,
-        "show_bottom_stroke": false,
-        "bottom_stroke_color": "#ffffff",
-        "bottom_stroke_height": 1,
-        "bar_height": 38,
-        "mobile_bar_height": 30,
-        "text_size": 13,
-        "mobile_text_size": 11,
-        "cycle_speed": 3
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -136,10 +88,60 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "annc_rpjxwz": {
+      "type": "annc",
+      "blocks": {
+        "announcement_rHmxEd": {
+          "type": "announcement",
+          "settings": {
+            "show_pulse": true,
+            "full_text": "",
+            "text_prefix": "🏁",
+            "highlight_text": "60,000+",
+            "text_suffix": "Strong on Instagram",
+            "link": "https://instagram.com"
+          }
+        },
+        "announcement_pAiCnm": {
+          "type": "announcement",
+          "settings": {
+            "show_pulse": false,
+            "full_text": "🚚  Free Shipping on All Orders Over ₹2,999",
+            "text_prefix": "",
+            "highlight_text": "",
+            "text_suffix": "",
+            "link": ""
+          }
+        },
+        "announcement_YkADwY": {
+          "type": "announcement",
+          "settings": {
+            "show_pulse": false,
+            "full_text": "",
+            "text_prefix": "🏍",
+            "highlight_text": "Riders Club",
+            "text_suffix": "— Join the Pack",
+            "link": "/pages/riders-club"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_rHmxEd",
+        "announcement_pAiCnm",
+        "announcement_YkADwY"
+      ],
+      "name": "Announcement Bar – Night Drive",
+      "settings": {
+        "show_announcement": true,
+        "text_size": 12,
+        "mobile_text_size": 10,
+        "cycle_speed": 5
+      }
     }
   },
   "order": [
-    "annc_tex_wjCTNd",
+    "annc_rpjxwz",
     "header_section"
   ]
 }
