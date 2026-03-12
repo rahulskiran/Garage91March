@@ -15,16 +15,20 @@
             <a href="{{ block.settings.link }}" class="g91-bar__link">
           {%- endif -%}
 
-            {%- if block.settings.text_prefix != blank -%}
-              <span>{{ block.settings.text_prefix }}</span>
-            {%- endif -%}
+            {%- if block.settings.full_text != blank -%}
+              <span>{{ block.settings.full_text }}</span>
+            {%- else -%}
+              {%- if block.settings.text_prefix != blank -%}
+                <span>{{ block.settings.text_prefix }}</span>
+              {%- endif -%}
 
-            {%- if block.settings.highlight_text != blank -%}
-              <span class="g91-bar__hi">{{ block.settings.highlight_text }}</span>
-            {%- endif -%}
+              {%- if block.settings.highlight_text != blank -%}
+                <span class="g91-bar__hi">{{ block.settings.highlight_text }}</span>
+              {%- endif -%}
 
-            {%- if block.settings.text_suffix != blank -%}
-              <span>{{ block.settings.text_suffix }}</span>
+              {%- if block.settings.text_suffix != blank -%}
+                <span>{{ block.settings.text_suffix }}</span>
+              {%- endif -%}
             {%- endif -%}
 
           {%- if block.settings.link != blank -%}
@@ -311,6 +315,21 @@
           "default": false
         },
         {
+          "type": "header",
+          "content": "Option 1: Single Line Text",
+          "info": "Overrides split text if filled."
+        },
+        {
+          "type": "text",
+          "id": "full_text",
+          "label": "Full message text",
+          "info": "Use this for a simple message without color highlights."
+        },
+        {
+          "type": "header",
+          "content": "Option 2: Split Text (with Highlight)"
+        },
+        {
           "type": "text",
           "id": "text_prefix",
           "label": "Text before highlight",
@@ -319,7 +338,7 @@
         {
           "type": "text",
           "id": "highlight_text",
-          "label": "Highlighted text (Orange)",
+          "label": "Highlighted text (Accent Color)",
           "default": "Riders Club"
         },
         {
@@ -352,8 +371,7 @@
         {
           "type": "announcement",
           "settings": {
-            "text_prefix": "Free Shipping on Orders Over",
-            "highlight_text": "₹2,999"
+            "full_text": "Free Shipping on All Orders Over ₹2,999"
           }
         }
       ]
