@@ -233,11 +233,13 @@
       >
         <div class="header__columns spacing-style">
           {{ content }}
-          {% if row == 'bottom' %}
+          {% if row == 'bottom' and section.settings.show_riders_club %}
             <!-- Riders Club CTA – right end of menu row -->
-            <a href="/pages/riders-club" class="rc-header-btn" aria-label="Riders Club">
-              <span class="rc-header-btn__icon">🏍</span>
-              <span class="rc-header-btn__label">Riders Club</span>
+            <a href="{{ section.settings.riders_club_url | default: '/pages/riders-club' }}" class="rc-header-btn" aria-label="{{ section.settings.riders_club_text | default: 'Riders Club' }}">
+              {%- if section.settings.riders_club_icon != blank -%}
+                <span class="rc-header-btn__icon">{{ section.settings.riders_club_icon }}</span>
+              {%- endif -%}
+              <span class="rc-header-btn__label">{{ section.settings.riders_club_text | default: 'Riders Club' }}</span>
             </a>
           {% endif %}
         </div>
@@ -272,8 +274,8 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #ff7a1a;
-    color: #fff !important;
+    background: {{ section.settings.riders_club_bg | default: '#ff7a1a' }};
+    color: {{ section.settings.riders_club_text_color | default: '#ffffff' }} !important;
     font-weight: 700;
     font-size: 0.72rem;
     letter-spacing: 0.6px;
@@ -1227,6 +1229,46 @@
       ],
       "default": "default",
       "visible_if": "{{ section.settings.enable_transparent_header_collection }}"
+    },
+    {
+      "type": "header",
+      "content": "── Riders Club Button ──"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_riders_club",
+      "label": "Show Riders Club button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "riders_club_text",
+      "label": "Button text",
+      "default": "Riders Club"
+    },
+    {
+      "type": "url",
+      "id": "riders_club_url",
+      "label": "Button link",
+      "default": "/pages/riders-club"
+    },
+    {
+      "type": "text",
+      "id": "riders_club_icon",
+      "label": "Button icon (emoji or text)",
+      "default": "\ud83c\udfcd"
+    },
+    {
+      "type": "color",
+      "id": "riders_club_bg",
+      "label": "Button background color",
+      "default": "#ff7a1a"
+    },
+    {
+      "type": "color",
+      "id": "riders_club_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
     }
   ],
   "presets": []

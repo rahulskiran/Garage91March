@@ -1,31 +1,44 @@
 {% comment %}
   Garage91 – Premium Announcement Bar
   Black background, orange accent, vertical slide-up cycling, LIVE pulse, glow effect.
+  All messages, colors, fonts, and timing are editable from the theme customizer.
 {% endcomment %}
 
 {%- if section.settings.show_announcement -%}
+{%- liquid
+  assign msg1 = section.settings.message_1 | default: '60,000+ Followers on Instagram • The Fastest Growing Rider Community'
+  assign msg2 = section.settings.message_2 | default: '🚚 Free Shipping on Orders Over ₹2,999'
+  assign msg3 = section.settings.message_3 | default: '🏍 Join the Riders Club — 60K Strong'
+  assign msg3_url = section.settings.message_3_url | default: '/pages/riders-club'
+  assign show_pulse = section.settings.show_pulse_dot
+-%}
 <div id="g91-bar-{{ section.id }}" class="g91-bar" role="region" aria-label="Announcement" aria-live="polite"
-  style="background:#000!important;color:#fff!important;">
+  style="background:{{ section.settings.bg_color }}!important;color:{{ section.settings.text_color }}!important;">
   <div class="g91-bar__track">
+
+    {%- if msg1 != blank -%}
     <div class="g91-bar__slide g91-bar__slide--visible" data-index="0">
-      <span class="g91-bar__dot"></span>
-      <span class="g91-bar__hi">60,000+</span>
-      <span>Followers on Instagram</span>
-      <span class="g91-bar__dim">&bull;</span>
-      <span class="g91-bar__hi">The Fastest Growing Rider Community</span>
+      {%- if show_pulse -%}<span class="g91-bar__dot"></span>{%- endif -%}
+      <span>{{ msg1 }}</span>
     </div>
+    {%- endif -%}
+
+    {%- if msg2 != blank -%}
     <div class="g91-bar__slide" data-index="1">
-      <span>🚚</span>
-      <span>Free Shipping on Orders Over</span>
-      <span class="g91-bar__hi">₹2,999</span>
+      <span>{{ msg2 }}</span>
     </div>
+    {%- endif -%}
+
+    {%- if msg3 != blank -%}
     <div class="g91-bar__slide" data-index="2">
-      <span>🏍</span>
-      <span>Join the</span>
-      <a href="/pages/riders-club" class="g91-bar__cta">Riders Club</a>
-      <span class="g91-bar__dim">&bull;</span>
-      <span class="g91-bar__hi">60K Strong</span>
+      {%- if msg3_url != blank -%}
+        <a href="{{ msg3_url }}" class="g91-bar__cta">{{ msg3 }}</a>
+      {%- else -%}
+        <span>{{ msg3 }}</span>
+      {%- endif -%}
     </div>
+    {%- endif -%}
+
   </div>
 </div>
 
@@ -58,10 +71,10 @@
 
   /* ══════════ Bar ══════════ */
   .g91-bar {
-    all: unset !important;              /* nuke every inherited/theme style */
     display: block !important;
-    background: #000000 !important;
-    color: #ffffff !important;
+    background: {{ section.settings.bg_color }} !important;
+    background-color: {{ section.settings.bg_color }} !important;
+    color: {{ section.settings.text_color }} !important;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: {{ section.settings.text_size }}px !important;
     font-weight: 600 !important;
@@ -76,7 +89,6 @@
     width: 100% !important;
   }
 
-  /* ── Track: holds all slides stacked ── */
   .g91-bar__track {
     position: relative !important;
     width: 100% !important;
@@ -87,7 +99,6 @@
     justify-content: center !important;
   }
 
-  /* ── Each slide ── */
   .g91-bar__slide {
     position: absolute !important;
     inset: 0 !important;
@@ -97,29 +108,24 @@
     gap: 7px !important;
     padding: 10px 20px !important;
     white-space: nowrap !important;
-    color: #ffffff !important;
+    color: {{ section.settings.text_color }} !important;
     opacity: 0 !important;
     transform: translateY(110%) !important;
     pointer-events: none !important;
   }
 
-  /* Visible (initial + after enter finishes) */
   .g91-bar__slide--visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
     pointer-events: auto !important;
-    position: relative !important;    /* first visible one sets height */
+    position: relative !important;
   }
-
-  /* Exit: slide up out */
   .g91-bar__slide--out {
     opacity: 0 !important;
     transform: translateY(-110%) !important;
     transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s ease !important;
     pointer-events: none !important;
   }
-
-  /* Enter: slide up in */
   .g91-bar__slide--in {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -127,21 +133,8 @@
     pointer-events: auto !important;
   }
 
-  /* ── Orange accent with glow ── */
-  .g91-bar__hi {
-    color: #EA580C !important;
-    animation: g91-glow 2.5s ease-in-out infinite !important;
-  }
-
-  /* ── Dimmed separator ── */
-  .g91-bar__dim {
-    color: rgba(255,255,255,.25) !important;
-    margin: 0 1px !important;
-  }
-
-  /* ── CTA link ── */
   .g91-bar__cta {
-    color: #EA580C !important;
+    color: {{ section.settings.accent_color }} !important;
     text-decoration: underline !important;
     text-underline-offset: 3px !important;
     text-decoration-color: rgba(234,88,12,.45) !important;
@@ -150,22 +143,20 @@
     cursor: pointer !important;
   }
   .g91-bar__cta:hover {
-    text-decoration-color: #EA580C !important;
+    text-decoration-color: {{ section.settings.accent_color }} !important;
   }
 
-  /* ── LIVE pulse dot ── */
   .g91-bar__dot {
     display: inline-block !important;
     width: 6px !important;
     height: 6px !important;
     border-radius: 50% !important;
-    background: #EA580C !important;
+    background: {{ section.settings.accent_color }} !important;
     flex-shrink: 0 !important;
     margin-right: 4px !important;
     animation: g91-pulse 1.4s ease-in-out infinite !important;
   }
 
-  /* ══════════ Mobile ══════════ */
   @media (max-width: 749px) {
     .g91-bar {
       font-size: {{ section.settings.mobile_text_size }}px !important;
@@ -180,9 +171,6 @@
       white-space: normal !important;
       flex-wrap: wrap !important;
       text-align: center !important;
-    }
-    .g91-bar__dim {
-      display: none !important;
     }
   }
 </style>
@@ -206,15 +194,13 @@
     var cur  = slides[i],
         next = slides[(i + 1) % n];
 
-    /* current slides up & out */
     cur.classList.remove('g91-bar__slide--visible','g91-bar__slide--in');
     cur.classList.add('g91-bar__slide--out');
 
-    /* prep next below viewport */
     next.classList.remove('g91-bar__slide--out','g91-bar__slide--visible');
     next.style.cssText = 'transform:translateY(110%)!important;opacity:0!important;transition:none!important;position:absolute!important;';
 
-    void next.offsetHeight; /* reflow */
+    void next.offsetHeight;
 
     next.style.cssText = '';
     next.classList.add('g91-bar__slide--in');
@@ -224,7 +210,6 @@
     setTimeout(function(){
       cur.classList.remove('g91-bar__slide--out');
       cur.style.cssText = '';
-      /* Make the new slide set height */
       next.classList.remove('g91-bar__slide--in');
       next.classList.add('g91-bar__slide--visible');
       lock = false;
@@ -247,12 +232,54 @@
     {
       "type": "checkbox",
       "id": "show_announcement",
-      "label": "Show announcement",
+      "label": "Show announcement bar",
       "default": true
     },
     {
       "type": "header",
-      "content": "Appearance"
+      "content": "── Message 1 ──"
+    },
+    {
+      "type": "text",
+      "id": "message_1",
+      "label": "Message 1",
+      "default": "60,000+ Followers on Instagram • The Fastest Growing Rider Community"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pulse_dot",
+      "label": "Show LIVE pulse dot on Message 1",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "── Message 2 ──"
+    },
+    {
+      "type": "text",
+      "id": "message_2",
+      "label": "Message 2",
+      "default": "🚚 Free Shipping on Orders Over ₹2,999"
+    },
+    {
+      "type": "header",
+      "content": "── Message 3 ──"
+    },
+    {
+      "type": "text",
+      "id": "message_3",
+      "label": "Message 3",
+      "default": "🏍 Join the Riders Club — 60K Strong"
+    },
+    {
+      "type": "url",
+      "id": "message_3_url",
+      "label": "Message 3 link URL",
+      "default": "/pages/riders-club"
+    },
+    {
+      "type": "header",
+      "content": "── Colors ──"
     },
     {
       "type": "color",
@@ -269,12 +296,12 @@
     {
       "type": "color",
       "id": "accent_color",
-      "label": "Accent color",
+      "label": "Accent / glow color",
       "default": "#EA580C"
     },
     {
       "type": "header",
-      "content": "Typography"
+      "content": "── Typography ──"
     },
     {
       "type": "range",
@@ -298,7 +325,7 @@
     },
     {
       "type": "header",
-      "content": "Message Cycling"
+      "content": "── Message Cycling ──"
     },
     {
       "type": "range",

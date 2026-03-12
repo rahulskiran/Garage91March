@@ -545,18 +545,22 @@
             {%- endfor -%}
           {% endif %}
           <!-- ── Riders Club CTA (mobile side nav) ── -->
+          {%- if section.settings.show_riders_club -%}
           <li
             style="--menu-drawer-animation-index: {{ linklist.links.size | plus: 1 }};"
             class="menu-drawer__list-item"
           >
             <a
-              href="/pages/riders-club"
+              href="{{ section.settings.riders_club_url | default: '/pages/riders-club' }}"
               class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset rc-drawer-btn"
             >
-              <span class="rc-drawer-btn__icon">🏍</span>
-              <span class="menu-drawer__menu-item-text">Riders Club</span>
+              {%- if section.settings.riders_club_icon != blank -%}
+                <span class="rc-drawer-btn__icon">{{ section.settings.riders_club_icon }}</span>
+              {%- endif -%}
+              <span class="menu-drawer__menu-item-text">{{ section.settings.riders_club_text | default: 'Riders Club' }}</span>
             </a>
           </li>
+          {%- endif -%}
         </ul>
       </nav>
       <div
