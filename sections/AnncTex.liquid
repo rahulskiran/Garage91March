@@ -48,6 +48,8 @@
     --g91-accent: {{ section.settings.accent_color }};
     --g91-fs-desktop: {{ section.settings.text_size }}px;
     --g91-fs-mobile: {{ section.settings.mobile_text_size }}px;
+    --g91-height-desktop: {{ section.settings.bar_height }}px;
+    --g91-height-mobile: {{ section.settings.mobile_bar_height }}px;
   }
 
   /* ══════════ Animations ══════════ */
@@ -86,8 +88,8 @@
   .g91-bar__track {
     position: relative !important;
     width: 100% !important;
-    padding: 14px 20px !important;
-    min-height: 48px !important;
+    padding: 0 20px !important;
+    min-height: var(--g91-height-desktop) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -168,14 +170,15 @@
       font-size: var(--g91-fs-mobile) !important;
       letter-spacing: 0.05em !important;
     }
+    .g91-bar__track {
+      min-height: var(--g91-height-mobile) !important;
+      padding: 0 15px !important;
+    }
     .g91-bar__slide {
       white-space: normal !important;
       text-align: center !important;
       flex-wrap: wrap;
       gap: 6px !important;
-    }
-    .g91-bar__track {
-      padding: 12px 15px !important;
     }
   }
 </style>
@@ -292,6 +295,26 @@
       "id": "accent_color",
       "label": "Accent color (Glow)",
       "default": "#EA580C"
+    },
+    {
+      "type": "range",
+      "id": "bar_height",
+      "min": 30,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop bar height",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_bar_height",
+      "min": 30,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile bar height",
+      "default": 44
     },
     {
       "type": "header",
