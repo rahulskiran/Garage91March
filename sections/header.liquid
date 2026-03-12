@@ -243,6 +243,14 @@
       {{ navigation_bar }}
     </div>
   {% endif %}
+
+  <!-- ── Riders Club CTA (bottom row, desktop only) ── -->
+  <div class="rc-header-bottom-row mobile:hidden">
+    <a href="/pages/riders-club" class="rc-header-btn" aria-label="Riders Club">
+      <span class="rc-header-btn__icon">🏍</span>
+      <span class="rc-header-btn__label">Riders Club</span>
+    </a>
+  </div>
 </header-component>
 
 <script
@@ -251,6 +259,53 @@
 ></script>
 
 {% stylesheet %}
+
+  /* ── Riders Club Bottom Row (Desktop) ── */
+  .rc-header-bottom-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 6px 40px 10px;
+  }
+  .rc-header-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #ff7a1a, #e84c00);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    box-shadow: 0 3px 16px rgba(255, 100, 0, 0.4);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s;
+  }
+  .rc-header-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(255, 100, 0, 0.55);
+    opacity: 0.9;
+  }
+  .rc-header-btn__icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  /* ── Riders Club in Mobile Drawer ── */
+  .rc-drawer-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff7a1a !important;
+    font-weight: 700;
+  }
+  .rc-drawer-btn__icon {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
 
 @media screen and (min-width: 750px) {
   .header .header__columns {

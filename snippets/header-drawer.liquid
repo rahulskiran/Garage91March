@@ -544,6 +544,19 @@
               </li>
             {%- endfor -%}
           {% endif %}
+          <!-- ── Riders Club CTA (mobile side nav) ── -->
+          <li
+            style="--menu-drawer-animation-index: {{ linklist.links.size | plus: 1 }};"
+            class="menu-drawer__list-item"
+          >
+            <a
+              href="/pages/riders-club"
+              class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset rc-drawer-btn"
+            >
+              <span class="rc-drawer-btn__icon">🏍</span>
+              <span class="menu-drawer__menu-item-text">Riders Club</span>
+            </a>
+          </li>
         </ul>
       </nav>
       <div
