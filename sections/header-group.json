@@ -11,6 +11,56 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "annc_rpjxwz": {
+      "type": "annc",
+      "blocks": {
+        "announcement_rHmxEd": {
+          "type": "announcement",
+          "settings": {
+            "show_pulse": true,
+            "full_text": "",
+            "text_prefix": "🏁",
+            "highlight_text": "60,000+",
+            "text_suffix": "Strong on Instagram",
+            "link": "https://instagram.com"
+          }
+        },
+        "announcement_pAiCnm": {
+          "type": "announcement",
+          "settings": {
+            "show_pulse": false,
+            "full_text": "🚚  Free Shipping on All Orders Over ₹2,999",
+            "text_prefix": "",
+            "highlight_text": "",
+            "text_suffix": "",
+            "link": ""
+          }
+        },
+        "announcement_YkADwY": {
+          "type": "announcement",
+          "settings": {
+            "show_pulse": false,
+            "full_text": "",
+            "text_prefix": "🏍",
+            "highlight_text": "Riders Club",
+            "text_suffix": "— Join the Pack",
+            "link": "/pages/riders-club"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_rHmxEd",
+        "announcement_pAiCnm",
+        "announcement_YkADwY"
+      ],
+      "name": "Announcement Bar – Night Drive",
+      "settings": {
+        "show_announcement": true,
+        "text_size": 12,
+        "mobile_text_size": 10,
+        "cycle_speed": 4
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -87,56 +137,6 @@
         "product_color_scheme": "default",
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
-      }
-    },
-    "annc_rpjxwz": {
-      "type": "annc",
-      "blocks": {
-        "announcement_rHmxEd": {
-          "type": "announcement",
-          "settings": {
-            "show_pulse": true,
-            "full_text": "",
-            "text_prefix": "🏁",
-            "highlight_text": "60,000+",
-            "text_suffix": "Strong on Instagram",
-            "link": "https://instagram.com"
-          }
-        },
-        "announcement_pAiCnm": {
-          "type": "announcement",
-          "settings": {
-            "show_pulse": false,
-            "full_text": "🚚  Free Shipping on All Orders Over ₹2,999",
-            "text_prefix": "",
-            "highlight_text": "",
-            "text_suffix": "",
-            "link": ""
-          }
-        },
-        "announcement_YkADwY": {
-          "type": "announcement",
-          "settings": {
-            "show_pulse": false,
-            "full_text": "",
-            "text_prefix": "🏍",
-            "highlight_text": "Riders Club",
-            "text_suffix": "— Join the Pack",
-            "link": "/pages/riders-club"
-          }
-        }
-      },
-      "block_order": [
-        "announcement_rHmxEd",
-        "announcement_pAiCnm",
-        "announcement_YkADwY"
-      ],
-      "name": "Announcement Bar – Night Drive",
-      "settings": {
-        "show_announcement": true,
-        "text_size": 12,
-        "mobile_text_size": 10,
-        "cycle_speed": 5
       }
     }
   },
