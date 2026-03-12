@@ -12,7 +12,8 @@ if (!customElements.get('x-sticky-atc-bar')) {
         this.container = this.closest('.x-sticky-atc');
 
         const stickyAtcBlock = this.closest('.x-extension\\:sticky-atc-block');
-        const foxifyWrapper = document.querySelector('.x-main');
+        const foxifyWrappers = document.querySelectorAll('.x-main');
+        const foxifyWrapper = [...foxifyWrappers].find((wrapper) => wrapper.id !== 'x-Age-Verifier-Modal');
         if (stickyAtcBlock && foxifyWrapper && ![...foxifyWrapper.children].includes(stickyAtcBlock)) {
           foxifyWrapper.appendChild(stickyAtcBlock);
           const content = this.querySelector('template').content?.firstElementChild?.cloneNode(true);
