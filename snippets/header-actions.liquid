@@ -7,6 +7,20 @@
 <header-actions
   {{- block.shopify_attributes -}}
 >
+  <!-- Instagram 60K Follower Badge -->
+  <a href="https://www.instagram.com/garage91.in/" target="_blank" rel="noopener noreferrer" class="ig-follower-badge header-actions__action" aria-label="Follow us on Instagram – 60K followers">
+    <span class="ig-follower-badge__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.8 127.8 2 163.7c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+      </svg>
+    </span>
+    <span class="ig-follower-badge__count">
+      <span class="ig-roll-number" data-target="60" aria-label="60K followers">
+        <span class="ig-roll-number__value">0</span><span class="ig-roll-number__suffix">K</span>
+      </span>
+    </span>
+  </a>
+
   {% if shop.customer_accounts_enabled %}
     {% render 'account-popover' %}
     {% render 'account-drawer' %}
@@ -25,6 +39,65 @@
   {% endif %}
 
 </header-actions>
+
+<!-- Instagram 60K Roll-up Animation -->
+<script>
+  (function() {
+    function animateRollNumber(el) {
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      const valueEl = el.querySelector('.ig-roll-number__value');
+      if (!valueEl || isNaN(target)) return;
+
+      const duration = 2000;
+      const frameDuration = 1000 / 60;
+      const totalFrames = Math.round(duration / frameDuration);
+      let frame = 0;
+
+      function easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+      }
+
+      function step() {
+        frame++;
+        const progress = easeOutQuart(frame / totalFrames);
+        const current = Math.round(target * progress);
+        valueEl.textContent = current;
+
+        if (frame < totalFrames) {
+          requestAnimationFrame(step);
+        } else {
+          valueEl.textContent = target;
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    function initRollNumbers() {
+      document.querySelectorAll('.ig-roll-number').forEach(function(el) {
+        if (el.dataset.animated) return;
+        el.dataset.animated = 'true';
+
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              animateRollNumber(el);
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        observer.observe(el);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initRollNumbers);
+    } else {
+      initRollNumbers();
+    }
+  })();
+</script>
 
 {% stylesheet %}
 
@@ -220,6 +293,81 @@
   .header-actions__action svg {
     width: var(--icon-size-md);
     height: var(--icon-size-md);
+  }
+
+  /* ── Instagram 60K Follower Badge ── */
+  .ig-follower-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    font-size: 0;
+    line-height: 1;
+    white-space: nowrap;
+    transition: opacity 0.22s, transform 0.22s;
+    flex-shrink: 0;
+  }
+
+  .ig-follower-badge:hover {
+    opacity: 0.88;
+    transform: scale(1.05);
+  }
+
+  .ig-follower-badge__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ig-follower-badge__icon svg {
+    width: 18px !important;
+    height: 18px !important;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+  }
+
+  .ig-follower-badge__count {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.12);
+  }
+
+  .ig-roll-number {
+    display: inline-flex;
+    align-items: baseline;
+    overflow: hidden;
+  }
+
+  .ig-roll-number__value {
+    display: inline-block;
+    min-width: 1.1em;
+    text-align: right;
+  }
+
+  .ig-roll-number__suffix {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 1px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ig-follower-badge {
+      padding: 3px 7px;
+      gap: 3px;
+    }
+    .ig-follower-badge__icon svg {
+      width: 15px !important;
+      height: 15px !important;
+    }
+    .ig-follower-badge__count {
+      font-size: 11px;
+    }
   }
 
   .header-actions__cart-icon {
