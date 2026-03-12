@@ -1,58 +1,49 @@
-{% comment %}
-  Garage91 – Premium Announcement Bar
-  Black background, orange accent, vertical slide-up cycling, LIVE pulse, glow effect.
-  All messages, colors, fonts, and timing are editable from the theme customizer.
-{% endcomment %}
-
-{%- if section.settings.show_announcement -%}
-{%- liquid
-  assign msg1 = section.settings.message_1 | default: '60,000+ Followers on Instagram • The Fastest Growing Rider Community'
-  assign msg2 = section.settings.message_2 | default: '🚚 Free Shipping on Orders Over ₹2,999'
-  assign msg3 = section.settings.message_3 | default: '🏍 Join the Riders Club — 60K Strong'
-  assign msg3_url = section.settings.message_3_url | default: '/pages/riders-club'
-  assign show_pulse = section.settings.show_pulse_dot
--%}
-<div id="g91-bar-{{ section.id }}" class="g91-bar" role="region" aria-label="Announcement" aria-live="polite"
-  style="background:{{ section.settings.bg_color }}!important;color:{{ section.settings.text_color }}!important;">
+{%- if section.settings.show_announcement and section.blocks.size > 0 -%}
+<div id="g91-bar-{{ section.id }}" class="g91-bar" role="region" aria-label="Announcement" aria-live="polite">
   <div class="g91-bar__track">
+    {%- for block in section.blocks -%}
+      <div class="g91-bar__slide {% if forloop.first %}g91-bar__slide--visible{% endif %}" 
+           data-index="{{ forloop.index0 }}" 
+           {{ block.shopify_attributes }}>
+        
+        {%- if block.settings.show_pulse -%}
+          <span class="g91-bar__dot"></span>
+        {%- endif -%}
 
-    {%- if msg1 != blank -%}
-    <div class="g91-bar__slide g91-bar__slide--visible" data-index="0">
-      {%- if show_pulse -%}<span class="g91-bar__dot"></span>{%- endif -%}
-      <span>{{ msg1 }}</span>
-    </div>
-    {%- endif -%}
+        <div class="g91-bar__content">
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="g91-bar__link">
+          {%- endif -%}
 
-    {%- if msg2 != blank -%}
-    <div class="g91-bar__slide" data-index="1">
-      <span>{{ msg2 }}</span>
-    </div>
-    {%- endif -%}
+            {%- if block.settings.text_prefix != blank -%}
+              <span>{{ block.settings.text_prefix }}</span>
+            {%- endif -%}
 
-    {%- if msg3 != blank -%}
-    <div class="g91-bar__slide" data-index="2">
-      {%- if msg3_url != blank -%}
-        <a href="{{ msg3_url }}" class="g91-bar__cta">{{ msg3 }}</a>
-      {%- else -%}
-        <span>{{ msg3 }}</span>
-      {%- endif -%}
-    </div>
-    {%- endif -%}
+            {%- if block.settings.highlight_text != blank -%}
+              <span class="g91-bar__hi">{{ block.settings.highlight_text }}</span>
+            {%- endif -%}
 
+            {%- if block.settings.text_suffix != blank -%}
+              <span>{{ block.settings.text_suffix }}</span>
+            {%- endif -%}
+
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
   </div>
 </div>
 
 <style>
-  /* ══════════ Reset theme bleed ══════════ */
-  #g91-bar-{{ section.id }},
-  #g91-bar-{{ section.id }} * {
-    --color-background: 0,0,0 !important;
-    --color-foreground: 255,255,255 !important;
-    --color-background-rgb: 0,0,0 !important;
-    --color-foreground-rgb: 255,255,255 !important;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  /* ══════════ Dynamic Variables ══════════ */
+  :root {
+    --g91-bg: {{ section.settings.bg_color }};
+    --g91-text: {{ section.settings.text_color }};
+    --g91-accent: {{ section.settings.accent_color }};
+    --g91-fs-desktop: {{ section.settings.text_size }}px;
+    --g91-fs-mobile: {{ section.settings.mobile_text_size }}px;
   }
 
   /* ══════════ Keyframes ══════════ */
@@ -65,24 +56,23 @@
     50%     { transform: scale(1.4); opacity: .5; }
   }
   @keyframes g91-glow {
-    0%,100% { text-shadow: 0 0 4px rgba(234,88,12,.35); }
-    50%     { text-shadow: 0 0 12px rgba(234,88,12,.65), 0 0 24px rgba(234,88,12,.25); }
+    0%,100% { text-shadow: 0 0 4px {{ section.settings.accent_color | color_modify: 'alpha', 0.35 }}; }
+    50%     { text-shadow: 0 0 12px {{ section.settings.accent_color | color_modify: 'alpha', 0.65 }}, 0 0 24px {{ section.settings.accent_color | color_modify: 'alpha', 0.25 }}; }
   }
 
-  /* ══════════ Bar ══════════ */
+  /* ══════════ Bar Layout ══════════ */
   .g91-bar {
     display: block !important;
-    background: {{ section.settings.bg_color }} !important;
-    background-color: {{ section.settings.bg_color }} !important;
-    color: {{ section.settings.text_color }} !important;
+    background: var(--g91-bg) !important;
+    color: var(--g91-text) !important;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    font-size: {{ section.settings.text_size }}px !important;
+    font-size: var(--g91-fs-desktop) !important;
     font-weight: 600 !important;
     letter-spacing: .09em !important;
     text-transform: uppercase !important;
     line-height: 1.4 !important;
     position: relative !important;
-    z-index: 3 !important;
+    z-index: 999 !important;
     overflow: hidden !important;
     border-bottom: 1px solid rgba(255,255,255,.05) !important;
     animation: g91-entrance .4s ease-out both !important;
@@ -92,8 +82,8 @@
   .g91-bar__track {
     position: relative !important;
     width: 100% !important;
-    padding: 10px 20px !important;
-    min-height: 20px !important;
+    padding: 12px 20px !important;
+    min-height: 44px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -105,13 +95,13 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 7px !important;
+    gap: 8px !important;
     padding: 10px 20px !important;
     white-space: nowrap !important;
-    color: {{ section.settings.text_color }} !important;
     opacity: 0 !important;
     transform: translateY(110%) !important;
     pointer-events: none !important;
+    transition: transform .45s cubic-bezier(.4,0,.2,1), opacity .45s ease !important;
   }
 
   .g91-bar__slide--visible {
@@ -120,30 +110,35 @@
     pointer-events: auto !important;
     position: relative !important;
   }
+
   .g91-bar__slide--out {
     opacity: 0 !important;
     transform: translateY(-110%) !important;
-    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s ease !important;
-    pointer-events: none !important;
   }
+
   .g91-bar__slide--in {
     opacity: 1 !important;
     transform: translateY(0) !important;
-    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s ease !important;
-    pointer-events: auto !important;
   }
 
-  .g91-bar__cta {
-    color: {{ section.settings.accent_color }} !important;
-    text-decoration: underline !important;
-    text-underline-offset: 3px !important;
-    text-decoration-color: rgba(234,88,12,.45) !important;
-    animation: g91-glow 2.5s ease-in-out infinite !important;
-    background: none !important;
-    cursor: pointer !important;
+  /* ══════════ Content Styles ══════════ */
+  .g91-bar__content {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
-  .g91-bar__cta:hover {
-    text-decoration-color: {{ section.settings.accent_color }} !important;
+
+  .g91-bar__link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .g91-bar__hi {
+    color: var(--g91-accent) !important;
+    animation: g91-glow 2.5s ease-in-out infinite !important;
   }
 
   .g91-bar__dot {
@@ -151,79 +146,87 @@
     width: 6px !important;
     height: 6px !important;
     border-radius: 50% !important;
-    background: {{ section.settings.accent_color }} !important;
+    background: var(--g91-accent) !important;
     flex-shrink: 0 !important;
-    margin-right: 4px !important;
     animation: g91-pulse 1.4s ease-in-out infinite !important;
   }
 
+  /* ══════════ Mobile ══════════ */
   @media (max-width: 749px) {
     .g91-bar {
-      font-size: {{ section.settings.mobile_text_size }}px !important;
+      font-size: var(--g91-fs-mobile) !important;
       letter-spacing: .05em !important;
     }
-    .g91-bar__track {
-      padding: 9px 12px !important;
-    }
     .g91-bar__slide {
-      gap: 5px !important;
-      padding: 9px 12px !important;
       white-space: normal !important;
-      flex-wrap: wrap !important;
       text-align: center !important;
+      flex-wrap: wrap;
     }
   }
 </style>
 
 <script>
 (function(){
-  var root = document.getElementById('g91-bar-{{ section.id }}');
+  const root = document.getElementById('g91-bar-{{ section.id }}');
   if (!root) return;
-  var slides = root.querySelectorAll('.g91-bar__slide');
+  const slides = root.querySelectorAll('.g91-bar__slide');
   if (slides.length < 2) return;
 
-  var i    = 0,
-      n    = slides.length,
-      wait = {{ section.settings.cycle_speed | default: 5 }} * 1000,
-      lock = false;
+  let i = 0;
+  const n = slides.length;
+  const wait = {{ section.settings.cycle_speed | default: 5 }} * 1000;
+  let lock = false;
 
-  function go() {
+  function rotate() {
     if (lock) return;
     lock = true;
 
-    var cur  = slides[i],
-        next = slides[(i + 1) % n];
+    const cur = slides[i];
+    const nextIndex = (i + 1) % n;
+    const next = slides[nextIndex];
 
-    cur.classList.remove('g91-bar__slide--visible','g91-bar__slide--in');
+    // Slide current OUT
+    cur.classList.remove('g91-bar__slide--visible');
     cur.classList.add('g91-bar__slide--out');
 
-    next.classList.remove('g91-bar__slide--out','g91-bar__slide--visible');
-    next.style.cssText = 'transform:translateY(110%)!important;opacity:0!important;transition:none!important;position:absolute!important;';
+    // Reset next position instantly
+    next.style.transition = 'none';
+    next.style.transform = 'translateY(110%)';
+    next.style.opacity = '0';
+    next.classList.remove('g91-bar__slide--out');
+    
+    void next.offsetHeight; // Force reflow
 
-    void next.offsetHeight;
-
-    next.style.cssText = '';
+    // Slide next IN
+    next.style.transition = '';
     next.classList.add('g91-bar__slide--in');
 
-    i = (i + 1) % n;
+    i = nextIndex;
 
-    setTimeout(function(){
+    setTimeout(() => {
       cur.classList.remove('g91-bar__slide--out');
-      cur.style.cssText = '';
       next.classList.remove('g91-bar__slide--in');
       next.classList.add('g91-bar__slide--visible');
       lock = false;
-    }, 450);
+    }, 500);
   }
 
-  setInterval(go, wait);
+  let autoCycle = setInterval(rotate, wait);
+
+  // Restart timer if user interacts with shopify editor
+  if (window.Shopify && Shopify.designMode) {
+    document.addEventListener('shopify:section:select', () => {
+       clearInterval(autoCycle);
+       autoCycle = setInterval(rotate, wait);
+    });
+  }
 })();
 </script>
 {%- endif -%}
 
 {% schema %}
 {
-  "name": "Announcement Bar",
+  "name": "Custom Announcement Bar",
   "settings": [
     {
       "type": "header",
@@ -232,54 +235,12 @@
     {
       "type": "checkbox",
       "id": "show_announcement",
-      "label": "Show announcement bar",
+      "label": "Show announcement",
       "default": true
     },
     {
       "type": "header",
-      "content": "── Message 1 ──"
-    },
-    {
-      "type": "text",
-      "id": "message_1",
-      "label": "Message 1",
-      "default": "60,000+ Followers on Instagram • The Fastest Growing Rider Community"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_pulse_dot",
-      "label": "Show LIVE pulse dot on Message 1",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "── Message 2 ──"
-    },
-    {
-      "type": "text",
-      "id": "message_2",
-      "label": "Message 2",
-      "default": "🚚 Free Shipping on Orders Over ₹2,999"
-    },
-    {
-      "type": "header",
-      "content": "── Message 3 ──"
-    },
-    {
-      "type": "text",
-      "id": "message_3",
-      "label": "Message 3",
-      "default": "🏍 Join the Riders Club — 60K Strong"
-    },
-    {
-      "type": "url",
-      "id": "message_3_url",
-      "label": "Message 3 link URL",
-      "default": "/pages/riders-club"
-    },
-    {
-      "type": "header",
-      "content": "── Colors ──"
+      "content": "Appearance"
     },
     {
       "type": "color",
@@ -296,12 +257,12 @@
     {
       "type": "color",
       "id": "accent_color",
-      "label": "Accent / glow color",
+      "label": "Accent color (Glow)",
       "default": "#EA580C"
     },
     {
       "type": "header",
-      "content": "── Typography ──"
+      "content": "Typography"
     },
     {
       "type": "range",
@@ -325,12 +286,12 @@
     },
     {
       "type": "header",
-      "content": "── Message Cycling ──"
+      "content": "Message Cycling"
     },
     {
       "type": "range",
       "id": "cycle_speed",
-      "min": 3,
+      "min": 2,
       "max": 15,
       "step": 1,
       "unit": "s",
@@ -338,9 +299,64 @@
       "default": 5
     }
   ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_pulse",
+          "label": "Show LIVE pulse dot",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "text_prefix",
+          "label": "Text before highlight",
+          "default": "Join the"
+        },
+        {
+          "type": "text",
+          "id": "highlight_text",
+          "label": "Highlighted text (Orange)",
+          "default": "Riders Club"
+        },
+        {
+          "type": "text",
+          "id": "text_suffix",
+          "label": "Text after highlight",
+          "default": "Today"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Custom Announcement Bar"
+      "name": "Custom Announcement Bar",
+      "blocks": [
+        {
+          "type": "announcement",
+          "settings": {
+            "text_prefix": "60,000+",
+            "highlight_text": "Followers",
+            "text_suffix": "on Instagram",
+            "show_pulse": true
+          }
+        },
+        {
+          "type": "announcement",
+          "settings": {
+            "text_prefix": "Free Shipping on Orders Over",
+            "highlight_text": "₹2,999"
+          }
+        }
+      ]
     }
   ]
 }
