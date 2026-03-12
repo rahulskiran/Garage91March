@@ -660,38 +660,42 @@
     }
 
     @media screen and (max-width: 749px) {
-      --header-template-columns: var(--header-mobile-bookend) auto 1fr auto;
+      /* Mobile layout: LOGO left | spacer | IG + account + cart + hamburger right */
+      --header-template-columns: auto 1fr auto auto;
 
-      grid-template-areas: 'hamburger logo . actions';
+      grid-template-areas: 'logo . actions hamburger';
       grid-column: span 3;
-      column-gap: 8px;
+      column-gap: 6px;
       align-items: center;
       padding-block: 12px;
-      padding-inline: 4px 12px;
+      padding-inline: 12px 4px;
 
-      /* Hamburger / mobile menu toggle */
-      header-drawer,
-      .header__drawer {
-        grid-area: hamburger;
-      }
-
+      /* Logo — pinned left */
       .header-logo {
         grid-area: logo;
         justify-self: start;
       }
 
+      /* Hamburger — pinned far right */
+      header-drawer,
+      .header__drawer {
+        grid-area: hamburger;
+        justify-self: end;
+      }
+
+      /* Hide the full search bar on mobile */
       .search-action {
         display: none;
       }
 
+      /* IG badge + account + cart grouped right, before hamburger */
       header-actions {
         grid-area: actions;
         justify-self: end;
       }
 
-      /* Mobile: when search is in center, keep it hidden on mobile (use the mobile search icon instead) */
       &:has(.header__column--center .search-action) {
-        grid-template-areas: 'hamburger logo . actions';
+        grid-template-areas: 'logo . actions hamburger';
       }
     }
   }
