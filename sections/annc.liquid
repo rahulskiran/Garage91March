@@ -1,151 +1,233 @@
 {% comment %}
-  Announcement Bar Section
-  - Includes settings for text, font size (desktop & mobile), scrolling behavior, and speed.
-  - UPDATED: Reduced z-index to prevent overlapping mobile navigation menus.
+  Premium Announcement Bar – Garage91
+  Race-inspired, dark-mode aesthetic with vertical slide-up message cycling,
+  orange accent glow, pulsing LIVE indicator, and smooth entrance animation.
 {% endcomment %}
 
-{%- if section.settings.custom_font != blank -%}
-  <style>
-    {{ section.settings.custom_font | font_face: font_display: 'swap' }}
-  </style>
-{%- endif -%}
+{%- if section.settings.show_announcement -%}
+<div
+  class="g91-annc"
+  id="g91-annc-{{ section.id }}"
+  role="region"
+  aria-label="Announcement"
+  aria-live="polite"
+>
+  <div class="g91-annc__inner">
+    {%- comment -%} Cycling messages container {%- endcomment -%}
+    <div class="g91-annc__slider" aria-atomic="true">
+      <div class="g91-annc__msg g91-annc__msg--active">
+        <span class="g91-annc__live" aria-hidden="true"></span>
+        <span class="g91-annc__accent">60,000+</span>&nbsp;Followers on Instagram&nbsp;&mdash;&nbsp;
+        <span class="g91-annc__accent">The Fastest Growing Rider Community</span>
+      </div>
+      <div class="g91-annc__msg">
+        🚚&nbsp;&nbsp;Free Shipping on Orders Over&nbsp;
+        <span class="g91-annc__accent">₹2,999</span>
+      </div>
+      <div class="g91-annc__msg">
+        🏍&nbsp;&nbsp;Join the&nbsp;
+        <a href="/pages/riders-club" class="g91-annc__link">Riders Club</a>&nbsp;&mdash;&nbsp;
+        <span class="g91-annc__accent">60K Strong</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-{%- style -%}
-  .announcement-bar-{{ section.id }} {
-    background-color: {{ section.settings.bg_color }};
-    color: {{ section.settings.text_color }};
+<style>
+  /* ── Entrance animation ── */
+  @keyframes g91SlideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+  }
+
+  /* ── Message slide-up cycle ── */
+  @keyframes g91MsgUp {
+    0%   { transform: translateY(100%);  opacity: 0; }
+    8%   { transform: translateY(0);     opacity: 1; }
+    33%  { transform: translateY(0);     opacity: 1; }
+    41%  { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(-100%); opacity: 0; }
+  }
+
+  /* ── LIVE pulse ── */
+  @keyframes g91Pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(234,88,12,.6); }
+    50%      { opacity: .7; box-shadow: 0 0 6px 3px rgba(234,88,12,.25); }
+  }
+
+  /* ── Glow on accent text ── */
+  @keyframes g91Glow {
+    0%, 100% { text-shadow: 0 0 6px rgba(234,88,12,.45), 0 0 12px rgba(234,88,12,.2); }
+    50%      { text-shadow: 0 0 10px rgba(234,88,12,.7), 0 0 22px rgba(234,88,12,.35); }
+  }
+
+  /* ══════════  Bar  ══════════ */
+  .g91-annc {
+    --g91-accent: {{ section.settings.accent_color }};
+    --g91-bg:     {{ section.settings.bg_color }};
+    --g91-text:   {{ section.settings.text_color }};
+
+    background: var(--g91-bg);
+    color: var(--g91-text);
     font-size: {{ section.settings.text_size }}px;
-    {%- if section.settings.custom_font != blank -%}
-      font-family: {{ section.settings.custom_font.family }}, {{ section.settings.custom_font.fallback_families }};
-      font-weight: {{ section.settings.custom_font.weight }};
-      font-style: {{ section.settings.custom_font.style }};
-    {%- endif -%}
-    padding: 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    line-height: 1;
+    z-index: 3;
     position: relative;
     overflow: hidden;
-    line-height: 1.5;
-    /* Reduced z-index so mobile drawers and overlays can sit on top of the bar */
-    z-index: 3; 
+    animation: g91SlideDown .5s cubic-bezier(.25,.46,.45,.94) both;
   }
 
-  .announcement-bar-{{ section.id }} a {
-    color: {{ section.settings.text_color }};
-    text-decoration: underline;
-  }
-
-  /* Static State (When scrolling is off) */
-  .announcement-bar__content-static {
+  .g91-annc__inner {
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
-    text-align: center;
+    padding: 10px 24px;
+    position: relative;
+    height: 1.4em;
   }
 
-  /* Scrolling State Wrapper */
-  .announcement-bar__marquee-window {
+  /* ── Slider ── */
+  .g91-annc__slider {
+    position: relative;
     width: 100%;
+    height: 100%;
     overflow: hidden;
-    white-space: nowrap;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
-  .announcement-bar__marquee-track {
+  .g91-annc__msg {
+    position: absolute;
+    inset: 0;
     display: flex;
-    flex-wrap: nowrap;
-    width: fit-content;
-    will-change: transform;
-    animation: marquee-{{ section.id }} {{ section.settings.scroll_speed }}s linear infinite;
-  }
-
-  /* The sets of repeated text */
-  .announcement-bar__item-set {
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 0;
-    margin: 0;
-  }
-
-  .announcement-bar__message {
-    display: inline-flex;
     align-items: center;
+    justify-content: center;
     white-space: nowrap;
-    padding: 0 20px; /* Space between repeated messages */
+    opacity: 0;
+    transform: translateY(100%);
+    transition: none;
   }
 
-  /* Force rich text paragraphs to be inline */
-  .announcement-bar__message p, 
-  .announcement-bar__content-static p {
-    margin: 0;
-    padding: 0;
+  /* JS drives the cycling via class toggles */
+  .g91-annc__msg--active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .g91-annc__msg--exit {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform .45s cubic-bezier(.4,0,.2,1), opacity .45s cubic-bezier(.4,0,.2,1);
+  }
+  .g91-annc__msg--enter {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform .45s cubic-bezier(.4,0,.2,1), opacity .45s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* ── Accent glow text ── */
+  .g91-annc__accent {
+    color: var(--g91-accent);
+    animation: g91Glow 2.5s ease-in-out infinite;
+  }
+
+  /* ── Link ── */
+  .g91-annc__link {
+    color: var(--g91-accent) !important;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    animation: g91Glow 2.5s ease-in-out infinite;
+  }
+  .g91-annc__link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* ── LIVE pulse indicator ── */
+  .g91-annc__live {
     display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--g91-accent);
+    margin-right: 8px;
+    flex-shrink: 0;
+    animation: g91Pulse 1.6s ease-in-out infinite;
   }
 
-  .announcement-bar__message br,
-  .announcement-bar__content-static br {
-    display: none;
-  }
-
-  /* Pause on hover */
-  .announcement-bar-{{ section.id }}:hover .announcement-bar__marquee-track {
-    animation-play-state: paused;
-  }
-
-  @keyframes marquee-{{ section.id }} {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-50%, 0, 0);
-    }
-  }
-
-  /* --- MOBILE TEXT SIZE OVERRIDE --- */
+  /* ── Responsive ── */
   @media screen and (max-width: 749px) {
-    .announcement-bar-{{ section.id }} {
+    .g91-annc {
       font-size: {{ section.settings.mobile_text_size }}px;
+      letter-spacing: .05em;
+    }
+    .g91-annc__inner {
+      padding: 9px 12px;
+    }
+    .g91-annc__msg {
+      white-space: normal;
+      text-align: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px;
     }
   }
-{%- endstyle -%}
+</style>
 
-{%- if section.settings.show_announcement -%}
-  <div class="announcement-bar-{{ section.id }}" role="region" aria-label="Announcement">
-    
-    {%- if section.settings.enable_scroll -%}
-      <div class="announcement-bar__marquee-window">
-        <div class="announcement-bar__marquee-track">
-          
-          {%- for set in (1..2) -%}
-            <div class="announcement-bar__item-set">
-              {%- for i in (1..15) -%}
-                <div class="announcement-bar__message">
-                  {%- if section.settings.text != blank -%}
-                    {{ section.settings.text }}
-                  {%- else -%}
-                    Welcome to our store
-                  {%- endif -%}
-                </div>
-              {%- endfor -%}
-            </div>
-          {%- endfor -%}
+<script>
+  (function() {
+    var bar = document.getElementById('g91-annc-{{ section.id }}');
+    if (!bar) return;
+    var msgs = bar.querySelectorAll('.g91-annc__msg');
+    if (msgs.length < 2) return;
 
-        </div>
-      </div>
+    var current = 0;
+    var total = msgs.length;
+    var delay = {{ section.settings.cycle_speed | default: 5 }} * 1000;
+    var animating = false;
 
-    {%- else -%}
-      <div class="announcement-bar__content-static">
-        {%- if section.settings.text != blank -%}
-          {{ section.settings.text }}
-        {%- else -%}
-          Welcome to our store
-        {%- endif -%}
-      </div>
-    {%- endif -%}
+    function next() {
+      if (animating) return;
+      animating = true;
 
-  </div>
+      var cur = msgs[current];
+      var nxt = msgs[(current + 1) % total];
+
+      /* Exit current */
+      cur.classList.remove('g91-annc__msg--active', 'g91-annc__msg--enter');
+      cur.classList.add('g91-annc__msg--exit');
+
+      /* Prepare next below */
+      nxt.classList.remove('g91-annc__msg--exit');
+      nxt.style.transform = 'translateY(100%)';
+      nxt.style.opacity = '0';
+      nxt.style.transition = 'none';
+
+      /* Force reflow then enter */
+      void nxt.offsetHeight;
+      nxt.style.transition = '';
+      nxt.classList.add('g91-annc__msg--enter');
+      nxt.style.transform = '';
+      nxt.style.opacity = '';
+
+      current = (current + 1) % total;
+
+      setTimeout(function() {
+        cur.classList.remove('g91-annc__msg--exit');
+        cur.style.transform = '';
+        cur.style.opacity = '';
+        animating = false;
+      }, 500);
+    }
+
+    setInterval(next, delay);
+  })();
+</script>
 {%- endif -%}
 
 {% schema %}
@@ -164,47 +246,7 @@
     },
     {
       "type": "header",
-      "content": "Content"
-    },
-    {
-      "type": "richtext",
-      "id": "text",
-      "label": "Text",
-      "default": "<p>Welcome to our store</p>"
-    },
-    {
-      "type": "header",
-      "content": "Typography"
-    },
-    {
-      "type": "font_picker",
-      "id": "custom_font",
-      "label": "Font",
-      "default": "helvetica_n4"
-    },
-    {
-      "type": "header",
       "content": "Appearance"
-    },
-    {
-      "type": "range",
-      "id": "text_size",
-      "min": 12,
-      "max": 36,
-      "step": 1,
-      "unit": "px",
-      "label": "Desktop Text size",
-      "default": 14
-    },
-    {
-      "type": "range",
-      "id": "mobile_text_size",
-      "min": 10,
-      "max": 30,
-      "step": 1,
-      "unit": "px",
-      "label": "Mobile Text size",
-      "default": 12
     },
     {
       "type": "color",
@@ -219,24 +261,48 @@
       "default": "#ffffff"
     },
     {
-      "type": "header",
-      "content": "Scrolling Options"
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#EA580C"
     },
     {
-      "type": "checkbox",
-      "id": "enable_scroll",
-      "label": "Enable scrolling text",
-      "default": false
+      "type": "header",
+      "content": "Typography"
     },
     {
       "type": "range",
-      "id": "scroll_speed",
+      "id": "text_size",
       "min": 10,
-      "max": 100,
-      "step": 2,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop text size",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "min": 8,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile text size",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Message Cycling"
+    },
+    {
+      "type": "range",
+      "id": "cycle_speed",
+      "min": 3,
+      "max": 15,
+      "step": 1,
       "unit": "s",
-      "label": "Scroll speed (duration)",
-      "default": 40
+      "label": "Seconds per message",
+      "default": 5
     }
   ],
   "presets": [
