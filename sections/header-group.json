@@ -11,19 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "annc_zk7PaT": {
-      "type": "annc",
-      "name": "Custom Announcement Bar",
-      "settings": {
-        "show_announcement": true,
-        "bg_color": "#eeff00",
-        "text_color": "#000000",
-        "accent_color": "#ea580c",
-        "text_size": 15,
-        "mobile_text_size": 12,
-        "cycle_speed": 5
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -104,7 +91,6 @@
     }
   },
   "order": [
-    "annc_zk7PaT",
     "header_section"
   ]
 }
