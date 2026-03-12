@@ -46,7 +46,9 @@
         "show_announcement": true,
         "bg_color": "#ffe500",
         "text_color": "#ff0000",
-        "accent_color": "#EA580C",
+        "accent_color": "#ea580c",
+        "bar_height": 38,
+        "mobile_bar_height": 30,
         "text_size": 13,
         "mobile_text_size": 11,
         "cycle_speed": 5
