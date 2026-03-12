@@ -233,6 +233,13 @@
       >
         <div class="header__columns spacing-style">
           {{ content }}
+          {% if row == 'bottom' %}
+            <!-- Riders Club CTA – right end of menu row -->
+            <a href="/pages/riders-club" class="rc-header-btn" aria-label="Riders Club">
+              <span class="rc-header-btn__icon">🏍</span>
+              <span class="rc-header-btn__label">Riders Club</span>
+            </a>
+          {% endif %}
         </div>
       </div>
     {% endif %}
@@ -253,7 +260,14 @@
 
 {% stylesheet %}
 
-  /* ── Riders Club Button (Desktop – inline with header actions) ── */
+  /* ── Riders Club Button (Desktop – on menu row, right side) ── */
+  .header__row--bottom .header__columns {
+    display: flex !important;
+    align-items: center;
+  }
+  .header__row--bottom .header__column {
+    flex: 1 1 auto;
+  }
   .rc-header-btn {
     display: inline-flex;
     align-items: center;
@@ -269,9 +283,10 @@
     text-decoration: none !important;
     white-space: nowrap;
     transition: opacity 0.22s;
-    margin-inline-start: var(--gap-sm, 8px);
     align-self: center;
     line-height: 1;
+    flex-shrink: 0;
+    margin-inline-start: auto;
   }
   .rc-header-btn:hover {
     opacity: 0.85;
