@@ -18,7 +18,7 @@
         "show_announcement": true,
         "bg_color": "#ecff00",
         "text_color": "#000000",
-        "text_size": 24,
+        "text_size": 15,
         "mobile_text_size": 12
       }
     },
