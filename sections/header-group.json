@@ -48,15 +48,15 @@
         "text_color": "#ff0000",
         "accent_color": "#ea580c",
         "top_border_color": "#dfff00",
-        "top_border_height": 8,
-        "show_bottom_stroke": true,
+        "top_border_height": 0,
+        "show_bottom_stroke": false,
         "bottom_stroke_color": "#ffffff",
         "bottom_stroke_height": 1,
         "bar_height": 38,
         "mobile_bar_height": 30,
         "text_size": 13,
         "mobile_text_size": 11,
-        "cycle_speed": 5
+        "cycle_speed": 3
       }
     },
     "header_section": {
