@@ -11,74 +11,76 @@
   role="region"
   aria-label="Announcement"
   aria-live="polite"
+  style="background:#000000 !important; color:#ffffff !important;"
 >
   <div class="g91-annc__inner">
-    {%- comment -%} Cycling messages container {%- endcomment -%}
     <div class="g91-annc__slider" aria-atomic="true">
+
       <div class="g91-annc__msg g91-annc__msg--active">
         <span class="g91-annc__live" aria-hidden="true"></span>
-        <span class="g91-annc__accent">60,000+</span>&nbsp;Followers on Instagram&nbsp;&mdash;&nbsp;
+        <span class="g91-annc__accent">60,000+</span>
+        <span class="g91-annc__text">Followers on Instagram</span>
+        <span class="g91-annc__sep">&mdash;</span>
         <span class="g91-annc__accent">The Fastest Growing Rider Community</span>
       </div>
+
       <div class="g91-annc__msg">
-        🚚&nbsp;&nbsp;Free Shipping on Orders Over&nbsp;
+        <span class="g91-annc__emoji">🚚</span>
+        <span class="g91-annc__text">Free Shipping on Orders Over</span>
         <span class="g91-annc__accent">₹2,999</span>
       </div>
+
       <div class="g91-annc__msg">
-        🏍&nbsp;&nbsp;Join the&nbsp;
-        <a href="/pages/riders-club" class="g91-annc__link">Riders Club</a>&nbsp;&mdash;&nbsp;
+        <span class="g91-annc__emoji">🏍</span>
+        <span class="g91-annc__text">Join the</span>
+        <a href="/pages/riders-club" class="g91-annc__link">Riders Club</a>
+        <span class="g91-annc__sep">&mdash;</span>
         <span class="g91-annc__accent">60K Strong</span>
       </div>
+
     </div>
   </div>
 </div>
 
 <style>
-  /* ── Entrance animation ── */
+  /* ══  RESET: isolate from all theme color schemes  ══ */
+  #g91-annc-{{ section.id }},
+  #g91-annc-{{ section.id }} *,
+  #g91-annc-{{ section.id }} *::before,
+  #g91-annc-{{ section.id }} *::after {
+    --color-background: 0, 0, 0 !important;
+    --color-foreground: 255, 255, 255 !important;
+  }
+
+  /* ══  Animations  ══ */
   @keyframes g91SlideDown {
     from { transform: translateY(-100%); opacity: 0; }
     to   { transform: translateY(0);     opacity: 1; }
   }
-
-  /* ── Message slide-up cycle ── */
-  @keyframes g91MsgUp {
-    0%   { transform: translateY(100%);  opacity: 0; }
-    8%   { transform: translateY(0);     opacity: 1; }
-    33%  { transform: translateY(0);     opacity: 1; }
-    41%  { transform: translateY(-100%); opacity: 0; }
-    100% { transform: translateY(-100%); opacity: 0; }
-  }
-
-  /* ── LIVE pulse ── */
   @keyframes g91Pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(234,88,12,.6); }
-    50%      { opacity: .7; box-shadow: 0 0 6px 3px rgba(234,88,12,.25); }
+    0%, 100% { opacity: 1;  box-shadow: 0 0 0 0 rgba(234,88,12,.55); }
+    50%      { opacity: .65; box-shadow: 0 0 8px 4px rgba(234,88,12,.2); }
   }
-
-  /* ── Glow on accent text ── */
   @keyframes g91Glow {
-    0%, 100% { text-shadow: 0 0 6px rgba(234,88,12,.45), 0 0 12px rgba(234,88,12,.2); }
-    50%      { text-shadow: 0 0 10px rgba(234,88,12,.7), 0 0 22px rgba(234,88,12,.35); }
+    0%, 100% { text-shadow: 0 0 6px rgba(234,88,12,.4),  0 0 14px rgba(234,88,12,.15); }
+    50%      { text-shadow: 0 0 12px rgba(234,88,12,.7), 0 0 28px rgba(234,88,12,.3); }
   }
 
-  /* ══════════  Bar  ══════════ */
+  /* ══  Bar container  ══ */
   .g91-annc {
-    --g91-accent: {{ section.settings.accent_color }};
-    --g91-bg:     {{ section.settings.bg_color }};
-    --g91-text:   {{ section.settings.text_color }};
-
-    background: var(--g91-bg);
-    color: var(--g91-text);
+    background: #000000 !important;
+    color: #ffffff !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: {{ section.settings.text_size }}px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-weight: 600;
-    letter-spacing: .08em;
+    letter-spacing: .1em;
     text-transform: uppercase;
     line-height: 1;
-    z-index: 3;
     position: relative;
+    z-index: 3;
     overflow: hidden;
-    animation: g91SlideDown .5s cubic-bezier(.25,.46,.45,.94) both;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    animation: g91SlideDown .45s cubic-bezier(.25,.46,.45,.94) both;
   }
 
   .g91-annc__inner {
@@ -87,12 +89,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 24px;
+    padding: 11px 24px;
     position: relative;
-    height: 1.4em;
+    height: 1.3em;
   }
 
-  /* ── Slider ── */
+  /* ══  Slider  ══ */
   .g91-annc__slider {
     position: relative;
     width: 100%;
@@ -109,13 +111,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 6px;
     white-space: nowrap;
     opacity: 0;
     transform: translateY(100%);
     transition: none;
+    color: #ffffff !important;
   }
 
-  /* JS drives the cycling via class toggles */
   .g91-annc__msg--active {
     opacity: 1;
     transform: translateY(0);
@@ -123,109 +126,140 @@
   .g91-annc__msg--exit {
     opacity: 0;
     transform: translateY(-100%);
-    transition: transform .45s cubic-bezier(.4,0,.2,1), opacity .45s cubic-bezier(.4,0,.2,1);
+    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s cubic-bezier(.4,0,.2,1);
   }
   .g91-annc__msg--enter {
     opacity: 1;
     transform: translateY(0);
-    transition: transform .45s cubic-bezier(.4,0,.2,1), opacity .45s cubic-bezier(.4,0,.2,1);
+    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s cubic-bezier(.4,0,.2,1);
   }
 
-  /* ── Accent glow text ── */
+  /* ══  Text pieces  ══ */
+  .g91-annc__text {
+    color: #ffffff !important;
+  }
+  .g91-annc__sep {
+    color: rgba(255,255,255,.3) !important;
+    margin: 0 2px;
+  }
+  .g91-annc__emoji {
+    font-style: normal;
+    margin-right: 2px;
+  }
+
+  /* ══  Accent (orange glow)  ══ */
   .g91-annc__accent {
-    color: var(--g91-accent);
+    color: #EA580C !important;
     animation: g91Glow 2.5s ease-in-out infinite;
   }
 
-  /* ── Link ── */
+  /* ══  Link  ══ */
   .g91-annc__link {
-    color: var(--g91-accent) !important;
-    text-decoration: underline;
+    color: #EA580C !important;
+    text-decoration: underline !important;
     text-underline-offset: 3px;
+    text-decoration-color: rgba(234,88,12,.5) !important;
     animation: g91Glow 2.5s ease-in-out infinite;
+    background: none !important;
   }
   .g91-annc__link:hover {
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 2px !important;
+    text-decoration-color: #EA580C !important;
   }
 
-  /* ── LIVE pulse indicator ── */
+  /* ══  LIVE pulse dot  ══ */
   .g91-annc__live {
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: var(--g91-accent);
+    background: #EA580C !important;
     margin-right: 8px;
     flex-shrink: 0;
-    animation: g91Pulse 1.6s ease-in-out infinite;
+    animation: g91Pulse 1.5s ease-in-out infinite;
   }
 
-  /* ── Responsive ── */
+  /* ══  Responsive  ══ */
   @media screen and (max-width: 749px) {
     .g91-annc {
       font-size: {{ section.settings.mobile_text_size }}px;
-      letter-spacing: .05em;
+      letter-spacing: .06em;
     }
     .g91-annc__inner {
-      padding: 9px 12px;
+      padding: 10px 14px;
+      height: 1.5em;
+    }
+    .g91-annc__msg {
+      gap: 4px;
+      font-size: inherit;
+    }
+    .g91-annc__sep {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .g91-annc__inner {
+      height: auto;
+      min-height: 1.4em;
     }
     .g91-annc__msg {
       white-space: normal;
       text-align: center;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2px;
+      gap: 3px;
+      position: absolute;
+      padding: 0 4px;
     }
   }
 </style>
 
 <script>
-  (function() {
+  (function () {
     var bar = document.getElementById('g91-annc-{{ section.id }}');
     if (!bar) return;
     var msgs = bar.querySelectorAll('.g91-annc__msg');
     if (msgs.length < 2) return;
 
-    var current = 0;
-    var total = msgs.length;
-    var delay = {{ section.settings.cycle_speed | default: 5 }} * 1000;
-    var animating = false;
+    var idx = 0;
+    var len = msgs.length;
+    var ms  = {{ section.settings.cycle_speed | default: 5 }} * 1000;
+    var busy = false;
 
-    function next() {
-      if (animating) return;
-      animating = true;
+    function cycle() {
+      if (busy) return;
+      busy = true;
 
-      var cur = msgs[current];
-      var nxt = msgs[(current + 1) % total];
+      var cur = msgs[idx];
+      var nxt = msgs[(idx + 1) % len];
 
-      /* Exit current */
       cur.classList.remove('g91-annc__msg--active', 'g91-annc__msg--enter');
       cur.classList.add('g91-annc__msg--exit');
 
-      /* Prepare next below */
       nxt.classList.remove('g91-annc__msg--exit');
-      nxt.style.transform = 'translateY(100%)';
-      nxt.style.opacity = '0';
+      nxt.style.transform  = 'translateY(100%)';
+      nxt.style.opacity    = '0';
       nxt.style.transition = 'none';
 
-      /* Force reflow then enter */
-      void nxt.offsetHeight;
+      void nxt.offsetHeight;          /* reflow */
+
       nxt.style.transition = '';
+      nxt.style.transform  = '';
+      nxt.style.opacity    = '';
       nxt.classList.add('g91-annc__msg--enter');
-      nxt.style.transform = '';
-      nxt.style.opacity = '';
 
-      current = (current + 1) % total;
+      idx = (idx + 1) % len;
 
-      setTimeout(function() {
+      setTimeout(function () {
         cur.classList.remove('g91-annc__msg--exit');
-        cur.style.transform = '';
-        cur.style.opacity = '';
-        animating = false;
-      }, 500);
+        cur.style.transform  = '';
+        cur.style.opacity    = '';
+        busy = false;
+      }, 450);
     }
 
-    setInterval(next, delay);
+    setInterval(cycle, ms);
   })();
 </script>
 {%- endif -%}
