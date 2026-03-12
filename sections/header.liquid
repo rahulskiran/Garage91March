@@ -258,42 +258,55 @@
 {%- comment -%} Mobile header layout: Logo LEFT, icons+hamburger RIGHT {%- endcomment -%}
 <style>
   @media screen and (max-width: 749px) {
-    /* Redefine mobile grid: logo | spacer | actions | hamburger */
-    .header__columns {
-      grid-template-columns: auto 1fr auto auto !important;
-      grid-template-areas: 'logo . actions hamburger' !important;
-      column-gap: 6px !important;
-      padding-inline: 12px 4px !important;
-      padding-block: 10px !important;
+    /* Force all column wrappers transparent */
+    .header__columns > .header__column {
+      display: contents !important;
     }
 
-    /* Logo — pinned left */
+    /* Redefine the grid: 3 items — logo, actions, hamburger */
+    .header__columns {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      gap: 0 !important;
+      padding: 10px 8px 10px 12px !important;
+    }
+
+    /* Logo first, pushed left */
     .header__columns .header-logo {
-      grid-area: logo !important;
-      justify-self: start !important;
+      order: 1 !important;
+      flex: 0 0 auto !important;
+      margin-right: auto !important;
+      margin-left: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* IG + account + cart — right side */
+    .header__columns header-actions {
+      order: 2 !important;
+      flex: 0 0 auto !important;
+      margin-left: auto !important;
     }
 
     /* Hamburger — far right */
     .header__columns .header__drawer {
-      grid-area: hamburger !important;
-      justify-self: end !important;
-      order: 99 !important;
+      order: 3 !important;
+      flex: 0 0 auto !important;
     }
 
-    /* IG + account + cart — right of spacer */
-    .header__columns header-actions {
-      grid-area: actions !important;
-      justify-self: end !important;
+    /* Hide desktop menu on mobile */
+    .header__columns header-menu {
+      display: none !important;
     }
 
-    /* Hide desktop search on mobile */
+    /* Hide desktop search bar on mobile */
     .header__columns .search-action {
       display: none !important;
     }
 
-    /* Keep header__column transparent on mobile */
-    .header__column {
-      display: contents !important;
+    /* Hide any localization on mobile header */
+    .header__columns .dropdown-localization {
+      display: none !important;
     }
   }
 </style>
