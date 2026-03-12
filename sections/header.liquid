@@ -660,43 +660,38 @@
     }
 
     @media screen and (max-width: 749px) {
-      --header-template-columns: var(--header-mobile-bookend) var(--header-mobile-bookend) 1fr
-        var(--header-mobile-bookend) var(--header-mobile-bookend);
+      --header-template-columns: var(--header-mobile-bookend) auto 1fr auto;
 
-      grid-template-areas: 'leftA leftB center rightA rightB';
+      grid-template-areas: 'hamburger logo . actions';
       grid-column: span 3;
-      column-gap: 0;
+      column-gap: 8px;
       align-items: center;
-      padding-block: 15px;
-      padding-inline: 0 var(--padding-3xs);
+      padding-block: 12px;
+      padding-inline: 4px 12px;
+
+      /* Hamburger / mobile menu toggle */
+      header-drawer,
+      .header__drawer {
+        grid-area: hamburger;
+      }
 
       .header-logo {
-        grid-area: center;
-      }
-
-      &:not(:has(header-actions)) .search-action {
-        grid-area: leftB;
-      }
-
-      &:not(:has(.account-actions)) .search-action {
-        grid-area: rightA;
+        grid-area: logo;
+        justify-self: start;
       }
 
       .search-action {
-        grid-area: leftB;
+        display: none;
       }
 
       header-actions {
-        grid-area: rightB;
+        grid-area: actions;
+        justify-self: end;
       }
 
-      /* Mobile: when search is in center, place it on a new full-width row below other items */
+      /* Mobile: when search is in center, keep it hidden on mobile (use the mobile search icon instead) */
       &:has(.header__column--center .search-action) {
-        grid-template-areas: 
-          'leftA leftB center rightA rightB'
-          'search search search search search';
-        row-gap: 15px;
-        padding-bottom: 15px;
+        grid-template-areas: 'hamburger logo . actions';
       }
     }
   }

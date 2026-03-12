@@ -279,9 +279,12 @@
 
   header-actions {
     display: flex;
+    align-items: center;
+    gap: 2px;
 
     @media screen and (max-width: 749px) {
       justify-self: flex-end;
+      gap: 0;
     }
   }
 
@@ -295,6 +298,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .header-actions__action .svg-wrapper {
@@ -389,17 +393,24 @@
 
   @media screen and (max-width: 749px) {
     .ig-proof {
-      gap: 4px;
+      gap: 3px;
+      padding: 0 2px;
     }
     .ig-proof__icon svg {
-      width: 18px !important;
-      height: 18px !important;
+      width: 16px !important;
+      height: 16px !important;
     }
     .ig-proof__number {
-      font-size: 13px;
+      font-size: 11px;
     }
     .ig-proof__label {
-      font-size: 7px;
+      display: none;
+    }
+    .ig-proof__stats {
+      gap: 0;
+    }
+    .ig-roll-number__suffix {
+      font-size: 9px;
     }
   }
 
