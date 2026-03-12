@@ -44,7 +44,7 @@
       "name": "Premium Announcement Bar",
       "settings": {
         "show_announcement": true,
-        "bg_color": "#ffe500",
+        "bg_color": "#1e1e1e",
         "text_color": "#ff0000",
         "accent_color": "#ea580c",
         "bar_height": 38,
