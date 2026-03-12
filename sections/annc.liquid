@@ -1,266 +1,238 @@
 {% comment %}
-  Premium Announcement Bar – Garage91
-  Race-inspired, dark-mode aesthetic with vertical slide-up message cycling,
-  orange accent glow, pulsing LIVE indicator, and smooth entrance animation.
+  Garage91 – Premium Announcement Bar
+  Black background, orange accent, vertical slide-up cycling, LIVE pulse, glow effect.
 {% endcomment %}
 
 {%- if section.settings.show_announcement -%}
-<div
-  class="g91-annc"
-  id="g91-annc-{{ section.id }}"
-  role="region"
-  aria-label="Announcement"
-  aria-live="polite"
-  style="background:#000000 !important; color:#ffffff !important;"
->
-  <div class="g91-annc__inner">
-    <div class="g91-annc__slider" aria-atomic="true">
-
-      <div class="g91-annc__msg g91-annc__msg--active">
-        <span class="g91-annc__live" aria-hidden="true"></span>
-        <span class="g91-annc__accent">60,000+</span>
-        <span class="g91-annc__text">Followers on Instagram</span>
-        <span class="g91-annc__sep">&mdash;</span>
-        <span class="g91-annc__accent">The Fastest Growing Rider Community</span>
-      </div>
-
-      <div class="g91-annc__msg">
-        <span class="g91-annc__emoji">🚚</span>
-        <span class="g91-annc__text">Free Shipping on Orders Over</span>
-        <span class="g91-annc__accent">₹2,999</span>
-      </div>
-
-      <div class="g91-annc__msg">
-        <span class="g91-annc__emoji">🏍</span>
-        <span class="g91-annc__text">Join the</span>
-        <a href="/pages/riders-club" class="g91-annc__link">Riders Club</a>
-        <span class="g91-annc__sep">&mdash;</span>
-        <span class="g91-annc__accent">60K Strong</span>
-      </div>
-
+<div id="g91-bar-{{ section.id }}" class="g91-bar" role="region" aria-label="Announcement" aria-live="polite"
+  style="background:#000!important;color:#fff!important;">
+  <div class="g91-bar__track">
+    <div class="g91-bar__slide g91-bar__slide--visible" data-index="0">
+      <span class="g91-bar__dot"></span>
+      <span class="g91-bar__hi">60,000+</span>
+      <span>Followers on Instagram</span>
+      <span class="g91-bar__dim">&bull;</span>
+      <span class="g91-bar__hi">The Fastest Growing Rider Community</span>
+    </div>
+    <div class="g91-bar__slide" data-index="1">
+      <span>🚚</span>
+      <span>Free Shipping on Orders Over</span>
+      <span class="g91-bar__hi">₹2,999</span>
+    </div>
+    <div class="g91-bar__slide" data-index="2">
+      <span>🏍</span>
+      <span>Join the</span>
+      <a href="/pages/riders-club" class="g91-bar__cta">Riders Club</a>
+      <span class="g91-bar__dim">&bull;</span>
+      <span class="g91-bar__hi">60K Strong</span>
     </div>
   </div>
 </div>
 
 <style>
-  /* ══  RESET: isolate from all theme color schemes  ══ */
-  #g91-annc-{{ section.id }},
-  #g91-annc-{{ section.id }} *,
-  #g91-annc-{{ section.id }} *::before,
-  #g91-annc-{{ section.id }} *::after {
-    --color-background: 0, 0, 0 !important;
-    --color-foreground: 255, 255, 255 !important;
+  /* ══════════ Reset theme bleed ══════════ */
+  #g91-bar-{{ section.id }},
+  #g91-bar-{{ section.id }} * {
+    --color-background: 0,0,0 !important;
+    --color-foreground: 255,255,255 !important;
+    --color-background-rgb: 0,0,0 !important;
+    --color-foreground-rgb: 255,255,255 !important;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
-  /* ══  Animations  ══ */
-  @keyframes g91SlideDown {
+  /* ══════════ Keyframes ══════════ */
+  @keyframes g91-entrance {
     from { transform: translateY(-100%); opacity: 0; }
     to   { transform: translateY(0);     opacity: 1; }
   }
-  @keyframes g91Pulse {
-    0%, 100% { opacity: 1;  box-shadow: 0 0 0 0 rgba(234,88,12,.55); }
-    50%      { opacity: .65; box-shadow: 0 0 8px 4px rgba(234,88,12,.2); }
+  @keyframes g91-pulse {
+    0%,100% { transform: scale(1);   opacity: 1; }
+    50%     { transform: scale(1.4); opacity: .5; }
   }
-  @keyframes g91Glow {
-    0%, 100% { text-shadow: 0 0 6px rgba(234,88,12,.4),  0 0 14px rgba(234,88,12,.15); }
-    50%      { text-shadow: 0 0 12px rgba(234,88,12,.7), 0 0 28px rgba(234,88,12,.3); }
+  @keyframes g91-glow {
+    0%,100% { text-shadow: 0 0 4px rgba(234,88,12,.35); }
+    50%     { text-shadow: 0 0 12px rgba(234,88,12,.65), 0 0 24px rgba(234,88,12,.25); }
   }
 
-  /* ══  Bar container  ══ */
-  .g91-annc {
+  /* ══════════ Bar ══════════ */
+  .g91-bar {
+    all: unset !important;              /* nuke every inherited/theme style */
+    display: block !important;
     background: #000000 !important;
     color: #ffffff !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-size: {{ section.settings.text_size }}px;
-    font-weight: 600;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    line-height: 1;
-    position: relative;
-    z-index: 3;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(255,255,255,.06);
-    animation: g91SlideDown .45s cubic-bezier(.25,.46,.45,.94) both;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: {{ section.settings.text_size }}px !important;
+    font-weight: 600 !important;
+    letter-spacing: .09em !important;
+    text-transform: uppercase !important;
+    line-height: 1.4 !important;
+    position: relative !important;
+    z-index: 3 !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(255,255,255,.05) !important;
+    animation: g91-entrance .4s ease-out both !important;
+    width: 100% !important;
   }
 
-  .g91-annc__inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 11px 24px;
-    position: relative;
-    height: 1.3em;
+  /* ── Track: holds all slides stacked ── */
+  .g91-bar__track {
+    position: relative !important;
+    width: 100% !important;
+    padding: 10px 20px !important;
+    min-height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  /* ══  Slider  ══ */
-  .g91-annc__slider {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .g91-annc__msg {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: none;
+  /* ── Each slide ── */
+  .g91-bar__slide {
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    padding: 10px 20px !important;
+    white-space: nowrap !important;
     color: #ffffff !important;
+    opacity: 0 !important;
+    transform: translateY(110%) !important;
+    pointer-events: none !important;
   }
 
-  .g91-annc__msg--active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .g91-annc__msg--exit {
-    opacity: 0;
-    transform: translateY(-100%);
-    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s cubic-bezier(.4,0,.2,1);
-  }
-  .g91-annc__msg--enter {
-    opacity: 1;
-    transform: translateY(0);
-    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s cubic-bezier(.4,0,.2,1);
+  /* Visible (initial + after enter finishes) */
+  .g91-bar__slide--visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+    position: relative !important;    /* first visible one sets height */
   }
 
-  /* ══  Text pieces  ══ */
-  .g91-annc__text {
-    color: #ffffff !important;
-  }
-  .g91-annc__sep {
-    color: rgba(255,255,255,.3) !important;
-    margin: 0 2px;
-  }
-  .g91-annc__emoji {
-    font-style: normal;
-    margin-right: 2px;
+  /* Exit: slide up out */
+  .g91-bar__slide--out {
+    opacity: 0 !important;
+    transform: translateY(-110%) !important;
+    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s ease !important;
+    pointer-events: none !important;
   }
 
-  /* ══  Accent (orange glow)  ══ */
-  .g91-annc__accent {
+  /* Enter: slide up in */
+  .g91-bar__slide--in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s ease !important;
+    pointer-events: auto !important;
+  }
+
+  /* ── Orange accent with glow ── */
+  .g91-bar__hi {
     color: #EA580C !important;
-    animation: g91Glow 2.5s ease-in-out infinite;
+    animation: g91-glow 2.5s ease-in-out infinite !important;
   }
 
-  /* ══  Link  ══ */
-  .g91-annc__link {
+  /* ── Dimmed separator ── */
+  .g91-bar__dim {
+    color: rgba(255,255,255,.25) !important;
+    margin: 0 1px !important;
+  }
+
+  /* ── CTA link ── */
+  .g91-bar__cta {
     color: #EA580C !important;
     text-decoration: underline !important;
-    text-underline-offset: 3px;
-    text-decoration-color: rgba(234,88,12,.5) !important;
-    animation: g91Glow 2.5s ease-in-out infinite;
+    text-underline-offset: 3px !important;
+    text-decoration-color: rgba(234,88,12,.45) !important;
+    animation: g91-glow 2.5s ease-in-out infinite !important;
     background: none !important;
+    cursor: pointer !important;
   }
-  .g91-annc__link:hover {
-    text-decoration-thickness: 2px !important;
+  .g91-bar__cta:hover {
     text-decoration-color: #EA580C !important;
   }
 
-  /* ══  LIVE pulse dot  ══ */
-  .g91-annc__live {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+  /* ── LIVE pulse dot ── */
+  .g91-bar__dot {
+    display: inline-block !important;
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
     background: #EA580C !important;
-    margin-right: 8px;
-    flex-shrink: 0;
-    animation: g91Pulse 1.5s ease-in-out infinite;
+    flex-shrink: 0 !important;
+    margin-right: 4px !important;
+    animation: g91-pulse 1.4s ease-in-out infinite !important;
   }
 
-  /* ══  Responsive  ══ */
-  @media screen and (max-width: 749px) {
-    .g91-annc {
-      font-size: {{ section.settings.mobile_text_size }}px;
-      letter-spacing: .06em;
+  /* ══════════ Mobile ══════════ */
+  @media (max-width: 749px) {
+    .g91-bar {
+      font-size: {{ section.settings.mobile_text_size }}px !important;
+      letter-spacing: .05em !important;
     }
-    .g91-annc__inner {
-      padding: 10px 14px;
-      height: 1.5em;
+    .g91-bar__track {
+      padding: 9px 12px !important;
     }
-    .g91-annc__msg {
-      gap: 4px;
-      font-size: inherit;
+    .g91-bar__slide {
+      gap: 5px !important;
+      padding: 9px 12px !important;
+      white-space: normal !important;
+      flex-wrap: wrap !important;
+      text-align: center !important;
     }
-    .g91-annc__sep {
-      display: none;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    .g91-annc__inner {
-      height: auto;
-      min-height: 1.4em;
-    }
-    .g91-annc__msg {
-      white-space: normal;
-      text-align: center;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 3px;
-      position: absolute;
-      padding: 0 4px;
+    .g91-bar__dim {
+      display: none !important;
     }
   }
 </style>
 
 <script>
-  (function () {
-    var bar = document.getElementById('g91-annc-{{ section.id }}');
-    if (!bar) return;
-    var msgs = bar.querySelectorAll('.g91-annc__msg');
-    if (msgs.length < 2) return;
+(function(){
+  var root = document.getElementById('g91-bar-{{ section.id }}');
+  if (!root) return;
+  var slides = root.querySelectorAll('.g91-bar__slide');
+  if (slides.length < 2) return;
 
-    var idx = 0;
-    var len = msgs.length;
-    var ms  = {{ section.settings.cycle_speed | default: 5 }} * 1000;
-    var busy = false;
+  var i    = 0,
+      n    = slides.length,
+      wait = {{ section.settings.cycle_speed | default: 5 }} * 1000,
+      lock = false;
 
-    function cycle() {
-      if (busy) return;
-      busy = true;
+  function go() {
+    if (lock) return;
+    lock = true;
 
-      var cur = msgs[idx];
-      var nxt = msgs[(idx + 1) % len];
+    var cur  = slides[i],
+        next = slides[(i + 1) % n];
 
-      cur.classList.remove('g91-annc__msg--active', 'g91-annc__msg--enter');
-      cur.classList.add('g91-annc__msg--exit');
+    /* current slides up & out */
+    cur.classList.remove('g91-bar__slide--visible','g91-bar__slide--in');
+    cur.classList.add('g91-bar__slide--out');
 
-      nxt.classList.remove('g91-annc__msg--exit');
-      nxt.style.transform  = 'translateY(100%)';
-      nxt.style.opacity    = '0';
-      nxt.style.transition = 'none';
+    /* prep next below viewport */
+    next.classList.remove('g91-bar__slide--out','g91-bar__slide--visible');
+    next.style.cssText = 'transform:translateY(110%)!important;opacity:0!important;transition:none!important;position:absolute!important;';
 
-      void nxt.offsetHeight;          /* reflow */
+    void next.offsetHeight; /* reflow */
 
-      nxt.style.transition = '';
-      nxt.style.transform  = '';
-      nxt.style.opacity    = '';
-      nxt.classList.add('g91-annc__msg--enter');
+    next.style.cssText = '';
+    next.classList.add('g91-bar__slide--in');
 
-      idx = (idx + 1) % len;
+    i = (i + 1) % n;
 
-      setTimeout(function () {
-        cur.classList.remove('g91-annc__msg--exit');
-        cur.style.transform  = '';
-        cur.style.opacity    = '';
-        busy = false;
-      }, 450);
-    }
+    setTimeout(function(){
+      cur.classList.remove('g91-bar__slide--out');
+      cur.style.cssText = '';
+      /* Make the new slide set height */
+      next.classList.remove('g91-bar__slide--in');
+      next.classList.add('g91-bar__slide--visible');
+      lock = false;
+    }, 450);
+  }
 
-    setInterval(cycle, ms);
-  })();
+  setInterval(go, wait);
+})();
 </script>
 {%- endif -%}
 
