@@ -255,61 +255,7 @@
 
 </header-component>
 
-{%- comment -%} Mobile header layout: Logo LEFT, icons+hamburger RIGHT {%- endcomment -%}
-<style>
-  @media screen and (max-width: 749px) {
-    /* Force all column wrappers transparent */
-    .header__columns > .header__column {
-      display: contents !important;
-    }
-
-    /* Redefine the grid: 3 items — logo, actions, hamburger */
-    .header__columns {
-      display: flex !important;
-      flex-wrap: nowrap !important;
-      align-items: center !important;
-      gap: 0 !important;
-      padding: 10px 8px 10px 12px !important;
-    }
-
-    /* Logo first, pushed left */
-    .header__columns .header-logo {
-      order: 1 !important;
-      flex: 0 0 auto !important;
-      margin-right: auto !important;
-      margin-left: 0 !important;
-      padding: 0 !important;
-    }
-
-    /* IG + account + cart — right side */
-    .header__columns header-actions {
-      order: 2 !important;
-      flex: 0 0 auto !important;
-      margin-left: auto !important;
-    }
-
-    /* Hamburger — far right */
-    .header__columns .header__drawer {
-      order: 3 !important;
-      flex: 0 0 auto !important;
-    }
-
-    /* Hide desktop menu on mobile */
-    .header__columns header-menu {
-      display: none !important;
-    }
-
-    /* Hide desktop search bar on mobile */
-    .header__columns .search-action {
-      display: none !important;
-    }
-
-    /* Hide any localization on mobile header */
-    .header__columns .dropdown-localization {
-      display: none !important;
-    }
-  }
-</style>
+{%- comment -%} Mobile header layout handled via {% stylesheet %} grid — logo LEFT, actions + hamburger RIGHT {%- endcomment -%}
 
 <script
   src="{{ 'header.js' | asset_url }}"
@@ -716,20 +662,19 @@
     }
 
     @media screen and (max-width: 749px) {
-      /* Adjusted for logo on left, menu on right */
-      --header-template-columns: 1fr var(--header-mobile-bookend) var(--header-mobile-bookend) var(--header-mobile-bookend);
+      /* Mobile: logo LEFT, actions + hamburger RIGHT */
+      --header-template-columns: 1fr var(--header-mobile-bookend) var(--header-mobile-bookend);
 
-      grid-template-areas: 'logo search actions menu';
+      grid-template-areas: 'logo actions menu';
       grid-column: span 3;
       column-gap: 0;
       align-items: center;
-      padding-block: 15px;
-      padding-inline: 0 var(--padding-3xs);
+      padding-block: 12px;
+      padding-inline: 12px var(--padding-3xs);
 
       .header-logo {
         grid-area: logo;
         justify-self: flex-start;
-        padding-left: 10px; /* Optional slight padding */
       }
 
       .header__drawer {
@@ -737,23 +682,32 @@
         justify-self: flex-end;
       }
 
-      .search-action {
-        grid-area: search;
-      }
-
       header-actions {
         grid-area: actions;
         justify-self: flex-end;
       }
 
+      /* Hide search bar and localization on mobile header */
+      .search-action,
+      header-menu,
+      .dropdown-localization {
+        display: none !important;
+      }
+
       /* Mobile: when search is in center, place it on a new full-width row below other items */
       &:has(.header__column--center .search-action) {
         grid-template-areas: 
-          'logo actions menu menu'
-          'search search search search';
-        --header-template-columns: 1fr var(--header-mobile-bookend) var(--header-mobile-bookend) var(--header-mobile-bookend);
+          'logo actions menu'
+          'search search search';
+        --header-template-columns: 1fr var(--header-mobile-bookend) var(--header-mobile-bookend);
         row-gap: 15px;
         padding-bottom: 15px;
+
+        .search-action {
+          display: block !important;
+          grid-area: search;
+          width: 100%;
+        }
       }
     }
   }
