@@ -391,25 +391,83 @@
     margin-left: 0px;
   }
 
+  /* ── Mobile: Instagram Story-Ring style ── */
+  @keyframes ig-ring-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes ig-ring-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.7; }
+  }
+
   @media screen and (max-width: 749px) {
+    /* Show as a compact story-ring icon, hide text */
     .ig-proof {
-      display: none;
-    }
-    .ig-proof__icon svg {
-      width: 16px !important;
-      height: 16px !important;
-    }
-    .ig-proof__number {
-      font-size: 11px;
-    }
-    .ig-proof__label {
-      display: none;
-    }
-    .ig-proof__stats {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
       gap: 0;
+      padding: 0;
+      position: relative;
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
     }
-    .ig-roll-number__suffix {
-      font-size: 9px;
+
+    /* Gradient spinning ring behind the icon */
+    .ig-proof::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(
+        #feda75 0%,
+        #fa7e1e 20%,
+        #d62976 50%,
+        #962fbf 75%,
+        #4f5bd5 100%
+      );
+      animation: ig-ring-spin 4s linear infinite, ig-ring-pulse 3s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    /* White inner circle that masks the ring into a border */
+    .ig-proof::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: #111;
+      z-index: 1;
+    }
+
+    .ig-proof__icon {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: none;
+    }
+
+    .ig-proof__icon svg {
+      width: 17px !important;
+      height: 17px !important;
+      filter: brightness(0) invert(1);
+    }
+
+    /* Hide the follower stats text */
+    .ig-proof__stats {
+      display: none !important;
+    }
+
+    /* Hover: scale up slightly */
+    .ig-proof:hover::before {
+      filter: brightness(1.2);
+    }
+    .ig-proof:hover .ig-proof__icon {
+      transform: scale(1.1);
     }
   }
 
