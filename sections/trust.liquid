@@ -1,0 +1,197 @@
+{%- style -%}
+  .feature-bar-section {
+    background-color: #0a0a0a;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 0;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .feature-bar__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .feature-bar__item {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 24px;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    border-right: 1px solid #1a1a1a;
+  }
+
+  .feature-bar__item:last-child {
+    border-right: none;
+  }
+
+  /* Hover Effects */
+  .feature-bar__item:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .feature-bar__item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #a855f7);
+    transition: width 0.5s ease;
+  }
+
+  .feature-bar__item:hover::after {
+    width: 100%;
+  }
+
+  /* Icon Styling */
+  .feature-bar__icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    transition: transform 0.5s ease;
+    opacity: 0.8;
+  }
+
+  .feature-bar__item:hover .feature-bar__icon {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  .feature-bar__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Text Styling */
+  .feature-bar__content {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-bar__item:hover .feature-bar__content {
+    transform: translateX(4px);
+  }
+
+  .feature-bar__title {
+    font-size: 1.25rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .feature-bar__subtitle {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #737373;
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 768px) {
+    .feature-bar__item {
+      flex: 0 0 100%;
+      border-right: none;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px;
+    }
+    .feature-bar__item:last-child {
+      border-bottom: none;
+    }
+  }
+{%- endstyle -%}
+
+<section class="feature-bar-section">
+  <div class="feature-bar__container">
+    {%- for block in section.blocks -%}
+      <div class="feature-bar__item" {{ block.shopify_attributes }}>
+        <div class="feature-bar__icon">
+          {%- case block.settings.icon -%}
+            {%- when 'riders' -%}
+              <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            {%- when 'secure' -%}
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            {%- when 'premium' -%}
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            {%- when 'returns' -%}
+              <svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"></path><path d="M4 9h12.5A5.5 5.5 0 0 1 22 14.5v0A5.5 5.5 0 0 1 16.5 20H11"></path></svg>
+          {%- endcase -%}
+        </div>
+        <div class="feature-bar__content">
+          <span class="feature-bar__title">{{ block.settings.title }}</span>
+          <span class="feature-bar__subtitle">{{ block.settings.subtitle }}</span>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature Trust Bar",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "riders", "label": "Users/Riders" },
+            { "value": "secure", "label": "Shield/Secure" },
+            { "value": "premium", "label": "Award/Premium" },
+            { "value": "returns", "label": "Return Arrow" }
+          ],
+          "default": "riders"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Supporting text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Trust Bar",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "riders", "title": "2M Riders", "subtitle": "Journey With Us" } },
+        { "type": "feature", "settings": { "icon": "secure", "title": "100% Secure", "subtitle": "Secure Payment" } },
+        { "type": "feature", "settings": { "icon": "premium", "title": "Premium", "subtitle": "Quality Products" } },
+        { "type": "feature", "settings": { "icon": "returns", "title": "Easy Returns", "subtitle": "Return Policy" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
