@@ -13,7 +13,7 @@
     max-width: 1280px;
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .feature-bar__item {
@@ -97,6 +97,7 @@
     letter-spacing: -0.02em;
     line-height: 1.1;
     margin-bottom: 2px;
+    white-space: nowrap;
   }
 
   .feature-bar__subtitle {
@@ -105,45 +106,64 @@
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: #737373;
+    white-space: nowrap;
   }
 
-  /* Mobile Adjustments */
+  /* Mobile Adjustments - Carousel Mode */
   @media (max-width: 768px) {
+    .feature-bar-section {
+      position: relative;
+    }
+
+    /* Gradient masking to show scrollability */
+    .feature-bar-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 100%;
+      background: linear-gradient(to right, transparent, #0a0a0a);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .feature-bar__container {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+      padding-right: 40px; /* Space for the mask */
+    }
+
+    .feature-bar__container::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
     .feature-bar__item {
-      flex: 0 0 50%; /* 2 items per row */
-      min-width: 50%;
+      flex: 0 0 75%; /* Show 75% of a card so the next one is visible */
+      min-width: 75%;
       border-right: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-      padding: 20px 15px;
-      gap: 10px;
-    }
-    
-    /* Remove right border on every 2nd item for grid look */
-    .feature-bar__item:nth-child(2n) {
-      border-right: none;
-    }
-    
-    /* Remove bottom border on last row */
-    .feature-bar__item:nth-last-child(-n+2) {
-      border-bottom: none;
+      scroll-snap-align: center;
+      padding: 20px;
+      justify-content: center;
     }
 
     .feature-bar__title {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     .feature-bar__icon {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
     }
   }
 
   @media (max-width: 480px) {
     .feature-bar__item {
-      padding: 16px 12px;
-    }
-    .feature-bar__subtitle {
-      font-size: 8px;
+      flex: 0 0 85%;
+      min-width: 85%;
+      padding: 16px;
     }
   }
 {%- endstyle -%}
